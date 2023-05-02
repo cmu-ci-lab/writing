@@ -1,0 +1,106 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{mathdefs}[2023/04/30 igkiou's math definitions]
+
+% packages
+\RequirePackage{mathtools}
+\RequirePackage{mathrsfs,bm,bbm}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{textcomp}
+\RequirePackage{gensymb}
+\RequirePackage{nicefrac,xfrac}
+\RequirePackage{steinmetz}
+
+% named operators
+\DeclareMathOperator{\Corr}{Corr}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\DFT}{DFT}
+\DeclareMathOperator{\imag}{Im}
+\DeclareMathOperator{\real}{Re}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\corr}{corr}
+\DeclareMathOperator{\cov}{cov}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\diam}{diam}
+% \DeclareMathOperator{\dim}{dim}
+% \DeclareMathOperator{\Dim}{Dim}
+\DeclareMathOperator{\diver}{div}
+\DeclareMathOperator{\eig}{eig}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\kron}{kron}
+\DeclareMathOperator{\length}{length}
+\DeclareMathOperator{\logit}{logit}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\rect}{rect}
+\DeclareMathOperator{\rot}{rot}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\sinc}{sinc}
+\DeclareMathOperator{\spn}{span}
+\DeclareMathOperator{\svd}{svd}
+\DeclareMathOperator{\trace}{trace}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\var}{var}
+\DeclareMathOperator{\volume}{volume}
+\DeclareMathOperator{\mean}{mean}
+\DeclareMathOperator{\median}{median}
+
+% math functions
+\newcommand{\abs}[1]{\left \vert #1 \right \vert}
+\newcommand{\cbrt}[1]{\sqrt[3]{#1}}
+\newcommand{\hypot}[2]{\sqrt{#1^2+#2^2}}
+\newcommand{\inprod}[2]{\left\langle #1, #2 \right\rangle}
+\newcommand{\norm}[1]{\left \Vert #1 \right \Vert}
+\newcommand{\reci}[1]{\frac{1}{#1}}
+\newcommand{\vect}[1]{\operatorname{vec}\left( #1 \right)}
+\newcommand{\E}[1]{\mathbb{E}\left[#1\right]}
+\newcommand{\Exp}[2]{\mathbb{E}\,_{#1}\left[#2\right]}
+% \newcommand{\Kron}{\raisebox{1pt}{\ensuremath{\:\otimes\:}}}
+
+% standard symbols
+\newcommand{\ud}{\,\mathrm{d}}
+
+% domains and sets
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\I}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+%\newcommand{\C}{\mathbb{C}}
+\newcommand{\Sph}{\mathcal{S}}
+\newcommand{\hypspace}{\mathcal{H}}
+\newcommand{\funcspace}{\mathcal{F}}
+\newcommand{\convexset}{\mathcal{C}}
+\newcommand{\manifold}{\mathcal{M}}
+\newcommand{\integrable}[2]{\mathcal{L}^#1\paren{#2}}
+
+% easy delimiters
+\newcommand{\paren}[1]{\left( #1 \right)}
+\newcommand{\angled}[1]{\left\langle #1 \right\rangle}
+\newcommand{\bracket}[1]{\left[ #1 \right]}
+\newcommand{\curly}[1]{\left\{ #1 \right\}}
+\newcommand{\leftinc}[1]{\left[ #1 \right)}
+\newcommand{\rightinc}[1]{\left( #1 \right]}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\evalat}[2]{\left. #1 \right|_{#2}}
+
+% distributions
+\DeclareMathOperator{\Prob}{Prob}
+\DeclareMathOperator{\Bern}{Bern}
+\DeclareMathOperator{\Bin}{Bin}
+\DeclareMathOperator{\Beta}{Beta}
+\DeclareMathOperator{\Dir}{Dir}
+\DeclareMathOperator{\Expo}{Expo}
+\DeclareMathOperator{\Gam}{Gamma}
+\DeclareMathOperator{\Logistic}{Logistic}
+\DeclareMathOperator{\Pois}{Pois}
+\DeclareMathOperator{\Unif}{Unif}
+\newcommand{\Normal}{\mathcal{N}}
+\newcommand{\Normlog}{\mathcal{LN}}
