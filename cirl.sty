@@ -1,0 +1,26 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{cirl}[2023/04/30 CIRL standard preamble]
+
+% packages
+% \RequirePackage{fullpage}
+\@ifpackageloaded{graphicx}{}{\RequirePackage{graphicx}} % control `includegraphics', already included in acmart, not in cvpr
+\RequirePackage[export]{adjustbox}  % control `includegraphics' and other boxes
+\@ifpackageloaded{xcolor}{}{\RequirePackage{xcolor}} % provide color tools, supersedes `color', already included in acmart, not in cvpr
+\RequirePackage[many]{tcolorbox}    % create colored boxes
+\RequirePackage{colortbl}   % color table cells, rows, and columns
+\@ifpackageloaded{microtype}{}{\RequirePackage{microtype}}  % improve kerning and spacing, already included in acmart, not in cvpr
+\@ifpackageloaded{xspace}{}{\RequirePackage{xspace}}  % add eaten spaces when defining macros, already included in cvpr, not in acmart
+\RequirePackage{pifont} % use symbols such as checkmarks and xmarks
+\RequirePackage[normalem]{ulem} % provide underlinging, the `normalem' option is to disable overriding of `emph'
+\@ifpackageloaded{subcaption}{}{\RequirePackage{subcaption}} % reference subfigures, supersedes `subfig' or `subfigure', already included in cvpr, not in acmart
+\RequirePackage{ellipsis}   % fix ellipsis spacing
+\RequirePackage{listings}   % list source code in latex document
+\RequirePackage{wrapfig}    % provide wrapfigs
+\RequirePackage[shortlabels]{enumitem}  % control list environments
+\@ifpackageloaded{tabularx}{}{\RequirePackage{tabularx}}    % improve tables, already included in acmart, not in cvpr
+\RequirePackage{url}
+\RequirePackage{multirow}   % add multi rows and columns to tables
+\@ifpackageloaded{booktabs}{}{\RequirePackage{booktabs}} % improve tables, already included in acmart, not in cvpr
+\@ifpackageloaded{natbib}{}{\usepackage[numbers,sort,compress]{natbib}} % provide citet and citep, already included in acmart, not in cvpr
+
+\RequirePackage{mathdefs}   % igkiou's custom math package
