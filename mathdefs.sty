@@ -6,14 +6,14 @@
 \mathtoolsset{centercolon}
 \RequirePackage{mathrsfs,bm,bbm}
 \RequirePackage{amsmath}
-\RequirePackage{amssymb}
+% \RequirePackage{amssymb}
 \RequirePackage{amsthm}
 \RequirePackage{textcomp}
 \RequirePackage{gensymb}
 \RequirePackage{nicefrac,xfrac}
 \RequirePackage{steinmetz}
 \RequirePackage{cancel}
-\RequirePackage(siunitx)
+\RequirePackage{siunitx}
 \RequirePackage{array}
 
 % named operators
@@ -56,17 +56,67 @@
 \DeclareMathOperator{\mean}{mean}
 \DeclareMathOperator{\median}{median}
 
+% distributions
+\DeclareMathOperator{\Prob}{Pr}
+\DeclareMathOperator{\Bern}{Bern}
+\DeclareMathOperator{\Bin}{Bin}
+\DeclareMathOperator{\Beta}{Beta}
+\DeclareMathOperator{\Dir}{Dir}
+\DeclareMathOperator{\Expo}{Expo}
+\DeclareMathOperator{\Gam}{Gamma}
+\DeclareMathOperator{\Logistic}{Logistic}
+\DeclareMathOperator{\Pois}{Poisson}
+\DeclareMathOperator{\Unif}{Unif}
+\newcommand{\Normal}{\mathcal{N}}
+\newcommand{\Normlog}{\mathcal{LN}}
+
+% easy delimiters
+% \newcommand{\paren}[1]{\left( #1 \right)}
+% \newcommand{\angled}[1]{\left\langle #1 \right\rangle}
+% \newcommand{\bracket}[1]{\left[ #1 \right]}
+% \newcommand{\curly}[1]{\left\{ #1 \right\}}
+% \newcommand{\leftinc}[1]{\left[ #1 \right)}
+% \newcommand{\rightinc}[1]{\left( #1 \right]}
+% \newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+% \newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+% \newcommand{\evalat}[2]{\left. #1 \right|_{#2}}
+\DeclarePairedDelimiter{\parenstd}{\lparen}{\rparen}
+\newcommand{\paren}[1]{\parenstd*{#1}}
+\DeclarePairedDelimiter{\angledstd}{\langle}{\rangle}
+\newcommand{\angled}[1]{\angledstd*{#1}}
+\DeclarePairedDelimiter{\bracketstd}{\lbrack}{\rbrack}
+\newcommand{\bracket}[1]{\bracketstd*{#1}}
+\DeclarePairedDelimiter{\curlystd}{\lbrace}{\rbrace}
+\newcommand{\curly}[1]{\curlystd*{#1}}
+\DeclarePairedDelimiter{\leftincstd}{\lbrack}{\rparen}
+\newcommand{\leftinc}[1]{\leftincstd*{#1}}
+\DeclarePairedDelimiter{\rightincstd}{\lparen}{\rbrack}
+\newcommand{\rightinc}[1]{\rightincstd*{#1}}
+\DeclarePairedDelimiter{\ceilstd}{\lceil}{\rceil}
+\newcommand{\ceil}[1]{\ceilstd*{#1}}
+\DeclarePairedDelimiter{\floorstd}{\lfloor}{\rfloor}
+\newcommand{\floor}[1]{\floorstd*{#1}}
+\DeclarePairedDelimiter{\vbarstd}{\vert}{\vert}
+\newcommand{\vbar}[1]{\vbarstd*{#1}}
+\DeclarePairedDelimiter{\dvbarstd}{\Vert}{\Vert}
+\newcommand{\dvbar}[1]{\dvbarstd*{#1}}
+\newcommand{\evalat}[2]{\left. #1 \right|_{#2}}
+
 % math functions
-\newcommand{\abs}[1]{\left \vert #1 \right \vert}
+\newcommand{\abs}[1]{\vbar{#1}}
 \newcommand{\cbrt}[1]{\sqrt[3]{#1}}
 \newcommand{\hypot}[2]{\sqrt{#1^2+#2^2}}
-\newcommand{\inprod}[2]{\left\langle #1, #2 \right\rangle}
-\newcommand{\norm}[1]{\left \Vert #1 \right \Vert}
+\newcommand{\inprod}[2]{\angled{#1, #2}}
+\newcommand{\norm}[1]{\dvbar{#1}}
 \newcommand{\reci}[1]{\frac{1}{#1}}
-\newcommand{\vect}[1]{\operatorname{vec}\left( #1 \right)}
-\newcommand{\E}[1]{\mathbb{E}\left[#1\right]}
-\newcommand{\Exp}[2]{\mathbb{E}\,_{#1}\left[#2\right]}
+\newcommand{\vect}[1]{\operatorname{vec}\paren{#1}}
+\newcommand{\E}[1]{\mathbb{E}\bracket{#1}}
+\newcommand{\Exp}[2]{\mathbb{E}_{#1}\bracket{#2}}
 % \newcommand{\Kron}{\raisebox{1pt}{\ensuremath{\:\otimes\:}}}
+% \newcommand{\condpr}[2]{\Prob\curly{#1\, \middle|\, #2}}
+\newcommand{\conditional}[2]{#1\, \middle|\, #2}
+% \newcommand{\condpr}[3]{\Prob_{#1}\curly{#2\, \middle|\, #3}}
+% \newcommand{\condexp}[3]{\Exp{#1}{#2\, \middle|\, #3}}
 
 % standard symbols
 \newcommand{\ud}{\,\mathrm{d}}
@@ -78,33 +128,9 @@
 \newcommand{\Q}{\mathbb{Q}}
 %\newcommand{\C}{\mathbb{C}}
 \newcommand{\Sph}{\mathcal{S}}
+\newcommand{\Hemi}{\mathcal{H}}
 \newcommand{\hypspace}{\mathcal{H}}
 \newcommand{\funcspace}{\mathcal{F}}
 \newcommand{\convexset}{\mathcal{C}}
 \newcommand{\manifold}{\mathcal{M}}
 \newcommand{\integrable}[2]{\mathcal{L}^#1\paren{#2}}
-
-% easy delimiters
-\newcommand{\paren}[1]{\left( #1 \right)}
-\newcommand{\angled}[1]{\left\langle #1 \right\rangle}
-\newcommand{\bracket}[1]{\left[ #1 \right]}
-\newcommand{\curly}[1]{\left\{ #1 \right\}}
-\newcommand{\leftinc}[1]{\left[ #1 \right)}
-\newcommand{\rightinc}[1]{\left( #1 \right]}
-\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
-\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
-\newcommand{\evalat}[2]{\left. #1 \right|_{#2}}
-
-% distributions
-\DeclareMathOperator{\Prob}{Prob}
-\DeclareMathOperator{\Bern}{Bern}
-\DeclareMathOperator{\Bin}{Bin}
-\DeclareMathOperator{\Beta}{Beta}
-\DeclareMathOperator{\Dir}{Dir}
-\DeclareMathOperator{\Expo}{Expo}
-\DeclareMathOperator{\Gam}{Gamma}
-\DeclareMathOperator{\Logistic}{Logistic}
-\DeclareMathOperator{\Pois}{Pois}
-\DeclareMathOperator{\Unif}{Unif}
-\newcommand{\Normal}{\mathcal{N}}
-\newcommand{\Normlog}{\mathcal{LN}}
