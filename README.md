@@ -18,13 +18,13 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 ](https://cs.dartmouth.edu/wjarosz/writing.html).
 
 **Table of Contents:**
-1. [Technical suggestions](#technical-suggestions)
-    1. [Common English](#common-english)
-    2. [Math typesetting](#math-typesetting)
-    3. [Citations and references](#citations-and-references)
-    4. [Other best practices](#other-best-practices)
-3. [Resources](#resources)
-4. [Reading](#reading)
++ [Technical suggestions](#technical-suggestions)
+    + [Common English](#common-english)
+    + [Math typesetting](#math-typesetting)
+    + [Citations and references](#citations-and-references)
+    + [Other best practices](#other-best-practices)
++ [Resources](#resources)
++ [Reading](#reading)
 
 ## Technical suggestions
 
