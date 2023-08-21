@@ -14,11 +14,21 @@ Most of the technical information and resources are about writing papers in `$\L
 * `cvpr` (used by CVPR);
 * `iccv` (used by ICCV, very similar but not identical to `cvpr`).
 
-Technical suggestions
-=====================
+A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz's [Common mistakes in technical writing
+](https://cs.dartmouth.edu/wjarosz/writing.html).
 
-Common English
---------------
+**Table of Contents:**
+1. [Technical suggestions](#technical-suggestions)
+    1. [Common English](#common-english)
+    2. [Math typesetting](#math-typesetting)
+    3. [Citations and references](#citations-and-references)
+    4. [Other best practices](#other-best-practices)
+3. [Resources](#resources)
+4. [Reading](#reading)
+
+## Technical suggestions
+
+### Common English
 
 1. **dashes**: English uses three different types of dashes: the hyphen (-, produced with one dash `-`), the en-dash (–, produced with two dashes `--`), and the em-dash (—, produced with three dashes `---`). These each have different grammatical uses. You should use hyphens for most inter-word dashes, for example: non-negligible." (See also next item on hyphenation.) You should use the en-dash to indicate an opposition or relationship, for example: `mass--energy equivalence` → "mass–energy equivalence;" or for year, number, or page ranges, for example: `as seen on pages 17--30` → "as seen in on pages 17–30." You should use en-dashes (surrounded by spaces) or em-dashes (without spaces) to denote a break in a sentence, or to set off parenthetical statements, for example: "A flock of sparrows – some of them juveniles – flew overhead," or "A flock of sparrows—some of them juveniles—flew overhead." You are welcome to pick either style, but you should use it consistently throughout a paper—I prefer to use em-dashes.
 
@@ -59,10 +69,7 @@ Common English
 
 15. **while, since**: Unless you want to provide time information---for example "While Yannis was writing, I was running experiments," and "I have been working on this project since I joined CMU"---you should replace these words with "even though" and "as" to help reduce ambiguities. For example, instead of "While it is common practice, this approximation results in bias," you should write "Even though it is common practice, this approximation results in bias." Likewise, instead of "We can ignore the third-order term `$x^3$`, since we assume `$x$` to be small," you should write "We can ignore the third-order term `$x^3$`, as we assume `$x$` to be small." 
 
-16. **On Writing Well**: If you were to read just one book on writing, I would suggest reading [On Writing Well](https://www.amazon.com/Writing-Well-Classic-Guide-Nonfiction/dp/0060891548), by William Zinnser. I would be happy to buy you a copy if you cannot get your hands on one.
-
-Math typesetting
-----------------
+### Math typesetting
 
 1. **basics quick-reference**: [This MathJax tutorial](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference) is a great quick reference for your most common `$\LaTeX$` math typesetting needs.
 
@@ -115,12 +122,10 @@ Math typesetting
 
 13. **units**: You should learn how to use the `siunitx` package to typeset units correctly. You can read the [SIUnitx user manual](http://mirrors.ctan.org/macros/`$\LaTeX$`/contrib/siunitx/siunitx.pdf) to get started. In particular, units should be typeset in upright font, and with a space between them and the number they are quantifying. Using the command `\qty` from `siunitx` takes care of this and many other unit formatting issues (for example, correct typsetting of micro-modifiers).
 
-Citations and references
-------------------------
+### Citations and references
 
 1. **citations as nouns**: You should not use parenthetical citations as nouns. For example, you should not write: "As explained by [Gkioulekas et al. 2023]"; instead write: "As explained in prior work [Gkioulekas et al. 2023]," or "As explained by Gkioulekas et al. [2023]", or even "As Gkioulekas et al. [2023] explain"  (see `\citet` below). As a general rule of thumb, **if you remove all parenthetical citations from the paper, you should still have complete, grammatically correct sentences**. This looks particularly obnoxious and obvious when you have numerical or superscript citations such as "As explained by [1]" or "As explained by<sup>1</sup>"---you should not write either of these.
 
-    
 2. **citing with `$\LaTeX$`**:
     1. **spacing**: Use a non-breaking space `\~` between a citation and the preceding word in the sentence:
         ~~~
@@ -131,9 +136,9 @@ Citations and references
         ~~~
         As explained by \citet{Gkioulekas:2023}.
         ~~~
-    This has the additional advantage of automatically pulling data from your bibliography file, and automatically figuring out whether to use "et al." for more than two authors.
+        This has the additional advantage of automatically pulling data from your bibliography file, and automatically figuring out whether to use "et al." for more than two authors.
 
-    The `natbib` package is automatically included in recent versions of the `acmart` template. Unfortunately, the `cvpr` and `iccv` templates are incompatible with `natbib`. But you can fix this using the following syntax in your paper
+        The `natbib` package is automatically included in recent versions of the `acmart` template. Unfortunately, the `cvpr` and `iccv` templates are incompatible with `natbib`. But you can fix this using the following syntax in your paper
         ~~~
         \setlength{\bibsep}{0pt}
         \bibliographystyle{plainnat}
@@ -166,11 +171,7 @@ Citations and references
             ~~~
             doi = {http://doi.acm.org/10.1145/1964179.1964185},
             ~~~
-            If you are short on space, generate a [shortdoi](https://shortdoi.org), which would [produce](https://shortdoi.org/10.1145/1964179.1964185) the more compact:
-            ~~~
-            doi = {bv5xdk},
-            ~~~
-
+            
         3. incorrect title and venue capitalization.
 
     4. **capitalization in reference titles**: You should not force capitalization by enclosing all your bib entry titles in double braces: `{{My Title}}`. *It is the bib style's job to decide on the capitalization of titles, not yours*, as this varies between publication venues. However, you do need to inform BibTeX when certain words must be capitalized, for instance if they are acronyms or proper names. Do this by enclosing just the capitalized letters in braces:
@@ -199,8 +200,7 @@ Citations and references
 
     7. **know the publication history**: Many conferences have gone through a complex evolution of their publication history. For instance, EGSR was sometimes published as a book called "Rendering Techniques", but in 2008 it became a special issue of the Computer Graphics Forum journal. The proper way to cite a paper from EGSR therefore depends on the year. The same applies to SIGGRAPH, Eurographics, CVPR and ICCV. Nicolas Holzschuch summarizes the history of [SIGGRAPH](http://maverick.inria.fr/Membres/Nicolas.Holzschuch/siggraph.html), [EG](http://maverick.inria.fr/Membres/Nicolas.Holzschuch/eg.html), and [EGSR](http://maverick.inria.fr/Membres/Nicolas.Holzschuch/egsr.html) well.
 
-Other best practices
---------------------
+### Other best practices
 
 1. **PDF metadata**: You should use the `hyperref` package to set PDF metadata such as title, authors, topic, and keywords *for camera-ready PDFs*. (Never do this for PDFs under review, to avoid violating anonymity rules.) The latest version of the `acmart` template does that automatically. For the `cvpr` and `iccv` templates, you can set this metadata as follows:
     ~~~
@@ -247,7 +247,7 @@ Other best practices
     %
     We explain these advantages below.
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-produces `Compared to prior work, this algorithm has two advantages: \begin{enumerate*} \item It improves performance. \item It is easier to implement. \end{enumerate*} We explain these advantages below.` Compared to manually typing out the list, this helps enforce consistent listing style throughout the document, allows assigning labels and cross-referencing list items, and makes it easier to switch between displayed and inline lists (for example, during a shortening pass). 
+    produces `Compared to prior work, this algorithm has two advantages: \begin{enumerate*} \item It improves performance. \item It is easier to implement. \end{enumerate*} We explain these advantages below.` Compared to manually typing out the list, this helps enforce consistent listing style throughout the document, allows assigning labels and cross-referencing list items, and makes it easier to switch between displayed and inline lists (for example, during a shortening pass). 
 
 7. **avoid hard wrapping**: Everyone has different sized displays and windows, don't force your size on your collaborators. Use soft wrapping. It is a nightmare to visually parse the `$\LaTeX$` source for a file with mixed wrapping. Some people find it useful to write each sentence on a separate line to make diffs and merges easier. This is acceptable, but should not really be necessary with a good diff tool.
 
@@ -255,13 +255,12 @@ produces `Compared to prior work, this algorithm has two advantages: \begin{enum
 
 9. **acknowledgments**: You should keep track of people that helped you during the course of your research. Did someone (not involved in the project) help you make a figure, or did anyone provide narraration for the supplemental video? Did someone have a discussion with you that helped you overcome some hurdle? This support network is important to acknowledge, but easy to overlook when submitting the final version. I recommend you insert comments directly into your `$\LaTeX$` file in the acknowledgments section, so when you get to writing this section you have all the info there.
 
-Additionally, the acknowledgments must include all sources of funding. This is *incredibly* important for reporting. You should ask all of your co-authors for potential funding acknowledgments to include before submitting the final version of a paper.
+    Additionally, the acknowledgments must include all sources of funding. This is *incredibly* important for reporting. You should ask all of your co-authors for potential funding acknowledgments to include before submitting the final version of a paper.
 
 10. **paragraph titles**: The `acmart`, `cvpr`, and `iccv` templates include the command `\paragraph` for paragraph titles. You should use this command instead of defining your own (for example, using custom `\boldstart` commands). If you absolutely need to change the formatting of paragraph headers (for example, to reduce vertical space for shortening), you should do so by redefining the `\paragraph` commands. This makes it easier to switch back and forth between formatting choices.
 
 
 11. **spaces**: `$\LaTeX$` has several rules to automatically adjust the size of spaces in different contexts. For example, it creates a longer space after a period "." unless it follows a capital letter. If you have a period mid-sentence (like in "et al.") you need to instruct `$\LaTeX$` to use a regular space: `et al.\ `. If an uppercase letter ends a sentence, you need to use a `\@` before the period.
-
 
 12. **build check**: Before committing any changes to git, you should always check that the project builds *outside of your editor*, for example, from the command line using a standard `texlive` installation. (You can use the included `Makefile` to check for this, see above.) This is important because many editors (especially Overleaf) automatically "fix" some issues during compilation that would normally result in a compilation warning or failure. This not only makes it harder for your co-authors (who may be working on a different editor, and thus be unable to compile the project) to work, but also it can disguise serious problems with your `$\LaTeX$` code that you need to fix.
 
@@ -281,7 +280,7 @@ Additionally, the acknowledgments must include all sources of funding. This is *
     %
     is simple to solve.
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-I suggest that you do the same for other block environments, such as footnotes, wrap figures, and lists. For footnotes, you need to be careful to avoid introducing extra space between the text and the footnote superscript. You can achieve this as follows:
+    I suggest that you do the same for other block environments, such as footnotes, wrap figures, and lists. For footnotes, you need to be careful to avoid introducing extra space between the text and the footnote superscript. You can achieve this as follows:
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ tex linenumbers
     This theorem%
     %
@@ -289,7 +288,7 @@ I suggest that you do the same for other block environments, such as footnotes, 
     %
     is our main technical result.
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Notice the extra `%` after "theorem".
+    Notice the extra `%` after "theorem".
 
 17. **figure sizing**: Whenever possible, you should avoid excess white space on the sides of your figures. You can size your graphics in `$\LaTeX$` using the defined lengths `\textwidth` (for double-column figures) or `\columnwidth` (for single-column).
 
@@ -297,8 +296,7 @@ Notice the extra `%` after "theorem".
 
 19. **update your template files**: The `acmart`, `cvpr`, `iccv`, and associated bibliography template files keep changing. Make sure to regularly download and use the latest versions of the template files.
 
-Resources
-=========
+## Resources
 
 This repository includes a few files that should be useful for all papers you write within the CIRL group, and potentially more broadly.
 
@@ -307,33 +305,20 @@ This repository includes a few files that should be useful for all papers you wr
     2. **macros**: `mathdefs` provides macros for delimiters, common functions (examples: absolute value, correlation), common sets (examples: real numbers, sphere), common distributions (examples: Gaussian, Poisson) and others.
 
 2. **`cirl` package**: This package provides all of the packages you read about above, as well as several other useful ones. It is designed so that you should not need to include *any* other package when writing papers in the `acmart`, `cvpr`, and `iccv` templates. You can read the comments in the package file for a full list of included packages and their intended use. Some notable examples include:
-    1 **`booktabs`**: The [booktabs](http://www.ctan.org/pkg/booktabs) package allows you to create publication-quality tables. As a general rule of thumb, if you have vertical lines in your table, you are likely doing something wrong.
+    1. **`booktabs`**: The [booktabs](http://www.ctan.org/pkg/booktabs) package allows you to create publication-quality tables. As a general rule of thumb, if you have vertical lines in your table, you are likely doing something wrong.
     2. **`microtype`**: The [microtype](http://ctan.org/pkg/microtype) package incorporates several micro adjustments to make the typography easier to read and more beautiful. As an added bonus, it also tends to shorten the paper slightly due to differences in line wrapping.
     3. **`xspace`**: The [xspace](http://www.ctan.org/pkg/xspace) package allows you to define macros that interact properly with surrounding spaces and punctuation.
 
-<!-- Style tips
-==========
+3. **`Makefile`**: You can use this file with `make` to build a document from the command line (assuming you have TeX installed), as well as to clean files `$\LaTeX$` produces during compilation. You need to edit the first line to update the target file for your project.
 
-1. **abstract != intro**: An abstract and an intro are alternate paths into the paper. The abstract is a self-contained, concise summary for *experts*. An intro is the gentler path motivating the problem for a more general audience. For example, the abstract can be written for rendering experts, while the intro is written for people in graphics or maybe even computer science. The abstract and intro are therefore expected to be redundant, but due to their different functions it is rare that you'll really be able to verbatim copy from one to the other (this is acceptable, but discouraged). Read
-    [this](https://www.lightbluetouchpaper.org/2007/03/14/how-not-to-write-an-abstract/) and [this](http://people.csail.mit.edu/fredo/PUBLI/writing.pdf).
+4. **`.gitignore`**: You can use this file to have `git` ignore all compilation files `$\LaTeX$` produces.
 
-2. **don't just describe related work, *relate* it!**: All too often while reviewing a paper the related work section describes the prior methods extensively, but gives no indication of how these methods relate to the problem addressed in the paper, how they differ from the proposed solution, and what are the practical consequences of these differences. Your related work section shouldn't just describe the other approaches, it should clearly relate these to your approach.
+## Reading
 
-3. **don't bash previous work**: Be thorough but respectful, and keep in mind that your context might be slightly different than theirs. Also, the authors will likely be reviewing your paper.
+If you were to read just one book on writing, I would suggest reading [On Writing Well](https://www.amazon.com/Writing-Well-Classic-Guide-Nonfiction/dp/0060891548), by William Zinnser. I would be happy to buy you a copy if you cannot get your hands on one.
 
-4. **be clear about your assumptions/limitations**: You may be concerned that this may make your method seem less impressive or incremental, but, from my personal experience, I place much more trust in the authors if they appear forthcoming about their limitations and assumptions, and don't try to over-claim. Also, manage expectations from the beginning. Don't assume that clearly listing limitations at the end compensates for overselling in the intro. This just leads to disappointed reviewers.
-
-5. **you most likely do not need an overview paragraph**: Unless you are writing an exceedingly complex paper, most of the time skimming through the section headings provides enough of an overview of the paper. Instead of a dedicated overview paragraph, it is better to interleave forward references to technical sections through the introduction, especially when you describe your contributions.
-
-6. **you do not need a list of contributions**: Instead of a bulleted list of what your paper contributes, your introduction, and especially its last (or last few) paragraphs, should provide a textual description of what it is you are contributing.
-
-6. **a conclusion is not an introduction in past tense**: Reflect on what you have created/proposed, its advantages and limitations—especially things that were difficult to discuss without the reader already knowing the details of your approach. -->
-
-Other resources
-===============
-
-For further reading, take a look at many other useful resources online discussing similar topics:
-
+For further reading, you should take a look at many other useful resources online discussing similar topics:
+-   <https://cs.dartmouth.edu/wjarosz/writing.html>
 -   <http://www.ece.ucdavis.edu/~jowens/commonerrors.html>
 -   <http://www.ece.ucdavis.edu/~jowens/biberrors.html>
 -   <http://people.csail.mit.edu/fredo/PUBLI/writing.pdf>
@@ -341,7 +326,7 @@ For further reading, take a look at many other useful resources online discussin
 -   <http://www.cl.cam.ac.uk/~mgk25/publ-tips/>
 -   <http://www.slideshare.net/jdily/how-to-write-a-siggraph-paper>
 -   <https://www.lightbluetouchpaper.org/2007/03/14/how-not-to-write-an-abstract/>
--   <http://www.read.seas.harvard.edu/~kohler/`$\LaTeX$`.html>
+-   <http://www.read.seas.harvard.edu/~kohler/latex.html>
 -   <http://public.wsu.edu/~brians/errors/errors.html>
 -   <http://english.stackexchange.com/>
 -   <http://www.cs.cmu.edu/~jrs/sins.html>
