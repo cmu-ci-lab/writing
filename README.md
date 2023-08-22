@@ -1,4 +1,4 @@
-# Writing tips and infrastructure for CIRL
+# Writing suggestions and resources for CIRL
 
 This repository serves two purposes:
 * To provide technical writing suggestions.
