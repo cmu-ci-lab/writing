@@ -1,17 +1,17 @@
 # Writing suggestions and resources for CIRL
 
 This repository serves two purposes:
-* To provide technical writing suggestions.
-* To provide shared writing resources.
+* to provide technical writing suggestions,
+* to provide shared writing resources.
 
-The focus is primarily on papers in computer graphics, computer vision, and computational photography. This includes papers in the following venues:
-* ACM TOG, SIGGRAPH, and SIGGRAPH Asia (computer graphics);
-* IEEE/CVF CVPR, ICCV, and ECCV (computer vision);
+The focus is primarily on writing papers in computer graphics, computer vision, and computational photography. This includes writing papers for the following venues:
+* ACM TOG, SIGGRAPH, and SIGGRAPH Asia (computer graphics),
+* IEEE/CVF CVPR, ICCV, and ECCV (computer vision),
 * IEEE ICCP, Optica (computational photography).
 
 Most of the technical information and resources are about writing papers in $\LaTeX$, with a focus towards the following templates:
-* `acmart` (used by ACM TOG, SIGGRAPH, and SIGGRAPH Asia);
-* `cvpr` (used by CVPR);
+* `acmart` (used by ACM TOG, SIGGRAPH, and SIGGRAPH Asia),
+* `cvpr` (used by CVPR),
 * `iccv` (used by ICCV, very similar but not identical to `cvpr`).
 
 A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz's [Common mistakes in technical writing
