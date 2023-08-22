@@ -315,7 +315,7 @@ This repository includes a few files that should be useful for all papers you wr
 
 ## Reading
 
-If you were to read just one book on writing, I would suggest reading [On Writing Well](https://www.amazon.com/Writing-Well-Classic-Guide-Nonfiction/dp/0060891548), by William Zinnser. I would be happy to buy you a copy if you cannot get your hands on one.
+If you were to read just one book on writing, I would recommend [On Writing Well](https://www.amazon.com/Writing-Well-Classic-Guide-Nonfiction/dp/0060891548), by William Zinnser. If you are in my lab, I would be happy to buy you a copy if you cannot get your hands on one.
 
 For further reading, you should take a look at many other useful resources online discussing similar topics:
 -   <https://cs.dartmouth.edu/wjarosz/writing.html>
