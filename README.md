@@ -9,7 +9,7 @@ The focus is primarily on papers in computer graphics, computer vision, and comp
 * IEEE/CVF CVPR, ICCV, and ECCV (computer vision);
 * IEEE ICCP, Optica (computational photography).
 
-Most of the technical information and resources are about writing papers in `$\LaTeX$`, with a focus towards the following templates:
+Most of the technical information and resources are about writing papers in $\LaTeX$, with a focus towards the following templates:
 * `acmart` (used by ACM TOG, SIGGRAPH, and SIGGRAPH Asia);
 * `cvpr` (used by CVPR);
 * `iccv` (used by ICCV, very similar but not identical to `cvpr`).
@@ -57,21 +57,21 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 
 9. **demonstrative pronouns**: You should follow pronouns such as "this," "these," "that," and "those" with a noun, and not use them on their own. You should say, for example, "The paper describes the ray tracing and rasterization algorithms. These algorithms are fundamental in rendering," and not "The paper describes the ray tracing and rasterization algorithms. These are fundamental in rendering." Using bare demonstrative pronouns results in ambiguities. You should also make sure that you have already introduced the noun you follow the demonstrative pronouns with in the preceding text, or at the very least that the noun can be easily deduced. Compare, for example, the previous sentences with: "The paper describes the ray tracing and rasterization. These algorithms are fundamental in rendering," which can be confusing to someone that does not know that ray tracing and rasterization are algorithms.
 
-10. **describe notation**: When you use notation in a sentence, you should include some short term explaining what the notation is, even if you have already defined it earlier in the document. You should say, for example: "Our goal is to compute the radiance `$L$` at point `$x$` and direction `$\omega$`," instead of "Our goal is to compute `$L$` at `$x$` and `$\omega$`." This makes it a lot easier for readers to follow your discussion.
+10. **describe notation**: When you use notation in a sentence, you should include some short term explaining what the notation is, even if you have already defined it earlier in the document. You should say, for example: "Our goal is to compute the radiance $L$ at point $x$ and direction $\omega$," instead of "Our goal is to compute $L$ at $x$ and $\omega$." This makes it a lot easier for readers to follow your discussion.
 
 11. **do not use diaereses**: You generally do *not* need to use diaereses for words such as "naïve" (just write "naive"). The are two exceptions: First, you should use diaereses in names, for example "Zoë". Second, you should use diaereses if you are preparing a submission to The New Yorker, which is the only major publication (that I know of) that still recommends using them. In that case, you need to use them consistently in all sorts of other words, for example "coöperate" or "reëlect".
 
-12. **use active voice**: You should prefer to write in active voice. For example, you should say "Gkioulekas et al. [2023] introduced this algorithm," instead of "This algorithm was introduced by Gkioulekas et al. [2023];" you should say "We define `$L$` as the radiance," instead of "`$L$` is defined as the radiance;" and so on. Personally, I find it a fun creative exercise to try to reduce use of passive voice as much as possible, and it always results in much more readable text.
+12. **use active voice**: You should prefer to write in active voice. For example, you should say "Gkioulekas et al. [2023] introduced this algorithm," instead of "This algorithm was introduced by Gkioulekas et al. [2023];" you should say "We define $L$ as the radiance," instead of "$L$ is defined as the radiance;" and so on. Personally, I find it a fun creative exercise to try to reduce use of passive voice as much as possible, and it always results in much more readable text.
 
 13. **do not instruct the reader**: Instead of writing "See Section 3", you should write "We refer to Section 3".
 
 14. **use consistent nouns**: When you refer to some term throughout a sentence or paragraph, you should use consistent nouns. Consider this text: "We compare with two baselines, ray tracing and rasterization. Compared to these techniques, our algorithm shows tenfold performance improvement. Our method is also easier to implement." You should edit it to use consistent nouns throughout, for example:  "We compare with two baseline algorithms, ray tracing and rasterization. Compared to these algorithms, our algorithm shows tenfold performance improvement. Our algorithms is also easier to implement."
 
-15. **while, since**: Unless you want to provide time information---for example "While Yannis was writing, I was running experiments," and "I have been working on this project since I joined CMU"---you should replace these words with "even though" and "as" to help reduce ambiguities. For example, instead of "While it is common practice, this approximation results in bias," you should write "Even though it is common practice, this approximation results in bias." Likewise, instead of "We can ignore the third-order term `$x^3$`, since we assume `$x$` to be small," you should write "We can ignore the third-order term `$x^3$`, as we assume `$x$` to be small." 
+15. **while, since**: Unless you want to provide time information---for example "While Yannis was writing, I was running experiments," and "I have been working on this project since I joined CMU"---you should replace these words with "even though" and "as" to help reduce ambiguities. For example, instead of "While it is common practice, this approximation results in bias," you should write "Even though it is common practice, this approximation results in bias." Likewise, instead of "We can ignore the third-order term $x^3$, since we assume $x$ to be small," you should write "We can ignore the third-order term $x^3$, as we assume $x$ to be small." 
 
 ### Math typesetting
 
-1. **basics quick-reference**: [This MathJax tutorial](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference) is a great quick reference for your most common `$\LaTeX$` math typesetting needs.
+1. **basics quick-reference**: [This MathJax tutorial](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference) is a great quick reference for your most common $\LaTeX$ math typesetting needs.
 
 2. **AMSmath**: You should read the [AMSmath documentation](ftp://ftp.ams.org/ams/doc/amsmath/amsldoc.pdf) and the [Short Math Guide](ftp://ftp.ams.org/pub/tex/doc/amsmath/short-math-guide.pdf) to get started. I very rarely use the standard `equation` environments anymore. My default environment is `align`, which basically acts as a drop-in superset replacement for `equation`. You should learn to use the `cases` environment.
 
@@ -81,10 +81,10 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 
 5. **equations are parts of sentences**: All equations (displayed or inline) should grammatically be part of a sentence. This means that you will typically need some punctuation before a displayed equation (a comma or colon, depending on context), and possibly punctuation after (a period or comma) if the surrounding sentence continues. As a simple rule, never forget a period after an equation, and never create a dangling displayed equation by placing a period directly beforehand. You can often figure out what punctuation (if any) you need around a displayed equation by reading the equation out loud in the context of the entire surrounding sentence.
 
-6. **italic and upright font in equations**: Sequences of letters intended as words or abbreviations will not be typeset properly inside math environments. This is because `$\LaTeX$` interprets each letter in a math environment as a separate mathematical entity, typesetting it appropriately (with a different font, and, more importantly, with more spacing between each symbol). There are several common situations to consider:
+6. **italic and upright font in equations**: Sequences of letters intended as words or abbreviations will not be typeset properly inside math environments. This is because $\LaTeX$ interprets each letter in a math environment as a separate mathematical entity, typesetting it appropriately (with a different font, and, more importantly, with more spacing between each symbol). There are several common situations to consider:
     1. **multi-letter variables**: In most cases, you should avoid using multi-letter symbols since it is rather non-standard, but if you must, and it will be clear within the context, you should enclose your multi-letter variables with `\textit`.
 
-    2. **custom functions**: `$\LaTeX$` defines several standard math functions or operators (for example,  `\sin`, `\cos`, `\exp`, `\log`) which are typeset and spaced differently than variables. If you want to define a custom, multi-letter function `\xxx` that is typeset in the same way as `\sin`, you should do this with: `\DeclareMathOperator{\xxx}{xxx}`. There are other variants and options, check the AMSmath [documentation](ftp://ftp.ams.org/ams/doc/amsmath/amsldoc.pdf).
+    2. **custom functions**: $\LaTeX$ defines several standard math functions or operators (for example,  `\sin`, `\cos`, `\exp`, `\log`) which are typeset and spaced differently than variables. If you want to define a custom, multi-letter function `\xxx` that is typeset in the same way as `\sin`, you should do this with: `\DeclareMathOperator{\xxx}{xxx}`. There are other variants and options, check the AMSmath [documentation](ftp://ftp.ams.org/ams/doc/amsmath/amsldoc.pdf).
 
     3. **descriptive text**: If you want to interject a word or phrase into a displayed equation enclose it with `\text`, for example: use
         ~~~
@@ -104,29 +104,29 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
         ~~~
         which produces: $\underbrace{f(x) g(x)}_{throughput}$.
     
-    4. **abbreviations**: Sometimes you want to include a word or abbreviation, which should be part of a mathematical symbol (for instance in a subscript or superscript), but should be typeset with standard word spacing. You could use the `\text` command like above, but if you want to use and control the math font, you can use `\mathit` (math italics) or `\mathrm` (math roman) instead, for example: `$L_\mathrm{max}$`, not `$L_{max}$`. This applies also to single-letter abbreviations, for example, for incident radiance you should use `$L_\mathrm{i}$`, not `$L_i`. By contrast, if you want to use a subscript for the radiance `$L$` associated with a *variable* index `$i$`, then you should use `$L_i$` so that math mode correctly typesets the variable name in italics.
+    4. **abbreviations**: Sometimes you want to include a word or abbreviation, which should be part of a mathematical symbol (for example in a subscript or superscript), but should be typeset with standard word spacing. You could use the `\text` command like above, but if you want to use and control the math font, you can use `\mathit` (math italics) or `\mathrm` (math roman) instead, for example: `$L_\mathrm{max}$`, not `$L_{max}$`. This applies also to single-letter abbreviations, for example, for incident radiance you should use `$L_\mathrm{i}$`, not `$L_i`. By contrast, if you want to use a subscript for the radiance `$L$` associated with a *variable* index `$i$`, then you should use `$L_i$` so that math mode correctly typesets the variable name in italics.
 
     5. **other cases**: You should use `\mathrm` for notation for dimensionless numbers (for example, the Reynolds number `$\mathrm{Re}$`) and infinitesimals (`$\mathrm{d} x$`).
 
 7. **negative numbers**: Text mode interprets the "`-`" as a hyphen, which does not look right when typesetting negative numbers. You should typeset negative numbers using math mode, for example: `$-1$`, instead of `-1`.
 
-8. **triple dots**: You should use `\dots` (renders `$\dots$`) to typeset triple dots. You do not need to worry about variants such as `\ldots`, as `\dots` automatically figures out the correct placement of the dots.
+8. **triple dots**: You should use `\dots` (renders $\dots$) to typeset triple dots. You do not need to worry about variants such as `\ldots`, as `\dots` automatically figures out the correct placement of the dots.
 
 9. **fractions**: Sometimes, you may get better results using the commands `\nicefrac` and `\xfrac`, from the packages `nicefrac` and `xfrac` respectively, instead of the basic command `\frac`. For example, when I type fractions in inline math mode, I almost always use `\nicefrac`. As another example, when I type a fraction whose numerator and denominator are themselves fractions, I use `\frac` for the main fraction, and `\nicefrac` for its numerator and denominator. You should *not* use just `/` for fractions, especially not in inline math mode, as it can create ambiguities when there are multiple terms in the numerator or denominator. 
 
-10. **equality versus equivalence versus assignment**: You should know the difference between the symbols `=`, `\equiv` (renders `$\equiv$`) , and `\coloneq` (renders `$\coloneq$`). You should use `\equiv` whenever you define something, which includes when you introduce notation. You should use `\coloneq` for assignment, for example if you are describing the settings you choose (or assume) in some equation or algorithm in different use cases. You should use `=` everywhere else.
+10. **equality versus equivalence versus assignment**: You should know the difference between the symbols `=`, `\equiv` (renders $\equiv$) , and `\coloneq` (renders $\coloneq$). You should use `\equiv` whenever you define something, which includes when you introduce notation. You should use `\coloneq` for assignment, for example if you are describing the settings you choose (or assume) in some equation or algorithm in different use cases. You should use `=` everywhere else.
 
 11. **angle brackets**: You should use `\langle` and `\rangle`, instead of the comparison operators `<` and `>`, when you want angle brackets.
 
-12. **big delimiters**: You should use properly sized delimiter pairs. Delimiters include parentheses, vertical bars, and square, curly, and angled brackets. You can have `$\LaTeX$` choose the size of the delimiters automatically by using the `\left` and `\right` paired commands, for example: `\left(\frac{1}{2}\right)`, instead of `(\frac{1}{2})`. These must always be used in pairs and they do not work across line breaks. If your parenthetical block spans multiple lines, you must include an invisible `\right.` or `\left.` counterpart before the line break. Sometimes the automatic sizing is not ideal, in which case you can fine-tune with manual sizes: `\bigl`, `\Bigl`, `\biggl`, `\Biggl` (and the r counterparts). As these are static sizes, you do not need to take special care with multi-line equations.The `mathdefs` package has a set of commands for delimiters that automatically take care of these issues and you can use instead of standard delimiters.
+12. **big delimiters**: You should use properly sized delimiter pairs. Delimiters include parentheses, vertical bars, and square, curly, and angled brackets. You can have $\LaTeX$ choose the size of the delimiters automatically by using the `\left` and `\right` paired commands, for example: `\left(\frac{1}{2}\right)`, instead of `(\frac{1}{2})`. These must always be used in pairs and they do not work across line breaks. If your parenthetical block spans multiple lines, you must include an invisible `\right.` or `\left.` counterpart before the line break. Sometimes the automatic sizing is not ideal, in which case you can fine-tune with manual sizes: `\bigl`, `\Bigl`, `\biggl`, `\Biggl` (and the r counterparts). As these are static sizes, you do not need to take special care with multi-line equations.The `mathdefs` package has a set of commands for delimiters that automatically take care of these issues and you can use instead of standard delimiters.
 
-13. **units**: You should learn how to use the `siunitx` package to typeset units correctly. You can read the [SIUnitx user manual](http://mirrors.ctan.org/macros/`$\LaTeX$`/contrib/siunitx/siunitx.pdf) to get started. In particular, units should be typeset in upright font, and with a space between them and the number they are quantifying. Using the command `\qty` from `siunitx` takes care of this and many other unit formatting issues (for example, correct typsetting of micro-modifiers).
+13. **units**: You should learn how to use the `siunitx` package to typeset units correctly. You can read the [SIUnitx user manual](http://mirrors.ctan.org/macros/$\LaTeX$/contrib/siunitx/siunitx.pdf) to get started. In particular, units should be typeset in upright font, and with a space between them and the number they are quantifying. Using the command `\qty` from `siunitx` takes care of this and many other unit formatting issues (for example, correct typsetting of micro-modifiers).
 
 ### Citations and references
 
 1. **citations as nouns**: You should not use parenthetical citations as nouns. For example, you should not write: "As explained by [Gkioulekas et al. 2023]"; instead write: "As explained in prior work [Gkioulekas et al. 2023]," or "As explained by Gkioulekas et al. [2023]", or even "As Gkioulekas et al. [2023] explain"  (see `\citet` below). As a general rule of thumb, **if you remove all parenthetical citations from the paper, you should still have complete, grammatically correct sentences**. This looks particularly obnoxious and obvious when you have numerical or superscript citations such as "As explained by [1]" or "As explained by<sup>1</sup>"---you should not write either of these.
 
-2. **citing with `$\LaTeX$`**:
+2. **citing with $\LaTeX$**:
     1. **spacing**: Use a non-breaking space `\~` between a citation and the preceding word in the sentence:
         ~~~
         Path tracing~\cite{Kajiya:86} is...
@@ -148,7 +148,7 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 
 3. **bibliography**: Below are a few items to be careful about when creating your bibliography file.
 
-    1. **duplicate references**: It is very easy to accidentally cite the same paper with two (or more) different bib entries, which will result in identical references that `$\LaTeX$` has no way of detecting. Always check for duplicate entries in your reference section.
+    1. **duplicate references**: It is very easy to accidentally cite the same paper with two (or more) different bib entries, which will result in identical references that $\LaTeX$ has no way of detecting. Always check for duplicate entries in your reference section.
 
     2. **full author names**: You should check that all of your references include full first and last names for authors. Until recently (around mid 2010s), a lot of common bibliography formats (like IEEE) printed only first name initials in references. As a result, there are many bib entries lying around that only include initials. You should edit them to include full names.
 
@@ -207,19 +207,19 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
     \usepackage[pdfauthor={Ioannis Gkioulekas},pdftitle={Some title},pdfkeywords={Some keywords},pdfdisplaydoctitle]{hyperref}
     ~~~
 
-2. **do not commit PDF and generated files in git**: There are many files that are generated during building either `$\LaTeX$` or code. Do not commit these files to the repository as it will cause conflicts for your collaborators. This includes the generated PDF or executable! Other common generated files in `$\LaTeX$` include: `.aux, .bbl, .blg, .fdb_`$\LaTeX$`mk, .fls, .log, .out, .synctex.gz` files. See below about using a `.gitignore` file.
+2. **do not commit PDF and generated files in git**: There are many files that are generated during building either $\LaTeX$ or code. Do not commit these files to the repository as it will cause conflicts for your collaborators. This includes the generated PDF or executable! Other common generated files in $\LaTeX$ include: `.aux, .bbl, .blg, .fdb_$\LaTeX$mk, .fls, .log, .out, .synctex.gz` files. See below about using a `.gitignore` file.
 
 3. **project file structure**: You should have a separate `git` repository for each paper. Within the repository, I recommend structuring your files as follows.
 
     1. **root, macro, and bib files:** Every paper should have these files. You should pick a short identifier for the paper (for example, "fermat" for the "Fermat paths"), then use it name these three files with appropriate extensions (for example, `fermat.tex` for the root file, `fermat.sty` for the macro file, and `fermat.bib` for the bib file). The root file should include the preamble, title, `\input` commands for text source (see below), and bibliography commands. The macro file should include any additional packages you want to include, and any macros you use for this paper (including macros for notation and commenting, see below). The bib file should include all bib entries. 
 
-    2. **split into multiple files**: You should split your `$\LaTeX$` document into multiple files at conceptual breakpoints. For a journal paper you would likely create a different `.tex` file for each section (*not* sub-section). This allows multiple people to work on the paper while reducing git merge conflicts. The root .tex file should use `\input` commands for the additional files. To play nice with some editors (for example, TeXShop or Overleaf) list the root tex file as a special comment at the top of all dependent tex files. For instance, if your main file is `fermat.tex`, include `%!TEX root = fermat.tex` as the first line in all child files.
+    2. **split into multiple files**: You should split your $\LaTeX$ document into multiple files at conceptual breakpoints. For a journal paper you would likely create a different `.tex` file for each section (*not* sub-section). This allows multiple people to work on the paper while reducing git merge conflicts. The root .tex file should use `\input` commands for the additional files. To play nice with some editors (for example, TeXShop or Overleaf) list the root tex file as a special comment at the top of all dependent tex files. For instance, if your main file is `fermat.tex`, include `%!TEX root = fermat.tex` as the first line in all child files.
 
     3. **figures subfolder**: Do not pollute your root repository directory with all your graphics and figures. Instead, include them in a separate `figures` or similar subfolder.
 
     4. **Makefile**: You should include a Makefile that someone can use to build the paper outside of an editor. This repository includes a Makefile template.
 
-    5. **.gitignore**: You should include a `.gitignore` file so that `git` automatically excludes files that do not need to be checked into the repository, such as files generated by `$\LaTeX$`. This repository includes a `.gitignore` template.
+    5. **.gitignore**: You should include a `.gitignore` file so that `git` automatically excludes files that do not need to be checked into the repository, such as files generated by $\LaTeX$. This repository includes a `.gitignore` template.
 
 4. **caption placement**: The caption for a figure should appear below; for a table, above. Just place the `\caption` command above or below the content.
 
@@ -249,20 +249,20 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     produces `Compared to prior work, this algorithm has two advantages: \begin{enumerate*} \item It improves performance. \item It is easier to implement. \end{enumerate*} We explain these advantages below.` Compared to manually typing out the list, this helps enforce consistent listing style throughout the document, allows assigning labels and cross-referencing list items, and makes it easier to switch between displayed and inline lists (for example, during a shortening pass). 
 
-7. **avoid hard wrapping**: Everyone has different sized displays and windows, don't force your size on your collaborators. Use soft wrapping. It is a nightmare to visually parse the `$\LaTeX$` source for a file with mixed wrapping. Some people find it useful to write each sentence on a separate line to make diffs and merges easier. This is acceptable, but should not really be necessary with a good diff tool.
+7. **avoid hard wrapping**: Everyone has different sized displays and windows, don't force your size on your collaborators. Use soft wrapping. It is a nightmare to visually parse the $\LaTeX$ source for a file with mixed wrapping. Some people find it useful to write each sentence on a separate line to make diffs and merges easier. This is acceptable, but should not really be necessary with a good diff tool.
 
 8. **inline commenting**: You should define (in the macro file) some macros for inline commenting and communication between co-authors. For example, you can define a macro named after each author's initials (for example, `\igkiou{Yannis' comment}`) for adding comments into the text. These comments can be simple colored text, ideally with a different color for each author. Using such macros makes it easy to turn all commenting off, for example for the final paper submissions (so you do not accidentally submit for review with a stray comment still lingering).
 
-9. **acknowledgments**: You should keep track of people that helped you during the course of your research. Did someone (not involved in the project) help you make a figure, or did anyone provide narraration for the supplemental video? Did someone have a discussion with you that helped you overcome some hurdle? This support network is important to acknowledge, but easy to overlook when submitting the final version. I recommend you insert comments directly into your `$\LaTeX$` file in the acknowledgments section, so when you get to writing this section you have all the info there.
+9. **acknowledgments**: You should keep track of people that helped you during the course of your research. Did someone (not involved in the project) help you make a figure, or did anyone provide narraration for the supplemental video? Did someone have a discussion with you that helped you overcome some hurdle? This support network is important to acknowledge, but easy to overlook when submitting the final version. I recommend you insert comments directly into your $\LaTeX$ file in the acknowledgments section, so when you get to writing this section you have all the info there.
 
     Additionally, the acknowledgments must include all sources of funding. This is *incredibly* important for reporting. You should ask all of your co-authors for potential funding acknowledgments to include before submitting the final version of a paper.
 
 10. **paragraph titles**: The `acmart`, `cvpr`, and `iccv` templates include the command `\paragraph` for paragraph titles. You should use this command instead of defining your own (for example, using custom `\boldstart` commands). If you absolutely need to change the formatting of paragraph headers (for example, to reduce vertical space for shortening), you should do so by redefining the `\paragraph` commands. This makes it easier to switch back and forth between formatting choices.
 
 
-11. **spaces**: `$\LaTeX$` has several rules to automatically adjust the size of spaces in different contexts. For example, it creates a longer space after a period "." unless it follows a capital letter. If you have a period mid-sentence (like in "et al.") you need to instruct `$\LaTeX$` to use a regular space: `et al.\ `. If an uppercase letter ends a sentence, you need to use a `\@` before the period.
+11. **spaces**: $\LaTeX$ has several rules to automatically adjust the size of spaces in different contexts. For example, it creates a longer space after a period "." unless it follows a capital letter. If you have a period mid-sentence (like in "et al.") you need to instruct $\LaTeX$ to use a regular space: `et al.\ `. If an uppercase letter ends a sentence, you need to use a `\@` before the period.
 
-12. **build check**: Before committing any changes to git, you should always check that the project builds *outside of your editor*, for example, from the command line using a standard `texlive` installation. (You can use the included `Makefile` to check for this, see above.) This is important because many editors (especially Overleaf) automatically "fix" some issues during compilation that would normally result in a compilation warning or failure. This not only makes it harder for your co-authors (who may be working on a different editor, and thus be unable to compile the project) to work, but also it can disguise serious problems with your `$\LaTeX$` code that you need to fix.
+12. **build check**: Before committing any changes to git, you should always check that the project builds *outside of your editor*, for example, from the command line using a standard `texlive` installation. (You can use the included `Makefile` to check for this, see above.) This is important because many editors (especially Overleaf) automatically "fix" some issues during compilation that would normally result in a compilation warning or failure. This not only makes it harder for your co-authors (who may be working on a different editor, and thus be unable to compile the project) to work, but also it can disguise serious problems with your $\LaTeX$ code that you need to fix.
 
 13. **sections and sub-sections**: For a journal paper, it is very rare that you need to go past subsections (subsubsections and beyond) in your text hierarchy. Even with subsections, you should use them sparingly for major parts of a section. In all other cases, you are better off using the `paragraph` command to introduce a paragraph title.
 
@@ -290,9 +290,9 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     Notice the extra `%` after "theorem".
 
-17. **figure sizing**: Whenever possible, you should avoid excess white space on the sides of your figures. You can size your graphics in `$\LaTeX$` using the defined lengths `\textwidth` (for double-column figures) or `\columnwidth` (for single-column).
+17. **figure sizing**: Whenever possible, you should avoid excess white space on the sides of your figures. You can size your graphics in $\LaTeX$ using the defined lengths `\textwidth` (for double-column figures) or `\columnwidth` (for single-column).
 
-18. **line numbering**: Many venues provide line numbers in the review version of their `$\LaTeX$` style. You should not forget to enable this. It is immensely frustrating as a reviewer to not be able to refer to specific locations of the paper by line number. Forgetting to enable line numbering may also result in desk rejection.
+18. **line numbering**: Many venues provide line numbers in the review version of their $\LaTeX$ style. You should not forget to enable this. It is immensely frustrating as a reviewer to not be able to refer to specific locations of the paper by line number. Forgetting to enable line numbering may also result in desk rejection.
 
 19. **update your template files**: The `acmart`, `cvpr`, `iccv`, and associated bibliography template files keep changing. Make sure to regularly download and use the latest versions of the template files.
 
@@ -300,7 +300,7 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 
 This repository includes a few files that should be useful for all papers you write within the CIRL group, and potentially more broadly.
 
-1. **`mathdefs` package**: This package provides resources for typesetting math in `$\LaTeX$`. You should be able to do everything you read above regarding typesetting math by including just this package. There are two types of contents:
+1. **`mathdefs` package**: This package provides resources for typesetting math in $\LaTeX$. You should be able to do everything you read above regarding typesetting math by including just this package. There are two types of contents:
     1. **packages**: `mathdefs` includes the most commonly used math packages (a complete and consistent subset of the AMS math packages), along with packages that provide useful utilities such as unit typesetting (`siunitx`), fractions (`nicefrac` and `xfrac`), and others.
     2. **macros**: `mathdefs` provides macros for delimiters, common functions (examples: absolute value, correlation), common sets (examples: real numbers, sphere), common distributions (examples: Gaussian, Poisson) and others.
 
@@ -309,9 +309,9 @@ This repository includes a few files that should be useful for all papers you wr
     2. **`microtype`**: The [microtype](http://ctan.org/pkg/microtype) package incorporates several micro adjustments to make the typography easier to read and more beautiful. As an added bonus, it also tends to shorten the paper slightly due to differences in line wrapping.
     3. **`xspace`**: The [xspace](http://www.ctan.org/pkg/xspace) package allows you to define macros that interact properly with surrounding spaces and punctuation.
 
-3. **`Makefile`**: You can use this file with `make` to build a document from the command line (assuming you have TeX installed), as well as to clean files `$\LaTeX$` produces during compilation. You need to edit the first line to update the target file for your project.
+3. **`Makefile`**: You can use this file with `make` to build a document from the command line (assuming you have TeX installed), as well as to clean files $\LaTeX$ produces during compilation. You need to edit the first line to update the target file for your project.
 
-4. **`.gitignore`**: You can use this file to have `git` ignore all compilation files `$\LaTeX$` produces.
+4. **`.gitignore`**: You can use this file to have `git` ignore all compilation files $\LaTeX$ produces.
 
 ## Reading
 
