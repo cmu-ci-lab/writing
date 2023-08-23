@@ -6,7 +6,8 @@
 \mathtoolsset{centercolon}
 \RequirePackage{mathrsfs,bm,bbm}
 \RequirePackage{amsmath}
-% \RequirePackage{amssymb}
+\let\Bbbk\relax
+\RequirePackage{amssymb}
 \RequirePackage{amsthm}
 \RequirePackage{textcomp}
 \RequirePackage{gensymb}
@@ -113,10 +114,7 @@
 \newcommand{\E}[1]{\mathbb{E}\bracket{#1}}
 \newcommand{\Exp}[2]{\mathbb{E}_{#1}\bracket{#2}}
 % \newcommand{\Kron}{\raisebox{1pt}{\ensuremath{\:\otimes\:}}}
-% \newcommand{\condpr}[2]{\Prob\curly{#1\, \middle|\, #2}}
 \newcommand{\conditional}[2]{#1\, \middle|\, #2}
-% \newcommand{\condpr}[3]{\Prob_{#1}\curly{#2\, \middle|\, #3}}
-% \newcommand{\condexp}[3]{\Exp{#1}{#2\, \middle|\, #3}}
 
 % standard symbols
 \newcommand{\ud}{\,\mathrm{d}}
@@ -134,3 +132,4 @@
 \newcommand{\convexset}{\mathcal{C}}
 \newcommand{\manifold}{\mathcal{M}}
 \newcommand{\integrable}[2]{\mathcal{L}^#1\paren{#2}}
+
