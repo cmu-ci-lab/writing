@@ -32,9 +32,15 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 
 1. **dashes**: English uses three different types of dashes: the hyphen (-, produced with one dash `-`), the en-dash (–, produced with two dashes `--`), and the em-dash (—, produced with three dashes `---`). These each have different grammatical uses. You should use hyphens for most inter-word dashes, for example: non-negligible." (See also next item on hyphenation.) You should use the en-dash to indicate an opposition or relationship, for example: `mass--energy equivalence` → "mass–energy equivalence;" or for year, number, or page ranges, for example: `as seen on pages 17--30` → "as seen in on pages 17–30." You should use en-dashes (surrounded by spaces) or em-dashes (without spaces) to denote a break in a sentence, or to set off parenthetical statements, for example: "A flock of sparrows – some of them juveniles – flew overhead," or "A flock of sparrows—some of them juveniles—flew overhead." You are welcome to pick either style, but you should use it consistently throughout a paper—I prefer to use em-dashes.
 
-2. **hyphenation**: You should use hyphens for compound adjectives such as "bad-tempered" and "computer-aided". It can be hard to tell when a sequence of descriptive terms (adjectives or nouns) is a compound adjective and needs a hyphen. Here is a rule of thumb: without a hyphen, each descriptive term should make sense when combined *on its own* with the noun it is describing; if that is not the case, you need a hyphen. For example, in the sentence "This material has a strong single-scattering component," we need a hyphen to form a compound adjective "single-scattering" describing "component." Without a hyphen, we would be talking about a "single component" and a "scattering component" (or rather, a "component" that is both "single" and "scattering"), which does not make sense. Sometimes the same set of words are hyphenated, and other times they are not, depending on context. For example, in the sentence "This material has strong single scattering," we do not need a hyphen, as "single" is the adjective describing "scattering." Additionally, adverbs (for example, "physically based rendering" or "very forward scattering") do not need a hyphen.
+2. **hyphenation**: You should use hyphens for compound adjectives such as "bad-tempered" and "computer-aided". It can be hard to tell when a sequence of descriptive terms (adjectives or nouns) is a compound adjective and needs a hyphen. Here is a rule of thumb: without a hyphen, each descriptive term should make sense when combined *on its own* with the noun it is describing; if that is not the case, you need a hyphen. For example, in the sentence:
+   > This material has a strong single-scattering component.
+   
+    we need a hyphen to form a compound adjective "single-scattering" describing "component." Without a hyphen, we would be talking about a "single component" and a "scattering component" (or rather, a "component" that is both "single" and "scattering"), which does not make sense. Sometimes the same set of words are hyphenated, and other times they are not, depending on context. For example, in the sentence:
+   > This material has strong single scattering
+   
+   we do not need a hyphen, as "single" is the adjective describing "scattering." Additionally, adverbs (for example, "physically based rendering" or "very forward scattering") do not need a hyphen.
 
-3. **Latin abbreviations**: You can (and generally should) avoid using Latin abbreviations, as most of them have English equivalents that tend to make text read more naturally---which should be unsurprising, given that the rest of the text is written in English. In computer science, currently there is one exception where by convention we still need to use Latin, and I highlight this exception below---if you find yourself writing for a law journal, things will be different. If you prefer to use Latin abbreviations, you should make sure you typeset and use them correctly. Also, you should *not* italicize common Latin abbreviations.
+4. **Latin abbreviations**: You can (and generally should) avoid using Latin abbreviations, as most of them have English equivalents that tend to make text read more naturally—which should be unsurprising, given that the rest of the text is written in English. In computer science, currently there is one exception where by convention we still need to use Latin, and I highlight this exception below—if you find yourself writing for a law journal, things will be different. If you prefer to use Latin abbreviations, you should make sure you typeset and use them correctly. Also, you should *not* italicize common Latin abbreviations.
     1. **et al.**: This stands for "et alia," which means "and others" in English. It has no period after the "et", but does have a period after "al.". This is the exception I mentioned above: you should use this when referring to two or more *additional* authors after the first author of a paper you are citing. See also **citations** below. 
 
     2. **e.g.**: This stands for "exempli gratia," which means "for example" in English. It has periods after both "e" and "g", and additionally requires commas both before and after. You can use it to start a list of examples, for example: "This technique has applications in many areas, e.g., medical imaging, remote sensing, and material science." You can just say "for example" instead.
@@ -45,29 +51,90 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 
     4. **cf.**: This stands for "confer," which means "compare" in English. It has a period only after "f." . You can use it to compare the immediately preceding statement with another statement in the same work or more commonly, a statement in another work. Just do not use this one.
 
-4. **capitalization**: You should capitalize *only* proper nouns, that is, names of(or things named after) people, places, organizations, and so on. You should not capitalize any other word, unless it is starting a sentence. For example, you should not capitalize "computer graphics," "computer vision," or "computer science." You should not capitalize "neural radiance fields" or "bidirectional distribution radiance function," even though you should capitalize the corresponding initialisms "NeRF" and "BRDF". You should write "Gaussian distribution" (because "Gauss" is the name of a person, and thus a proper noun) and "exponential distribution" (because "exponential" is not a proper noun). A fun example is the capitalization of "Markov chain Monte Carlo" (MCMC), where you should capitalize the proper nouns "Markov," "Monte," and "Carlo", but you should not capitalize "chain".
+5. **capitalization**: You should capitalize *only* proper nouns, that is, names of(or things named after) people, places, organizations, and so on. You should not capitalize any other word, unless it is starting a sentence. For example, you should not capitalize "computer graphics," "computer vision," or "computer science." You should not capitalize "neural radiance fields" or "bidirectional distribution radiance function," even though you should capitalize the corresponding initialisms "NeRF" and "BRDF". You should write "Gaussian distribution" (because "Gauss" is the name of a person, and thus a proper noun) and "exponential distribution" (because "exponential" is not a proper noun). A fun example is the capitalization of "Markov chain Monte Carlo" (MCMC), where you should capitalize the proper nouns "Markov," "Monte," and "Carlo", but you should not capitalize "chain".
 
-5. **few/a few/quite a few**: Including or omitting the "a" before "few" can completely change the meaning of a sentence. Compare "Tom has a few oranges he is willing to share." with "Tom has few oranges he is willing to share." The first suggest that Tom is willing to share some oranges, the second rather suggest that Tom doesn't have many oranges to share. "A few" really means "some", and emphasizes the *existence* of some (small) quantity, while "few" emphasizes that the quantity is *small*. Another way to think of this is that "few" = "only a few", so the latter is actually saying: "Tom has only a few oranges he is willing to share." Additionally, "quite a few" actually means "many" or "a surprisingly large number".
+6. **few/a few/quite a few**: Including or omitting the "a" before "few" can completely change the meaning of a sentence. Compare "Tom has a few oranges he is willing to share." with "Tom has few oranges he is willing to share." The first suggest that Tom is willing to share some oranges, the second rather suggest that Tom doesn't have many oranges to share. "A few" really means "some", and emphasizes the *existence* of some (small) quantity, while "few" emphasizes that the quantity is *small*. Another way to think of this is that "few" = "only a few", so the latter is actually saying: "Tom has only a few oranges he is willing to share." Additionally, "quite a few" actually means "many" or "a surprisingly large number".
 
-6. **cannot/can not, maybe/may be**: Both "can not" and "cannot" can be correct, but their use is different. You would use "can not" if the "not" does not belong to the "can" but rather to the words following, such as the construction "not only": "He can not only sing, but also dance." Likewise "maybe" and "may be" are both valid, but are not interchangeable. "Maybe" means perhaps whereas "may be" indicates a possibility, for example: "He may be smart, or maybe he is just lucky."
+7. **cannot/can not, maybe/may be**: Both "can not" and "cannot" can be correct, but their use is different. You would use "can not" if the "not" does not belong to the "can" but rather to the words following, such as the construction "not only": "He can not only sing, but also dance." Likewise "maybe" and "may be" are both valid, but are not interchangeable. "Maybe" means perhaps whereas "may be" indicates a possibility, for example: "He may be smart, or maybe he is just lucky."
 
-7. **only, also, just**: The placement of these words in a sentence matters. You should place them as close as possible to the element in the sentence they are quantifying. Consider the following example sentence (taken from real reviews): "The paper brings perspectives which ultimately only benefit the vision community." This is a positive comment as it says that, of all the ways the paper could impact the vision community, ultimately it does so in a beneficial way. Compare with this slightly different sentence: "The paper brings perspectives which ultimately benefit only the vision community." This is a negative comment as it says that the paper benefits the vision community, but does not benefit any other community (suggesting it is of limited value). Moving "only" changes the sentence from a positive into a negative comment!
+8. **only, also, just**: The placement of these words in a sentence matters. You should place them as close as possible to the element in the sentence they are quantifying. Consider the following example sentence (taken from real reviews):
+   > The paper brings perspectives which ultimately only benefit the vision community.
+   
+   This is a positive comment as it says that, of all the ways the paper could impact the vision community, ultimately it does so in a beneficial way. Compare with this slightly different sentence:
+   > The paper brings perspectives which ultimately benefit only the vision community.
+   
+   This is a negative comment as it says that the paper benefits the vision community, but does not benefit any other community (suggesting it is of limited value). Moving "only" changes the sentence from a positive into a negative comment!
 
-8. **both, either-or, colons**: When you use these words to fork the narration, you should make sure you place as much as possible of the shared sentence content before the fork. You should say, for example: "This principle applies to research in both academia and industry," instead of "This principle applies to research both in academia and in industry," or worse yet "This principle applies to both research in academia and research in industry," or even worse "This principle applies to both research in academia and industry." The second and third sentences are unnecessarily verbose, but semantically equivalent to the first sentence. The fourth sentence says something different from the other three---the principle applies to research in academia, and it also applies to industry in general (even outside research).
+9. **both, either-or, colons**: When you use these words to fork the narration, you should make sure you place as much as possible of the shared sentence content before the fork. For example, you should say:
+   > This principle applies to research in both academia and industry.
+   
+   instead of:
+   > This principle applies to research both in academia and in industry.
+   
+   This is even worse:
+   > This principle applies to both research in academia and research in industry.
+   
+   And this is worse yet:
+   > This principle applies to both research in academia and industry.
+   
+   The second and third sentences are unnecessarily verbose, but semantically equivalent to the first sentence. The fourth sentence says something different from the other three—the principle applies to research in academia, and it also applies to industry in general (even outside research).
 
-9. **demonstrative pronouns**: You should follow pronouns such as "this," "these," "that," and "those" with a noun, and not use them on their own. You should say, for example, "The paper describes the ray tracing and rasterization algorithms. These algorithms are fundamental in rendering," and not "The paper describes the ray tracing and rasterization algorithms. These are fundamental in rendering." Using bare demonstrative pronouns results in ambiguities. You should also make sure that you have already introduced the noun you follow the demonstrative pronouns with in the preceding text, or at the very least that the noun can be easily deduced. Compare, for example, the previous sentences with: "The paper describes the ray tracing and rasterization. These algorithms are fundamental in rendering," which can be confusing to someone that does not know that ray tracing and rasterization are algorithms.
+10. **demonstrative pronouns**: You should follow pronouns such as "this," "these," "that," and "those" with a noun, and not use them on their own. For example, you should say:
+    > The paper describes the ray tracing and rasterization algorithms. These algorithms are fundamental in rendering.
+    
+    instead of:
+    > The paper describes the ray tracing and rasterization algorithms. These are fundamental in rendering.
+    
+    Using bare demonstrative pronouns results in ambiguities. You should also make sure that you have already introduced the noun you follow the demonstrative pronouns with in the preceding text, or at the very least that the noun can be easily deduced. Compare, for example, the previous sentences with:
+    > The paper describes the ray tracing and rasterization. These algorithms are fundamental in rendering.
+    
+    The last sentence can be confusing to someone that does not know that ray tracing and rasterization are algorithms.
 
-10. **describe notation**: When you use notation in a sentence, you should include some short term explaining what the notation is, even if you have already defined it earlier in the document. You should say, for example: "Our goal is to compute the radiance $L$ at point $x$ and direction $\omega$," instead of "Our goal is to compute $L$ at $x$ and $\omega$." This makes it a lot easier for readers to follow your discussion.
+12. **describe notation**: When you use notation in a sentence, you should include some short term explaining what the notation is, even if you have already defined it earlier in the document. For example, you should say:
+    > Our goal is to compute the radiance $L$ at point $x$ and direction $\omega$.
+    
+    instead of:
+    > Our goal is to compute $L$ at $x$ and $\omega$.
+    
+    This practice makes it a lot easier for readers to follow your discussion.
 
-11. **do not use diaereses**: You generally do *not* need to use diaereses for words such as "naïve" (just write "naive"). The are two exceptions: First, you should use diaereses in names, for example "Zoë". Second, you should use diaereses if you are preparing a submission to The New Yorker, which is the only major publication (that I know of) that still recommends using them. In that case, you need to use them consistently in all sorts of other words, for example "coöperate" or "reëlect".
+14. **do not use diaereses**: Unless you are writing for The New Yorker, you generally do *not* need to use diaereses for words such as "naïve" (just write "naive"). The only exception is that you should use diaereses in names, for example "Zoë". If you insist on using a diaeresis on "naïve", then you should use diaereses consistently also in all sorts of other words, for example "coöperate" or "reëlect". 
 
-12. **use active voice**: You should prefer to write in active voice. For example, you should say "Gkioulekas et al. [2023] introduced this algorithm," instead of "This algorithm was introduced by Gkioulekas et al. [2023];" you should say "We define $L$ as the radiance," instead of "$L$ is defined as the radiance;" and so on. Personally, I find it a fun creative exercise to try to reduce use of passive voice as much as possible, and it always results in much more readable text.
+15. **use active voice**: You should prefer to write in active voice. For example, you should say:
+    > Gkioulekas et al. [2023] introduced this algorithm.
+    
+    instead of:
+    > This algorithm was introduced by Gkioulekas et al. [2023].
+    
+    For another example, you should say:
+    > We define $L$ as the radiance.
+    
+    instead of:
+    > $L$ is defined as the radiance.
+    
+    Personally, I find it a fun creative exercise to try to reduce use of passive voice as much as possible, and it always results in much more readable text.
 
-13. **do not instruct the reader**: Instead of writing "See Section 3", you should write "We refer to Section 3".
+17. **do not instruct the reader**: Instead of writing "See Section 3", you should write "We refer to Section 3".
 
-14. **use consistent nouns**: When you refer to some term throughout a sentence or paragraph, you should use consistent nouns. Consider this text: "We compare with two baselines, ray tracing and rasterization. Compared to these techniques, our algorithm shows tenfold performance improvement. Our method is also easier to implement." You should edit it to use consistent nouns throughout, for example:  "We compare with two baseline algorithms, ray tracing and rasterization. Compared to these algorithms, our algorithm shows tenfold performance improvement. Our algorithms is also easier to implement."
+18. **use consistent nouns**: When you refer to some term several times throughout a sentence or paragraph, you should use consistent nouns. Consider this text:
+    > We compare with two baselines, ray tracing and rasterization. Compared to these techniques, our algorithm shows tenfold performance improvement. Our method is also easier to implement.
+    
+    You should edit it to use consistent nouns throughout, for example:
+    > We compare with two baseline algorithms, ray tracing and rasterization. Compared to these algorithms, our algorithm shows tenfold performance improvement. Our algorithms is also easier to implement.
+    
+    The edited text not only improves clarity, but also is easier to read because it introduces fewer terms.
 
-15. **while, since**: Unless you want to provide time information---for example "While Yannis was writing, I was running experiments," and "I have been working on this project since I joined CMU"---you should replace these words with "even though" and "as" to help reduce ambiguities. For example, instead of "While it is common practice, this approximation results in bias," you should write "Even though it is common practice, this approximation results in bias." Likewise, instead of "We can ignore the third-order term $x^3$, since we assume $x$ to be small," you should write "We can ignore the third-order term $x^3$, as we assume $x$ to be small." 
+20. **while, since**: Unless you want to provide time information—for example "While Yannis was writing, I was running experiments," and "I have been working on this project since I joined CMU—you should replace these words with "even though" and "as" to help reduce ambiguities. For example, instead of:
+    > While it is common practice, this approximation results in bias.
+    
+    you should write:
+    > Even though it is common practice, this approximation results in bias.
+    
+    Likewise, instead of:
+    > We can ignore the third-order term $d^3$, since we assume the distance $d$ to be small.
+    
+    you should write:
+    > We can ignore the third-order term $d^3$, as we assume the distance $x$ to be small.
 
 ### Math typesetting
 
@@ -75,7 +142,7 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 
 2. **AMSmath**: You should read the [AMSmath documentation](ftp://ftp.ams.org/ams/doc/amsmath/amsldoc.pdf) and the [Short Math Guide](ftp://ftp.ams.org/pub/tex/doc/amsmath/short-math-guide.pdf) to get started. I very rarely use the standard `equation` environments anymore. My default environment is `align`, which basically acts as a drop-in superset replacement for `equation`. You should learn to use the `cases` environment.
 
-3. **notation and macros**: You should define macros (with descriptive names) for all your repeatedly-used notation. (See project file structure below.) If you do this consistently, it makes it much easier to experiment with and perfect your notation while you are working on the paper. By contrast, changing notation by using search and replace or manually hunting down each instance both are very tedious and error prone. Additionally, using macros makes it easy to reuse notation across multiple papers on the same general topic---which itself is great practice, as it makes it easier for others to read your papers.
+3. **notation and macros**: You should define macros (with descriptive names) for all your repeatedly-used notation. (See project file structure below.) If you do this consistently, it makes it much easier to experiment with and perfect your notation while you are working on the paper. By contrast, changing notation by using search and replace or manually hunting down each instance both are very tedious and error prone. Additionally, using macros makes it easy to reuse notation across multiple papers on the same general topic—which itself is great practice, as it makes it easier for others to read your papers.
 
 4. **number all equations**: Your reviews and your future self will appreciate it. It is much easier to discuss details of the paper when you can say, for example, "The x we solve for in Equation 3 is the same as the x that appears on the right-hand-side of Equation 13," instead of: "The x we solve in the first unnumbered equation of the second column of page 4 is the same as x that appears on the right-hand-side of the unnumbered equation between Equations 12 and 13." You will run into this not only during review, but also many years down the road when someone emails you asking for clarification about some detail in the paper.
 
@@ -114,7 +181,7 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 
 9. **fractions**: Sometimes, you may get better results using the commands `\nicefrac` and `\xfrac`, from the packages `nicefrac` and `xfrac` respectively, instead of the basic command `\frac`. For example, when I type fractions in inline math mode, I almost always use `\nicefrac`. As another example, when I type a fraction whose numerator and denominator are themselves fractions, I use `\frac` for the main fraction, and `\nicefrac` for its numerator and denominator. You should *not* use just `/` for fractions, especially not in inline math mode, as it can create ambiguities when there are multiple terms in the numerator or denominator. 
 
-10. **equality versus equivalence versus assignment**: You should know the difference between the symbols `=`, `\equiv` (renders $\equiv$) , and `\coloneq` (renders $\coloneq$). You should use `\equiv` whenever you define something, which includes when you introduce notation. You should use `\coloneq` for assignment, for example if you are describing the settings you choose (or assume) in some equation or algorithm in different use cases. You should use `=` everywhere else.
+10. **equality versus equivalence versus assignment**: You should know the difference between the symbols `=`, `\equiv` (renders $\equiv$) , and `\coloneq` (renders $\coloneq$) and use them consistently. Conventions on how to use them differ. Within computer graphics, I suggest the following: You should use `\equiv` whenever you define something, which includes when you introduce notation. You should use `\coloneq` for assignment, for example if you are describing the settings you choose (or assume) in some equation or algorithm in different use cases. You should use `=` everywhere else.
 
 11. **angle brackets**: You should use `\langle` and `\rangle`, instead of the comparison operators `<` and `>`, when you want angle brackets.
 
@@ -124,7 +191,7 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 
 ### Citations and references
 
-1. **citations as nouns**: You should not use parenthetical citations as nouns. For example, you should not write: "As explained by [Gkioulekas et al. 2023]"; instead write: "As explained in prior work [Gkioulekas et al. 2023]," or "As explained by Gkioulekas et al. [2023]", or even "As Gkioulekas et al. [2023] explain"  (see `\citet` below). As a general rule of thumb, **if you remove all parenthetical citations from the paper, you should still have complete, grammatically correct sentences**. This looks particularly obnoxious and obvious when you have numerical or superscript citations such as "As explained by [1]" or "As explained by<sup>1</sup>"---you should not write either of these.
+1. **citations as nouns**: You should not use parenthetical citations as nouns. For example, you should not write: "As explained by [Gkioulekas et al. 2023]"; instead write: "As explained in prior work [Gkioulekas et al. 2023]," or "As explained by Gkioulekas et al. [2023]", or even better "As Gkioulekas et al. [2023] explain"  (see `\citet` below and active voice above). As a general rule of thumb, **if you remove all parenthetical citations from the paper, you should still have complete, grammatically correct sentences**. This looks particularly obnoxious and obvious when you have numerical or superscript citations such as "As explained by [1]" or "As explained by<sup>1</sup>"—you should not write either of these.
 
 2. **citing with $\LaTeX$**:
     1. **spacing**: Use a non-breaking space `\~` between a citation and the preceding word in the sentence:
@@ -268,7 +335,7 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 
 14. **empty sections**: You should avoid "empty" sections, which most typically arise when you follow a `\section` immediately with a `\subsection`. When this happens, you should either eliminate the `\subsection`, or add a short paragraph explaining what this section is about.
 
-15. **title capitalization**: You should be consistent in terms of title capitalization---always use either *title case* (all but minor words are capitalized) or *sentence case* (only the first word and proper nouns are capitalized). This includes *all* titles: the paper title, (sub-)section titles, figure titles, paragraph titles, and so on. I recommend using sentence case, because it removes ambiguity about what qualifies as a "minor" word (should I capitalize "of"? what about "-based"?).
+15. **title capitalization**: You should be consistent in terms of title capitalization—always use either *title case* (all but minor words are capitalized) or *sentence case* (only the first word and proper nouns are capitalized). This includes *all* titles: the paper title, (sub-)section titles, figure titles, paragraph titles, and so on. I recommend using sentence case, because it removes ambiguity about what qualifies as a "minor" word (should I capitalize "of"? what about "-based"?).
 
 16. **wrap block environments with comments**: By block environments I mean displayed equations, footnotes, wrap figures, itemized and enumerated lists, and so on. If you include an empty line before or after a displayed equation you will introduce a paragraph break, which is often unintended. Depending on the style this will also sometimes indent the subsequent text. Do not use `\noindent` to fix this! Instead, avoid the blank lines in the source that cause the paragraph breaks. To provide visual separation for the displayed equations in the tex file, I suggest that you prefix and postfix each displayed equation with commented blank lines:
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ tex linenumbers
