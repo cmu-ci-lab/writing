@@ -2,10 +2,10 @@ TARGET = fermat
 
 pdf: $(TARGET).pdf
 
-$(TARGET).pdf: *.tex *.sty $(FIG) $(TARGET).bbl
-	pdflatex $(TARGET)
-	pdflatex $(TARGET)
-	pdflatex $(TARGET)
+%.pdf: *.tex *.sty $(FIG) %.bbl
+	pdflatex $*
+	pdflatex $*
+	pdflatex $*
 
 %.bbl: *.bib
 	pdflatex $*

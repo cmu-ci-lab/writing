@@ -40,24 +40,24 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
    
    we do not need a hyphen, as "single" is the adjective describing "scattering." Additionally, adverbs (for example, "physically based rendering" or "very forward scattering") do not need a hyphen.
 
-4. **Latin abbreviations**: You can (and generally should) avoid using Latin abbreviations, as most of them have English equivalents that tend to make text read more naturally—which should be unsurprising, given that the rest of the text is written in English. In computer science, currently there is one exception where by convention we still need to use Latin, and I highlight this exception below—if you find yourself writing for a law journal, things will be different. If you prefer to use Latin abbreviations, you should make sure you typeset and use them correctly. Also, you should *not* italicize common Latin abbreviations.
+3. **Latin abbreviations**: You can (and generally should) avoid using Latin abbreviations, as most of them have English equivalents that tend to make text read more naturally—which should be unsurprising, given that the rest of the text is written in English. In computer science, currently there is one exception where by convention we still need to use Latin, and I highlight this exception below—if you find yourself writing for a law journal, things will be different. If you prefer to use Latin abbreviations, you should make sure you typeset and use them correctly. Also, you should *not* italicize common Latin abbreviations.
     1. **et al.**: This stands for "et alia," which means "and others" in English. It has no period after the "et", but does have a period after "al.". This is the exception I mentioned above: you should use this when referring to two or more *additional* authors after the first author of a paper you are citing. See also **citations** below. 
 
     2. **e.g.**: This stands for "exempli gratia," which means "for example" in English. It has periods after both "e" and "g", and additionally requires commas both before and after. You can use it to start a list of examples, for example: "This technique has applications in many areas, e.g., medical imaging, remote sensing, and material science." You can just say "for example" instead.
 
     3. **i.e.**: This stands for "id est," which means "that is" in English. It has periods after both "i" and "e", and additionally requires commas both before and after. You can use it to explain the immediately preceding statement, for example: "We select a point by importance sampling, i.e., sampling proportionally to the contribution term." You can just say "that is" instead. It is common to confuse "i.e." and "e.g.", but as the above two examples should hopefully show, the two are *not* interchangeable.
 
-    3. **etc.**: This stands for "et cetera," which means "and the rest" in English. Thus it has a period only after "c". You can use it to indicate an incomplete list, for example: "This technique has applications in medical imaging, remote sensing, etc." You can just say "and so on" instead. Importantly, do not add "etc." at the end of a list of examples starting with "e.g.".
+    4. **etc.**: This stands for "et cetera," which means "and the rest" in English. Thus it has a period only after "c". You can use it to indicate an incomplete list, for example: "This technique has applications in medical imaging, remote sensing, etc." You can just say "and so on" instead. Importantly, do not add "etc." at the end of a list of examples starting with "e.g.".
 
-    4. **cf.**: This stands for "confer," which means "compare" in English. It has a period only after "f." . You can use it to compare the immediately preceding statement with another statement in the same work or more commonly, a statement in another work. Just do not use this one.
+    5. **cf.**: This stands for "confer," which means "compare" in English. It has a period only after "f." . You can use it to compare the immediately preceding statement with another statement in the same work or more commonly, a statement in another work. Just do not use this one.
 
-5. **capitalization**: You should capitalize *only* proper nouns, that is, names of(or things named after) people, places, organizations, and so on. You should not capitalize any other word, unless it is starting a sentence. For example, you should not capitalize "computer graphics," "computer vision," or "computer science." You should not capitalize "neural radiance fields" or "bidirectional distribution radiance function," even though you should capitalize the corresponding initialisms "NeRF" and "BRDF". You should write "Gaussian distribution" (because "Gauss" is the name of a person, and thus a proper noun) and "exponential distribution" (because "exponential" is not a proper noun). A fun example is the capitalization of "Markov chain Monte Carlo" (MCMC), where you should capitalize the proper nouns "Markov," "Monte," and "Carlo", but you should not capitalize "chain".
+4. **capitalization**: You should capitalize *only* proper nouns, that is, names of(or things named after) people, places, organizations, and so on. You should not capitalize any other word, unless it is starting a sentence. For example, you should not capitalize "computer graphics," "computer vision," or "computer science." You should not capitalize "neural radiance fields" or "bidirectional distribution radiance function," even though you should capitalize the corresponding initialisms "NeRF" and "BRDF". You should write "Gaussian distribution" (because "Gauss" is the name of a person, and thus a proper noun) and "exponential distribution" (because "exponential" is not a proper noun). A fun example is the capitalization of "Markov chain Monte Carlo" (MCMC), where you should capitalize the proper nouns "Markov," "Monte," and "Carlo", but you should not capitalize "chain".
 
-6. **few/a few/quite a few**: Including or omitting the "a" before "few" can completely change the meaning of a sentence. Compare "Tom has a few oranges he is willing to share." with "Tom has few oranges he is willing to share." The first suggest that Tom is willing to share some oranges, the second rather suggest that Tom doesn't have many oranges to share. "A few" really means "some", and emphasizes the *existence* of some (small) quantity, while "few" emphasizes that the quantity is *small*. Another way to think of this is that "few" = "only a few", so the latter is actually saying: "Tom has only a few oranges he is willing to share." Additionally, "quite a few" actually means "many" or "a surprisingly large number".
+5. **few/a few/quite a few**: Including or omitting the "a" before "few" can completely change the meaning of a sentence. Compare "Tom has a few oranges he is willing to share." with "Tom has few oranges he is willing to share." The first suggest that Tom is willing to share some oranges, the second rather suggest that Tom doesn't have many oranges to share. "A few" really means "some", and emphasizes the *existence* of some (small) quantity, while "few" emphasizes that the quantity is *small*. Another way to think of this is that "few" = "only a few", so the latter is actually saying: "Tom has only a few oranges he is willing to share." Additionally, "quite a few" actually means "many" or "a surprisingly large number".
 
-7. **cannot/can not, maybe/may be**: Both "can not" and "cannot" can be correct, but their use is different. You would use "can not" if the "not" does not belong to the "can" but rather to the words following, such as the construction "not only": "He can not only sing, but also dance." Likewise "maybe" and "may be" are both valid, but are not interchangeable. "Maybe" means perhaps whereas "may be" indicates a possibility, for example: "He may be smart, or maybe he is just lucky."
+6. **cannot/can not, maybe/may be**: Both "can not" and "cannot" can be correct, but their use is different. You would use "can not" if the "not" does not belong to the "can" but rather to the words following, such as the construction "not only": "He can not only sing, but also dance." Likewise "maybe" and "may be" are both valid, but are not interchangeable. "Maybe" means perhaps whereas "may be" indicates a possibility, for example: "He may be smart, or maybe he is just lucky."
 
-8. **only, also, just**: The placement of these words in a sentence matters. You should place them as close as possible to the element in the sentence they are quantifying. Consider the following example sentence (taken from real reviews):
+7. **only, also, just**: The placement of these words in a sentence matters. You should place them as close as possible to the element in the sentence they are quantifying. Consider the following example sentence (taken from real reviews):
    > The paper brings perspectives which ultimately only benefit the vision community.
    
    This is a positive comment as it says that, of all the ways the paper could impact the vision community, ultimately it does so in a beneficial way. Compare with this slightly different sentence:
@@ -65,7 +65,7 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
    
    This is a negative comment as it says that the paper benefits the vision community, but does not benefit any other community (suggesting it is of limited value). Moving "only" changes the sentence from a positive into a negative comment!
 
-9. **both, either-or, colons**: When you use these words to fork the narration, you should make sure you place as much as possible of the shared sentence content before the fork. For example, you should say:
+8. **both, either-or, colons**: When you use these words to fork the narration, you should make sure you place as much as possible of the shared sentence content before the fork. For example, you should say:
    > This principle applies to research in both academia and industry.
    
    instead of:
@@ -79,7 +79,7 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
    
    The second and third sentences are unnecessarily verbose, but semantically equivalent to the first sentence. The fourth sentence says something different from the other three—the principle applies to research in academia, and it also applies to industry in general (even outside research).
 
-10. **demonstrative pronouns**: You should follow pronouns such as "this," "these," "that," and "those" with a noun, and not use them on their own. For example, you should say:
+9. **demonstrative pronouns**: You should follow pronouns such as "this," "these," "that," and "those" with a noun, and not use them on their own. For example, you should say:
     > The paper describes the ray tracing and rasterization algorithms. These algorithms are fundamental in rendering.
     
     instead of:
@@ -90,7 +90,7 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
     
     The last sentence can be confusing to someone that does not know that ray tracing and rasterization are algorithms.
 
-12. **describe notation**: When you use notation in a sentence, you should include some short term explaining what the notation is, even if you have already defined it earlier in the document. For example, you should say:
+10. **describe notation**: When you use notation in a sentence, you should include some short term explaining what the notation is, even if you have already defined it earlier in the document. For example, you should say:
     > Our goal is to compute the radiance $L$ at point $x$ and direction $\omega$.
     
     instead of:
@@ -98,9 +98,9 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
     
     This practice makes it a lot easier for readers to follow your discussion.
 
-14. **do not use diaereses**: Unless you are writing for The New Yorker, you generally do *not* need to use diaereses for words such as "naïve" (just write "naive"). The only exception is that you should use diaereses in names, for example "Zoë". If you insist on using a diaeresis on "naïve", then you should use diaereses consistently also in all sorts of other words, for example "coöperate" or "reëlect". 
+11. **do not use diaereses**: Unless you are writing for The New Yorker, you generally do *not* need to use diaereses for words such as "naïve" (just write "naive"). The only exception is that you should use diaereses in names, for example "Zoë". If you insist on using a diaeresis on "naïve", then you should use diaereses consistently also in all sorts of other words, for example "coöperate" or "reëlect".
 
-15. **use active voice**: You should prefer to write in active voice. For example, you should say:
+12. **use active voice**: You should prefer to write in active voice. For example, you should say:
     > Gkioulekas et al. [2023] introduced this algorithm.
     
     instead of:
@@ -114,9 +114,9 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
     
     Personally, I find it a fun creative exercise to try to reduce use of passive voice as much as possible, and it always results in much more readable text.
 
-17. **do not instruct the reader**: Instead of writing "See Section 3", you should write "We refer to Section 3".
+13. **do not instruct the reader**: Instead of writing "See Section 3", you should write "We refer to Section 3".
 
-18. **use consistent nouns**: When you refer to some term several times throughout a sentence or paragraph, you should use consistent nouns. Consider this text:
+14. **use consistent nouns**: When you refer to some term several times throughout a sentence or paragraph, you should use consistent nouns. Consider this text:
     > We compare with two baselines, ray tracing and rasterization. Compared to these techniques, our algorithm shows tenfold performance improvement. Our method is also easier to implement.
     
     You should edit it to use consistent nouns throughout, for example:
@@ -124,7 +124,7 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
     
     The edited text not only improves clarity, but also is easier to read because it introduces fewer terms.
 
-20. **while, since**: Unless you want to provide time information—for example "While Yannis was writing, I was running experiments," and "I have been working on this project since I joined CMU—you should replace these words with "even though" and "as" to help reduce ambiguities. For example, instead of:
+15. **while, since**: Unless you want to provide time information—for example "While Yannis was writing, I was running experiments," and "I have been working on this project since I joined CMU—you should replace these words with "even though" and "as" to help reduce ambiguities. For example, instead of:
     > While it is common practice, this approximation results in bias.
     
     you should write:
@@ -135,6 +135,8 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
     
     you should write:
     > We can ignore the third-order term $d^3$, as we assume the distance $x$ to be small.
+
+16. **intialisms**: You should define all initialisms the first time you use them in your document, by fully typing out what they stand for. For example, you should say "... the bidirectional reflection distribution function (BRDF)" the first time you use it. I recommend against using initialisms in the abstract, which is meant to be a succinct description of your work and thus should not introduce very specialized terminology. If you do need to use an initialism in the abstract, you should define it in its first appearance, and then define it once more the first time it appears in the main text. This is because often the abstract and main text are shown separately from each other (for example, on web readers).
 
 ### Math typesetting
 
@@ -188,6 +190,8 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 12. **big delimiters**: You should use properly sized delimiter pairs. Delimiters include parentheses, vertical bars, and square, curly, and angled brackets. You can have $\LaTeX$ choose the size of the delimiters automatically by using the `\left` and `\right` paired commands, for example: `\left(\frac{1}{2}\right)`, instead of `(\frac{1}{2})`. These must always be used in pairs and they do not work across line breaks. If your parenthetical block spans multiple lines, you must include an invisible `\right.` or `\left.` counterpart before the line break. Sometimes the automatic sizing is not ideal, in which case you can fine-tune with manual sizes: `\bigl`, `\Bigl`, `\biggl`, `\Biggl` (and the r counterparts). As these are static sizes, you do not need to take special care with multi-line equations.The `mathdefs` package has a set of commands for delimiters that automatically take care of these issues and you can use instead of standard delimiters.
 
 13. **units**: You should learn how to use the `siunitx` package to typeset units correctly. You can read the [SIUnitx user manual](http://mirrors.ctan.org/macros/$\LaTeX$/contrib/siunitx/siunitx.pdf) to get started. In particular, units should be typeset in upright font, and with a space between them and the number they are quantifying. Using the command `\qty` from `siunitx` takes care of this and many other unit formatting issues (for example, correct typsetting of micro-modifiers).
+
+14. **definitions**: You should define any variables, functions, or other custom notation the first time you use them in your document. A definition should use both notation to precisely indicate the type of the object you are defining, and words to describe what it is in English. For example, if you are defining a three-dimensional point, you could say: "The point $\boldsymbol{c} \in \mathrm{R}^3$ is the location of..." If you are defining a set, you could say: "The set $\Omega \subset \mathrm{R}^3 is the domain..." And if you are defining a function, you could say: "The function $f: \mathrm{R}^3 \to \mathrm{R}_{\ge 0}$ is the map..." Note that all three definitions use the notation `$\in$`, `$\subset$`, or `$: \cdot \to \cdot$`, as appropriate, to indicate the exact type of the object they describe.
 
 ### Citations and references
 
@@ -325,7 +329,6 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
     Additionally, the acknowledgments must include all sources of funding. This is *incredibly* important for reporting. You should ask all of your co-authors for potential funding acknowledgments to include before submitting the final version of a paper.
 
 10. **paragraph titles**: The `acmart`, `cvpr`, and `iccv` templates include the command `\paragraph` for paragraph titles. You should use this command instead of defining your own (for example, using custom `\boldstart` commands). If you absolutely need to change the formatting of paragraph headers (for example, to reduce vertical space for shortening), you should do so by redefining the `\paragraph` commands. This makes it easier to switch back and forth between formatting choices.
-
 
 11. **spaces**: $\LaTeX$ has several rules to automatically adjust the size of spaces in different contexts. For example, it creates a longer space after a period "." unless it follows a capital letter. If you have a period mid-sentence (like in "et al.") you need to instruct $\LaTeX$ to use a regular space: `et al.\ `. If an uppercase letter ends a sentence, you need to use a `\@` before the period.
 
