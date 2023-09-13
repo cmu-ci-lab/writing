@@ -389,6 +389,7 @@ If you were to read just one book on writing, I would recommend [On Writing Well
 
 For further reading, you should take a look at many other useful resources online discussing similar topics:
 -   <https://cs.dartmouth.edu/wjarosz/writing.html>
+-   <https://research.siggraph.org/blog/guides/writing-your-first-acm-siggraph-tog-paper/>
 -   <http://www.ece.ucdavis.edu/~jowens/commonerrors.html>
 -   <http://www.ece.ucdavis.edu/~jowens/biberrors.html>
 -   <http://people.csail.mit.edu/fredo/PUBLI/writing.pdf>
