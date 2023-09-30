@@ -19,10 +19,10 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 
 **Table of Contents:**
 + [Technical suggestions](#technical-suggestions)
-    + [Common English](#common-english)
-    + [Math typesetting](#math-typesetting)
-    + [Citations and references](#citations-and-references)
-    + [Other best practices](#other-best-practices)
+	+ [Common English](#common-english)
+	+ [Math typesetting](#math-typesetting)
+	+ [Citations and references](#citations-and-references)
+	+ [Other best practices](#other-best-practices)
 + [Resources](#resources)
 + [Reading](#reading)
 
@@ -114,7 +114,7 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
     
     Personally, I find it a fun creative exercise to try to reduce use of passive voice as much as possible, and it always results in much more readable text.
 
-13. **do not instruct the reader**: Instead of writing "See Section 3", you should write "We refer to Section 3".
+13. **do not instruct the reader**: Instead of writing "See Section 3," you should write "We refer to Section 3." Instead of writing "Note that this is a tight bound," you should write "We note that this is a tight bound," or better yet "This is a tight bound" (you can almost always skip the words "(we) note that").
 
 14. **use consistent nouns**: When you refer to some term several times throughout a sentence or paragraph, you should use consistent nouns. Consider this text:
     > We compare with two baselines, ray tracing and rasterization. Compared to these techniques, our algorithm shows tenfold performance improvement. Our method is also easier to implement.
@@ -177,7 +177,7 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 
     5. **other cases**: You should use `\mathrm` for notation for dimensionless numbers (for example, the Reynolds number `\mathrm{Re}`) and infinitesimals (`\mathrm{d} x`).
 
-7. **bold font in equations**: Unfortunately, there is no perfect solution for typesetting bold font in equations (for example, to denote vectors). The `\boldsymbol` command typically creates bold characters by rendering multiple vertically offset copies of their unbolded counterparts. The `\mathbf` command renders proper bold characters, but removes italics, which can break notation semantics (for example, that variables should be in italics). The `\bm` command from the `bm` package tries to fetch any allocated bold fonts and, if none exist, default to the same behavior as `\boldsymbol`. My preference is to use `\bm`, but is imperfect. If you load the `bm` package, you should load it after any other package that loads fonts for it to work properly—and if you do that, note that it will override the command `\boldsymbol` to automatically use `\bm`.
+7. **bold font in equations**: Unfortunately, there is no perfect solution for typesetting bold font in equations (for example, to denote vectors). The `\boldsymbol` command typically creates bold characters by rendering multiple vertically offset copies of their unbolded counterparts. The `\mathbf` command renders proper bold characters, but removes italics, which can break notation semantics (for example, that variables should be in italics). The `\bm` command from the [bm]{https://ctan.org/pkg/bm} package tries to fetch any allocated bold fonts and, if none exist, default to the same behavior as `\boldsymbol`. My preference is to use `\bm`, but is imperfect. If you load the `bm` package, you should load it after any other package that loads fonts for it to work properly—and if you do that, note that it will override the command `\boldsymbol` to automatically use `\bm`.
 
 8. **negative numbers**: Text mode interprets the "`-`" as a hyphen, which does not look right when typesetting negative numbers. You should typeset negative numbers using math mode, for example: `$-1$`, instead of `-1`.
 
@@ -189,7 +189,7 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 
 12. **angle brackets**: You should use `\langle` and `\rangle`, instead of the comparison operators `<` and `>`, when you want angle brackets.
 
-13. **big delimiters**: You should use properly sized delimiter pairs. Delimiters include parentheses, vertical bars, and square, curly, and angled brackets. You can have $\LaTeX$ choose the size of the delimiters automatically by using the `\left` and `\right` paired commands, for example: `\left(\frac{1}{2}\right)`, instead of `(\frac{1}{2})`. These must always be used in pairs and they do not work across line breaks. If your parenthetical block spans multiple lines, you must include an invisible `\right.` or `\left.` counterpart before the line break. Sometimes the automatic sizing is not ideal, in which case you can fine-tune with manual sizes: `\bigl`, `\Bigl`, `\biggl`, `\Biggl` (and the r counterparts). As these are static sizes, you do not need to take special care with multi-line equations.The `mathdefs` package has a set of commands for delimiters that automatically take care of these issues and you can use instead of standard delimiters.
+13. **big delimiters**: You should use properly sized delimiter pairs. Delimiters include parentheses, vertical bars, and square, curly, and angled brackets. You can have $\LaTeX$ choose the size of the delimiters automatically by using the `\left` and `\right` paired commands, for example: `\left(\frac{1}{2}\right)`, instead of `(\frac{1}{2})`. These must always be used in pairs and they do not work across line breaks. If your parenthetical block spans multiple lines, you must include an invisible `\right.` or `\left.` counterpart before the line break. Sometimes the automatic sizing is not ideal, in which case you can fine-tune with manual sizes: `\bigl`, `\Bigl`, `\biggl`, `\Biggl` (and the r counterparts). As these are static sizes, you do not need to take special care with multi-line equations.The [mathdefs](#resources) package has a set of commands for delimiters that automatically take care of these issues and you can use instead of standard delimiters.
 
 14. **units**: You should learn how to use the `siunitx` package to typeset units correctly. You can read the [SIUnitx user manual](http://mirrors.ctan.org/macros/$\LaTeX$/contrib/siunitx/siunitx.pdf) to get started. In particular, units should be typeset in upright font, and with a space between them and the number they are quantifying. Using the command `\qty` from `siunitx` takes care of this and many other unit formatting issues (for example, correct typsetting of micro-modifiers).
 
@@ -275,10 +275,11 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 
 ### Other best practices
 
-1. **PDF metadata**: You should use the `hyperref` package to set PDF metadata such as title, authors, topic, and keywords *for camera-ready PDFs*. (Never do this for PDFs under review, to avoid violating anonymity rules.) The latest version of the `acmart` template does that automatically. For the `cvpr` and `iccv` templates, you can set this metadata as follows:
+1. **PDF metadata**: You should use the [hyperref]{https://ctan.org/pkg/hyperref} to set PDF metadata such as title, authors, topic, and keywords *for camera-ready PDFs*. (Never do this for PDFs under review, to avoid violating anonymity rules.) The latest version of the `acmart` template does that automatically. For the `cvpr` and `iccv` templates, you can set this metadata as follows:
     ~~~
     \usepackage[pdfauthor={Ioannis Gkioulekas},pdftitle={Some title},pdfkeywords={Some keywords},pdfdisplaydoctitle]{hyperref}
     ~~~
+    You should make sure to include any other options you need for `hyperref` (for example, clickable hyperlinked references) along with the above ones.
 
 2. **do not commit PDF and generated files in git**: There are many files that are generated during building either $\LaTeX$ or code. Do not commit these files to the repository as it will cause conflicts for your collaborators. This includes the generated PDF or executable! Other common generated files in $\LaTeX$ include: `.aux, .bbl, .blg, .fdb_$\LaTeX$mk, .fls, .log, .out, .synctex.gz` files. See below about using a `.gitignore` file.
 
@@ -296,18 +297,18 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 
 4. **caption placement**: The caption for a figure should appear below; for a table, above. Just place the `\caption` command above or below the content.
 
-5. **cross-references**: You will often need to reference different parts of a paper within the paper itself, such as sections, figures, tables, algorithms, and so on.
-    1. **labeling scheme**: You should choose a scheme for the labels of various types of references and stick to it consistently. I suggest using a 3-letter prefix: `sec:section-name`, `fig:figure-name`, `eqn:equation-name`, `tab:table-name`, `alg:algorithm-name`, and so on.
+5. **cross-references**: You will often need to reference different parts of a paper within the paper itself, such as sections, figures, tables, algorithms, list items, and so on.
+    1. **labeling scheme**: You should choose a scheme for the labels of various types of references and stick to it consistently. I suggest using a 3-letter prefix: `sec:section-name`, `fig:figure-name`, `eqn:equation-name`, `tab:table-name`, `alg:algorithm-name`, `enu:item-name`, `the:theorem-name`, and so on.
 
-    2. **consistent style**: You should consistently for all references either abbreviate them (for example, "Fig. 10", "Eq. (2)", "Sec. 3.2", "Alg. 3", "Tab. 4," and so on) or write them out in full (correspondingly "Figure 10", "Equation (2)", "Section 3.2", "Algorithm 3", "Table 4," and so on). Sometimes the paper template dictates the choice, for example: if it automatically uses the short form "Fig. 10" at the start of captions, I recommend using abbreviated references everywhere for consistency. You can define macros for different types of references to easily and without errors switch from one style to another.
+    2. **consistent style**: You should consistently for all references either abbreviate them (for example, "Fig. 10", "Eq. (2)", "Sec. 3.2", "Alg. 3", "Tab. 4," and so on) or write them out in full (correspondingly "Figure 10", "Equation (2)", "Section 3.2", "Algorithm 3", "Table 4," and so on). Sometimes the paper template dictates the choice, for example: if it automatically uses the short form "Fig. 10" at the start of captions, the consistent choice would be to use abbreviated references everywhere. One exception to the consistency rule is at the beginning of sentences, where many journals advise using full references, even if you use abbreviated references everywhere else. My preference is to write all references out in full whenever I can. 
     
-    3. **capitalization**: You should capitalize all references. But you should *not* capitalize the words "section", "equation", "algorithm", and so on when you use them outside of references.
+    3. **capitalization**: You should capitalize all references. But you should *not* capitalize the words "section", "equation", "algorithm", and so on when you use them outside of references. For example, you should capitalize when you say "We prove this in Section 3," but not when you say "We prove this in the next section."
 
     4. **subsections**: You do not need to indicate "Subsection 3.2" and similar in references, just use "Section 3.2".
     
     5. **eqref**: You should use `\eqref` to reference equations, and `\ref` for everything else. Using `\eqref` ensures that your references match the labeling style `amsmath` uses when it numbers equations.
 
-    6. **intelligent cross-referencing**: With the [cleveref](https://ctan.org/pkg/cleveref?lang=en) package you can use a single `\cref{label}` command for any type of cross-reference, and it will automatically produce "Equation (3)" or "Section 4.1" depending on whether `label` refers to an equation, or section, and so on.
+    6. **intelligent cross-referencing**: With the [cleveref](https://ctan.org/pkg/cleveref?lang=en) package you can use a single `\cref{label}` command (or `\Cref{label}` at the beginning of sentences) for any type of cross-reference, and it will automatically produce "Equation (3)" or "Section 4.1" depending on whether `label` refers to an equation, or section, and so on. Lastly, you can specify in a single place whether to use abbreviated or full references, and have the change consistently applied to your entire document.
 
 6. **inline lists**: If you want to create an inline list, you should use enable the `inline` option of the [enumitem](https://ctan.org/pkg/enumitem?lang=en) package. You can then create a list using the `enumerate*` environment. For example, 
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ tex linenumbers
@@ -373,13 +374,13 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 This repository includes a few files that should be useful for all papers you write within the CIRL group, and potentially more broadly.
 
 1. **`mathdefs` package**: This package provides resources for typesetting math in $\LaTeX$. You should be able to do everything you read above regarding typesetting math by including just this package. There are two types of contents:
-    1. **packages**: `mathdefs` includes the most commonly used math packages (a complete and consistent subset of the AMS math packages), along with packages that provide useful utilities such as unit typesetting (`siunitx`), fractions (`nicefrac` and `xfrac`), and others.
-    2. **macros**: `mathdefs` provides macros for delimiters, common functions (examples: absolute value, correlation), common sets (examples: real numbers, sphere), common distributions (examples: Gaussian, Poisson) and others.
+	1. **packages**: `mathdefs` includes the most commonly used math packages (a complete and consistent subset of the AMS math packages), along with packages that provide useful utilities such as unit typesetting (`siunitx`), fractions (`nicefrac` and `xfrac`), and others.
+	2. **macros**: `mathdefs` provides macros for delimiters, common functions (examples: absolute value, correlation), common sets (examples: real numbers, sphere), common distributions (examples: Gaussian, Poisson) and others.
 
 2. **`cirl` package**: This package provides all of the packages you read about above, as well as several other useful ones. It is designed so that you should not need to include *any* other package when writing papers in the `acmart`, `cvpr`, and `iccv` templates. You can read the comments in the package file for a full list of included packages and their intended use. Some notable examples include:
-    1. **`booktabs`**: The [booktabs](http://www.ctan.org/pkg/booktabs) package allows you to create publication-quality tables. As a general rule of thumb, if you have vertical lines in your table, you are likely doing something wrong.
-    2. **`microtype`**: The [microtype](http://ctan.org/pkg/microtype) package incorporates several micro adjustments to make the typography easier to read and more beautiful. As an added bonus, it also tends to shorten the paper slightly due to differences in line wrapping.
-    3. **`xspace`**: The [xspace](http://www.ctan.org/pkg/xspace) package allows you to define macros that interact properly with surrounding spaces and punctuation.
+	1. **`booktabs`**: The [booktabs](http://www.ctan.org/pkg/booktabs) package allows you to create publication-quality tables. As a general rule of thumb, if you have vertical lines in your table, you are likely doing something wrong.
+	2. **`microtype`**: The [microtype](http://ctan.org/pkg/microtype) package incorporates several micro adjustments to make the typography easier to read and more beautiful. As an added bonus, it also tends to shorten the paper slightly due to differences in line wrapping.
+	3. **`xspace`**: The [xspace](http://www.ctan.org/pkg/xspace) package allows you to define macros that interact properly with surrounding spaces and punctuation.
 
 3. **`Makefile`**: You can use this file with `make` to build a document from the command line (assuming you have TeX installed), as well as to clean files $\LaTeX$ produces during compilation. You need to edit the first line to update the target file for your project.
 
