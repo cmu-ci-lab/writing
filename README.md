@@ -177,7 +177,7 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 
 	5. **other cases**: You should use `\mathrm` for notation for dimensionless numbers (for example, the Reynolds number `\mathrm{Re}`) and infinitesimals (`\mathrm{d} x`).
 
-7. **bold font in equations**: Unfortunately, there is no perfect solution for typesetting bold font in equations (for example, to denote vectors). The `\boldsymbol` command typically creates bold characters by rendering multiple vertically offset copies of their unbolded counterparts. The `\mathbf` command renders proper bold characters, but removes italics, which can break notation semantics (for example, that variables should be in italics). The `\bm` command from the [bm]{https://ctan.org/pkg/bm} package tries to fetch any allocated bold fonts and, if none exist, default to the same behavior as `\boldsymbol`. My preference is to use `\bm`, but is imperfect. If you load the `bm` package, you should load it after any other package that loads fonts for it to work properly—and if you do that, note that it will override the command `\boldsymbol` to automatically use `\bm`.
+7. **bold font in equations**: Unfortunately, there is no perfect solution for typesetting bold font in equations (for example, to denote vectors). The `\boldsymbol` command typically creates bold characters by rendering multiple vertically offset copies of their unbolded counterparts. The `\mathbf` command renders proper bold characters, but removes italics, which can break notation semantics (for example, that variables should be in italics). The `\bm` command from the [bm](https://ctan.org/pkg/bm) package tries to fetch any allocated bold fonts and, if none exist, default to the same behavior as `\boldsymbol`. My preference is to use `\bm`, but is imperfect. If you load the `bm` package, you should load it after any other package that loads fonts for it to work properly—and if you do that, note that it will override the command `\boldsymbol` to automatically use `\bm`.
 
 8. **negative numbers**: Text mode interprets the "`-`" as a hyphen, which does not look right when typesetting negative numbers. You should typeset negative numbers using math mode, for example: `$-1$`, instead of `-1`.
 
@@ -275,7 +275,7 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 
 ### Other best practices
 
-1. **PDF metadata**: You should use the [hyperref]{https://ctan.org/pkg/hyperref} to set PDF metadata such as title, authors, topic, and keywords *for camera-ready PDFs*. (Never do this for PDFs under review, to avoid violating anonymity rules.) The latest version of the `acmart` template does that automatically. For the `cvpr` and `iccv` templates, you can set this metadata as follows:
+1. **PDF metadata**: You should use the [hyperref](https://ctan.org/pkg/hyperref) to set PDF metadata such as title, authors, topic, and keywords *for camera-ready PDFs*. (Never do this for PDFs under review, to avoid violating anonymity rules.) The latest version of the `acmart` template does that automatically. For the `cvpr` and `iccv` templates, you can set this metadata as follows:
 	~~~
 	\usepackage[pdfauthor={Ioannis Gkioulekas},pdftitle={Some title},pdfkeywords={Some keywords},pdfdisplaydoctitle]{hyperref}
 	~~~
