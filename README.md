@@ -21,6 +21,7 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 + [Technical suggestions](#technical-suggestions)
 	+ [Common English](#common-english)
 	+ [Math typesetting](#math-typesetting)
+	+ [Figures](#figures)
 	+ [Citations and references](#citations-and-references)
 	+ [Other best practices](#other-best-practices)
 + [Resources](#resources)
@@ -195,6 +196,36 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 
 15. **definitions**: You should define any variables, functions, or other custom notation the first time you use them in your document. A definition should use both notation to precisely indicate the type of the object you are defining, and words to describe what it is in English. For example, if you are defining a three-dimensional point, you could say: "The point $\boldsymbol{x} \in \mathbb{R}^3$ is the location of..." If you are defining a set, you could say: "The set $\Omega \subset \mathbb{R}^3$ is the domain..." And if you are defining a function, you could say: "The function $f: \mathbb{R}^3 \to \mathbb{R}_{\ge 0}$ is the map..." Note that all three definitions use the notation $\in$ (produced with `\in`), $\subset$ (produced with `\subset`), or $: \cdot \to \cdot$ (produced with `: \cdot \to \cdot`), as appropriate, to indicate the exact type of the object they describe.
 
+### Figures
+
+1. **fonts**: You should avoid figures with rasterized text, which will inevitably look aliased and may even be impossible to read. Instead, you should use vector figures where all text is typeset using appropriate fonts. You can create such figures using either `TikZ` (for example, with the [pgf](https://www.ctan.org/pkg/pgf) package), or using software such as Inkscape, Microsoft PowerPoint, or Adobe Illustrator.
+	1. **font type and size**: The type and size of the font in your figures should match those in the captions of your document. In the `acmart` template, captions use the Linux Biolinum T font at 8pt size. In the `cvpr` and `iccv` templates, captions use the Nimbus Roman No9 L font (which is nearly identical to the Times New Roman font) at 9pt size. In other templates, you can use the command `\expandafter\string\the\font` to find the font type an size.
+
+	2. **figure and font sizing**: If you load figures with a `[width=...]` option, it will be impossible to exactly match the caption font size. Instead, in the software you use to create figures, you should set the canvas width to match the maximum width of single-column (`\linewidth`) and double-column (`\textwidth`) figures in your document, then set the figure's font size to match the caption font size as above. In the `acmart` template, `\linewidth` is 243.14749pt and `\textwidth` is 510.295pt. In the `cvpr` and `iccv` templates, `\linewidth` is 237.13594pt and `\textwidth` is 496.85625pt. In other templates, you can use the commands `\the\textwidth` and `\the\linewidth` to find these numbers.
+
+2. **placement**: With the exception of wrap figures (see below), you should place figures at either the top or the bottom of a page. I would suggest not having figures at both the top and the bottom of the same column, sandwiching some text between them. Additionally, you should avoid pages that have predominantly figures and only a small amount of text. In both cases, a reader may completely miss the text. If there is very little room for text, it is better to create a page with exclusively figures.
+
+	Additionally, you should generally try to place figures in the same page, or at the very least near, the part of the main text that describes them. It can be difficult to predict where exactly a figure will end up while you are still writing your document. Once you finish writing, I recommend spending some time moving figures around to optimize their placement relative to the text that describes them.
+
+3. **captions**: Every figure that is not a wrap figure (see below) should have a caption, which you can insert with the command `\caption`. I would suggest making each figure together with its caption as self-contained as possible. This is because a lot of readers, as they skim through a paper, may read only its figures without referencing the main text.
+
+4. **descriptions**: Every figure (including wrap figures) should have a description, which you can insert with the command `\description`. The description is different from the caption, and it is the information screen readers will use to describe the figure to readers that cannot view the image.
+
+5. **wrap figures**: As the name suggests, these are figures that allow text to wrap around them, instead of being distinct floating elements. You can create them with the command `\wrapfig`. You should use wrap figures for small and simple visualizations that help explain the text immediately adjacent to them. Captions are optional for wrap figures.
+
+	It can be difficult to predict the exact placement of wrap figures relative to the text that wraps around them. I recommend placing each wrap figure in its own command as in this example:
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ tex linenumbers
+	\newcommand{\WrapFigureExample}{%
+		\setlength{\columnsep}{1em}
+		\setlength{\intextsep}{0em}
+		\begin{wrapfigure}[numberoflines]{(r)ight/(l)eft}{wrapwidth}
+			\centering
+			\includegraphics{YourWrapFigure.pdf}
+		\end{wrapfigure}
+	}
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	You can place this definition near where you plan to use the wrap figure, and you will need to enter your preferred values for the fields `numberoflines`, `r` or `l`, and `wrapwidth`. Then you can easily move the entire figure around the text by using the command `\WrapFigureExample{}`.
+
 ### Citations and references
 
 1. **citations as nouns**: You should not use parenthetical citations as nouns. For example, you should not write: "As explained by [Gkioulekas et al. 2023]"; instead write: "As explained in prior work [Gkioulekas et al. 2023]," or "As explained by Gkioulekas et al. [2023]", or even better "As Gkioulekas et al. [2023] explain"  (see `\citet` below and active voice above). As a general rule of thumb, **if you remove all parenthetical citations from the paper, you should still have complete, grammatically correct sentences**. This looks particularly obnoxious and obvious when you have numerical or superscript citations such as "As explained by [1]" or "As explained by<sup>1</sup>"—you should not write either of these.
@@ -211,7 +242,7 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 		~~~
 		This has the additional advantage of automatically pulling data from your bibliography file, and automatically figuring out whether to use "et al." for more than two authors.
 
-		The `natbib` package is automatically included in recent versions of the `acmart` template. Unfortunately, the `cvpr` and `iccv` templates are incompatible with `natbib`. But you can fix this using the following syntax in your paper
+		The `natbib` package is automatically included in recent versions of the `acmart` template. Unfortunately, the `cvpr` and `iccv` templates are incompatible with `natbib`. But you can fix this using the following syntax in your document:
 		~~~
 		\setlength{\bibsep}{0pt}
 		\bibliographystyle{plainnat}
@@ -275,13 +306,13 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 
 ### Other best practices
 
-1. **PDF metadata**: You should use the [hyperref](https://ctan.org/pkg/hyperref) to set PDF metadata such as title, authors, topic, and keywords *for camera-ready PDFs*. (Never do this for PDFs under review, to avoid violating anonymity rules.) The latest version of the `acmart` template does that automatically. For the `cvpr` and `iccv` templates, you can set this metadata as follows:
+1. **PDF metadata**: You should use the [hyperref](https://ctan.org/pkg/hyperref) to set PDF metadata such as title, authors, topic, and keywords *for camera-ready PDF files*. (Never do this for PDF files under review, to avoid violating anonymity rules.) The latest version of the `acmart` template does that automatically. For the `cvpr` and `iccv` templates, you can set this metadata as follows:
 	~~~
 	\usepackage[pdfauthor={Ioannis Gkioulekas},pdftitle={Some title},pdfkeywords={Some keywords},pdfdisplaydoctitle]{hyperref}
 	~~~
 	These are just the options to produce PDF metadata, you should include them alongside any other options you need for `hyperref` (for example, clickable hyperlinked references).
 
-2. **do not commit PDF and generated files in git**: There are many files that are generated during building either $\LaTeX$ or code. Do not commit these files to the repository as it will cause conflicts for your collaborators. This includes the generated PDF or executable! Other common generated files in $\LaTeX$ include: `.aux, .bbl, .blg, .fdb_$\LaTeX$mk, .fls, .log, .out, .synctex.gz` files. See below about using a `.gitignore` file.
+2. **do not commit PDF and generated files in git**: There are many files that are generated during building either $\LaTeX$ or code. Do not commit these files to the repository as it will cause conflicts for your collaborators. This includes the generated PDF file! Other common generated files in $\LaTeX$ include: `.aux, .bbl, .blg, .fdb_$\LaTeX$mk, .fls, .log, .out, .synctex.gz` files. See below about using a `.gitignore` file.
 
 3. **project file structure**: You should have a separate `git` repository for each paper. Within the repository, I recommend structuring your files as follows.
 
@@ -291,9 +322,9 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 
 	3. **figures subfolder**: Do not pollute your root repository directory with all your graphics and figures. Instead, include them in a separate `figures` or similar subfolder.
 
-	4. **Makefile**: You should include a Makefile that someone can use to build the paper outside of an editor. This repository includes a Makefile template.
+	4. **Makefile**: You should include a Makefile that someone can use to build the paper outside of an editor. This repository includes a [Makefile](#resources) template.
 
-	5. **.gitignore**: You should include a `.gitignore` file so that `git` automatically excludes files that do not need to be checked into the repository, such as files generated by $\LaTeX$. This repository includes a `.gitignore` template.
+	5. **.gitignore**: You should include a `.gitignore` file so that `git` automatically excludes files that do not need to be checked into the repository, such as files generated by $\LaTeX$. This repository includes a [.gitignore`](#resources) template.
 
 4. **caption placement**: The caption for a figure should appear below; for a table, above. Just place the `\caption` command above or below the content.
 
@@ -368,6 +399,8 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 18. **line numbering**: Many venues provide line numbers in the review version of their $\LaTeX$ style. You should not forget to enable this. It is immensely frustrating as a reviewer to not be able to refer to specific locations of the paper by line number. Forgetting to enable line numbering may also result in desk rejection.
 
 19. **update your template files**: The `acmart`, `cvpr`, `iccv`, and associated bibliography template files keep changing. Make sure to regularly download and use the latest versions of the template files.
+
+20. **compress your PDF file**: Before submitting your final document, you should reduce the size of your PDF file using lossless compression. This is especially important for papers that contain a lot of figures, which can easily exceed hundreds of MB in size: files that large are impractical to download, and may be disallowed on many paper submission systems. There are many ways to compress a PDF file, two common ones are to use ghostscript (`gs`) on the command line, or the "compression" option on Adobe Acrobat. 
 
 ## Resources
 
