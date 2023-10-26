@@ -242,12 +242,6 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 		~~~
 		This has the additional advantage of automatically pulling data from your bibliography file, and automatically figuring out whether to use "et al." for more than two authors.
 
-		The `natbib` package is automatically included in recent versions of the `acmart` template. Unfortunately, the `cvpr` and `iccv` templates are incompatible with `natbib`. But you can fix this using the following syntax in your document:
-		~~~
-		\setlength{\bibsep}{0pt}
-		\bibliographystyle{plainnat}
-		~~~
-
 	3. **multiple citations**: You should place a sequence of multiple citations into one `\cite{key1,key2}` command with cite-keys separated by commas, instead of separately as `\cite{key1}\cite{key2}`.
 
 3. **bibliography**: Below are a few items to be careful about when creating your bibliography file.
@@ -410,7 +404,7 @@ This repository includes a few files that should be useful for all papers you wr
 	1. **packages**: `mathdefs` includes the most commonly used math packages (a complete and consistent subset of the AMS math packages), along with packages that provide useful utilities such as unit typesetting (`siunitx`), fractions (`nicefrac` and `xfrac`), and others.
 	2. **macros**: `mathdefs` provides macros for delimiters, common functions (examples: absolute value, correlation), common sets (examples: real numbers, sphere), common distributions (examples: Gaussian, Poisson) and others.
 
-2. **`cirl` package**: This package provides all of the packages you read about above, as well as several other useful ones. It is designed so that you should not need to include *any* other package when writing papers in the `acmart`, `cvpr`, and `iccv` templates. You can read the comments in the package file for a full list of included packages and their intended use. Some notable examples include:
+2. **`cirl` package**: This package provides all of the packages you read about above, as well as several other useful ones. It is designed so that you should not need to include *any* other package when writing papers in the `acmart`, `cvpr`, and `iccv` templates. The package requires an option `[cvpr]` or `[iccv]` for compatibility with the latest versions of those templates. You can read the comments in the package file for a full list of included packages and their intended use. Some notable examples include:
 	1. **`booktabs`**: The [booktabs](http://www.ctan.org/pkg/booktabs) package allows you to create publication-quality tables. As a general rule of thumb, if you have vertical lines in your table, you are likely doing something wrong.
 	2. **`microtype`**: The [microtype](http://ctan.org/pkg/microtype) package incorporates several micro adjustments to make the typography easier to read and more beautiful. As an added bonus, it also tends to shorten the paper slightly due to differences in line wrapping.
 	3. **`xspace`**: The [xspace](http://www.ctan.org/pkg/xspace) package allows you to define macros that interact properly with surrounding spaces and punctuation.
