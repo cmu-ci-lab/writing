@@ -1,15 +1,15 @@
 # Writing suggestions and resources for CIRL
 
-This repository serves two purposes:
+This repository serves two goals:
 * to provide technical writing suggestions,
 * to provide shared writing resources.
 
-The focus is primarily on writing papers in computer graphics, computer vision, and computational photography. This includes writing papers for the following venues:
+The focus is on writing papers in computer graphics, computer vision, and computational photography. This includes writing papers for the following venues:
 * ACM TOG, SIGGRAPH, and SIGGRAPH Asia (computer graphics),
 * IEEE/CVF CVPR, ICCV, and ECCV (computer vision),
 * IEEE ICCP, Optica (computational photography).
 
-Most of the technical information and resources are about writing papers in $\LaTeX$, with a focus towards the following templates:
+Most of the technical suggestions and resources are about writing papers in $\LaTeX$, with a focus towards the following templates:
 * `acmart` (used by ACM TOG, SIGGRAPH, and SIGGRAPH Asia),
 * `cvpr` (used by CVPR),
 * `iccv` (used by ICCV, very similar but not identical to `cvpr`).
