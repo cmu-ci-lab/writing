@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{mathdefs}[2023/09/30 igkiou's math definitions]
+\ProvidesPackage{mathdefs}[2025/12/13 igkiou's math definitions]
 
 % packages
 \RequirePackage{mathtools}
@@ -13,12 +13,20 @@
 \RequirePackage{textcomp}
 \RequirePackage{gensymb}
 \RequirePackage{nicefrac}
+\RequirePackage{nicematrix}
 \RequirePackage{xfrac}
 \RequirePackage{steinmetz}
 \RequirePackage{cancel}
 \RequirePackage{siunitx}
+\RequirePackage{stackengine}
+\RequirePackage{aligned-overset}
 \RequirePackage{array}
 \RequirePackage{bm}		% should be loaded last to update other fonts for bold symbols
+
+% SIunitx options
+\sisetup{range-phrase=\text{--}}
+\sisetup{range-units=single}
+\DeclareSIUnit{\nothing}{\relax}
 
 % named operators
 \DeclareMathOperator{\Corr}{Corr}
@@ -119,16 +127,18 @@
 \newcommand{\Exp}[2]{\mathbb{E}_{#1}\bracket{#2}}
 % \newcommand{\Kron}{\raisebox{1pt}{\ensuremath{\:\otimes\:}}}
 \newcommand{\conditional}[2]{#1\, \middle|\, #2}
+\newcommand{\conditionals}[2]{#1\, |\, #2}
 
 % standard symbols
 \newcommand{\ud}{\,\mathrm{d}}
+\newcommand{\dd}{\mathrm{d}}
 
 % domains and sets
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\I}{\mathbb{Z}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Q}{\mathbb{Q}}
-%\newcommand{\C}{\mathbb{C}}
+\newcommand{\Complex}{\mathbb{C}}
 \newcommand{\Sph}{\mathcal{S}}
 \newcommand{\Hemi}{\mathcal{H}}
 \newcommand{\hypspace}{\mathcal{H}}

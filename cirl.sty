@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{cirl}[2023/10/26 CIRL standard preamble]
+\ProvidesPackage{cirl}[2025/12/13 CIRL standard preamble]
 
 \PassOptionsToPackage{shortlabels,inline}{enumitem}
 \PassOptionsToPackage{noabbrev}{cleveref}
@@ -17,12 +17,14 @@
 % packages
 % \RequirePackage{fullpage}
 \@ifpackageloaded{graphicx}{}{\RequirePackage{graphicx}}	% control `includegraphics', already included in acmart, not in cvpr
+\@ifpackageloaded{float}{}{\RequirePackage{float}}	% provide float placement modifiers, already included in acmart, not in cvpr
 \RequirePackage[export]{adjustbox}	% control `includegraphics' and other boxes
 \@ifpackageloaded{xcolor}{}{\RequirePackage{xcolor}}	% provide color tools, supersedes `color', already included in acmart, not in cvpr
 \RequirePackage[many]{tcolorbox}	% create colored boxes
 \RequirePackage{colortbl}	% color table cells, rows, and columns
 \@ifpackageloaded{microtype}{}{\RequirePackage{microtype}}	% improve kerning and spacing, already included in acmart, not in cvpr
 \@ifpackageloaded{xspace}{}{\RequirePackage{xspace}}	% add eaten spaces when defining macros, already included in cvpr, not in acmart
+\RequirePackage{makecell}	% create multi-line cells in tables
 \RequirePackage{pifont}	% use symbols such as checkmarks and xmarks
 \RequirePackage[normalem]{ulem}	% provide underlinging, the `normalem' option is to disable overriding of `emph'
 \@ifpackageloaded{caption}{\captionsetup[figure]{name={Figure}}}{\RequirePackage[format=plain,labelformat=simple,labelsep=period,font=small]{caption}}	% format captions, already included in both acmart and cvpr, in the former case override abbreviated labels for figures
@@ -41,8 +43,10 @@
 	\@ifpackageloaded{cleveref}{}{\RequirePackage[capitalise,noabbrev]{cleveref}}	% provide clever references, already included in cvpr, not in acmart, configured at end of preamble as it needs to be loaded after hyperref, override CVPR options
 	\crefname{section}{Section}{Sections}
 	\Crefname{section}{Section}{Sections}
-	\Crefname{table}{Table}{Tables}
 	\crefname{table}{Table}{Tables}
+	\Crefname{table}{Table}{Tables}
+	\crefname{algorithm}{Algorithm}{Algorithms}
+	\Crefname{algorithm}{Algorithm}{Algorithms}
 	\newcommand{\crefrangeconjunction}{--}	% change crefrange conjunction style from "to" to en-dash
 }
 
