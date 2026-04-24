@@ -8,6 +8,7 @@
 \RequirePackage{bbm}
 \RequirePackage{amsmath}
 \let\Bbbk\relax
+\allowdisplaybreaks
 \RequirePackage{amssymb}
 \RequirePackage{amsthm}
 \RequirePackage{textcomp}
@@ -68,6 +69,7 @@
 \DeclareMathOperator{\mean}{mean}
 \DeclareMathOperator{\median}{median}
 \DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\erfc}{erfc}
 
 % distributions
 \DeclareMathOperator{\Prob}{Pr}
@@ -95,25 +97,36 @@
 % \newcommand{\evalat}[2]{\left. #1 \right|_{#2}}
 \DeclarePairedDelimiter{\parenstd}{\lparen}{\rparen}
 \newcommand{\paren}[1]{\parenstd*{#1}}
+\newcommand{\sparen}[1]{\parenstd{#1}}
 \DeclarePairedDelimiter{\angledstd}{\langle}{\rangle}
 \newcommand{\angled}[1]{\angledstd*{#1}}
+\newcommand{\sangled}[1]{\angledstd{#1}}
 \DeclarePairedDelimiter{\bracketstd}{\lbrack}{\rbrack}
 \newcommand{\bracket}[1]{\bracketstd*{#1}}
+\newcommand{\sbracket}[1]{\bracketstd{#1}}
 \DeclarePairedDelimiter{\curlystd}{\lbrace}{\rbrace}
 \newcommand{\curly}[1]{\curlystd*{#1}}
+\newcommand{\scurly}[1]{\curlystd{#1}}
 \DeclarePairedDelimiter{\leftincstd}{\lbrack}{\rparen}
 \newcommand{\leftinc}[1]{\leftincstd*{#1}}
+\newcommand{\sleftinc}[1]{\leftincstd{#1}}
 \DeclarePairedDelimiter{\rightincstd}{\lparen}{\rbrack}
 \newcommand{\rightinc}[1]{\rightincstd*{#1}}
+\newcommand{\srightinc}[1]{\rightincstd{#1}}
 \DeclarePairedDelimiter{\ceilstd}{\lceil}{\rceil}
 \newcommand{\ceil}[1]{\ceilstd*{#1}}
+\newcommand{\sceil}[1]{\ceilstd{#1}}
 \DeclarePairedDelimiter{\floorstd}{\lfloor}{\rfloor}
 \newcommand{\floor}[1]{\floorstd*{#1}}
+\newcommand{\sfloor}[1]{\floorstd{#1}}
 \DeclarePairedDelimiter{\vbarstd}{\vert}{\vert}
 \newcommand{\vbar}[1]{\vbarstd*{#1}}
+\newcommand{\svbar}[1]{\vbarstd{#1}}
 \DeclarePairedDelimiter{\dvbarstd}{\Vert}{\Vert}
 \newcommand{\dvbar}[1]{\dvbarstd*{#1}}
+\newcommand{\sdvbar}[1]{\dvbarstd*{#1}}
 \newcommand{\evalat}[2]{\left. #1 \right|_{#2}}
+\newcommand{\sevalat}[2]{#1|_{#2}}
 
 % math functions
 \newcommand{\abs}[1]{\vbar{#1}}
