@@ -1,20 +1,44 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{cirl}[2025/12/13 CIRL standard preamble]
+\ProvidesPackage{cirl}[2026/07/23 v1.0 CIRL standard preamble]
+
+% Usage and load order:
+%   \usepackage{cirl}
+% or:
+%   \usepackage[cvpr]{cirl}   % or [iccv], or [eccv], or [acmart]
+% cvpr, iccv, and eccv are packages, and cirl loads them itself, so do NOT
+% also \usepackage{cvpr} (etc.) separately. acmart is a class, not a package,
+% so [acmart] only records the venue and loads nothing; use
+% \documentclass{acmart}. eccv is a package but expects \documentclass{llncs}.
+% Every venue needs its own \DeclareOption, since \DeclareOption* below only
+% warns, and each option has to know whether its venue is a package to load or
+% a class to record.
+% Load cirl BEFORE any package that would preload one of the guarded packages
+% below with different options, as the guards keep the first load's options.
 
 \PassOptionsToPackage{shortlabels,inline}{enumitem}
-\PassOptionsToPackage{noabbrev}{cleveref}
+\PassOptionsToPackage{capitalise,noabbrev}{cleveref}
 
-\DeclareOption{cvpr}{\newcommand{\venue}{cvpr}}
-\DeclareOption{iccv}{\newcommand{\venue}{iccv}}
+\newif\ifcirl@splncsused	% true if a Springer LNCS bibliography style (splncs04/splncs04nat) is used
+\newcommand{\cirl@venue}{}
+\DeclareOption{acmart}{\renewcommand{\cirl@venue}{acmart}}
+\DeclareOption{cvpr}{\renewcommand{\cirl@venue}{cvpr}}
+\DeclareOption{iccv}{\renewcommand{\cirl@venue}{iccv}}
+% using eccv requires also using splncs04nat.bst for bibliography style
+\DeclareOption{eccv}{\renewcommand{\cirl@venue}{eccv}\cirl@splncsusedtrue}
 \DeclareOption*{\PackageWarning{cirl}{Unknown `\CurrentOption'}}
 \ProcessOptions\relax
 
-\ifx\venue\undefined
+\ifx\cirl@venue\@empty
 \else
-	\RequirePackage{\venue}
+	\newcommand{\cirl@acmart}{acmart}%
+	\ifx\cirl@venue\cirl@acmart	% do nothing, acmart does not load a package
+	\else
+		\RequirePackage{\cirl@venue}
+	\fi
 \fi
 
 % packages
+\RequirePackage{etoolbox}	% provide `AtEndPreamble'
 % \RequirePackage{fullpage}
 \@ifpackageloaded{graphicx}{}{\RequirePackage{graphicx}}	% control `includegraphics', already included in acmart, not in cvpr
 \@ifpackageloaded{float}{}{\RequirePackage{float}}	% provide float placement modifiers, already included in acmart, not in cvpr
@@ -30,19 +54,30 @@
 \@ifpackageloaded{caption}{\captionsetup[figure]{name={Figure}}}{\RequirePackage[format=plain,labelformat=simple,labelsep=period,font=small]{caption}}	% format captions, already included in both acmart and cvpr, in the former case override abbreviated labels for figures
 \@ifpackageloaded{subcaption}{}{\RequirePackage{subcaption}}	% reference subfigures, supersedes `subfig' or `subfigure', already included in cvpr, not in acmart
 \RequirePackage{ellipsis}	% fix ellipsis spacing
+\RequirePackage{nth}	% provide ordinal suffixes
 \RequirePackage{listings}	% list source code in latex document
 \RequirePackage{wrapfig}	% provide wrapfigs
 \@ifpackageloaded{enumitem}{}{\RequirePackage[shortlabels,inline]{enumitem}}	% control list environments, already included in cvpr with different options, not in acmart
 \@ifpackageloaded{tabularx}{}{\RequirePackage{tabularx}}	% improve tables, already included in acmart, not in cvpr
-\RequirePackage{url}	% insert hyperlinks
+\RequirePackage{url}	% typeset hyperlinks
 \RequirePackage{multirow}	% add multi rows and columns to tables
+% \RequirePackage[compact]{titlesec}	% uncomment for shortening, reduce title size and spacing
 \@ifpackageloaded{booktabs}{}{\RequirePackage{booktabs}}	% improve tables, already included in acmart, not in cvpr
 \@ifpackageloaded{natbib}{}{\RequirePackage[numbers,sort,compress]{natbib}}	% provide citet and citep, already included in acmart, not in cvpr
+\ifcirl@splncsused	% restore LNCS bibliography formatting overridden by natbib
+	\AtBeginDocument{%
+		\renewcommand{\bibsection}{\section*{\refname}}%
+		\renewcommand{\@biblabel}[1]{#1.}%
+	}%
+\fi
 
 \AtEndPreamble{
-	\@ifpackageloaded{cleveref}{}{\RequirePackage[capitalise,noabbrev]{cleveref}}	% provide clever references, already included in cvpr, not in acmart, configured at end of preamble as it needs to be loaded after hyperref, override CVPR options
+	\@ifpackageloaded{cleveref}{}{\RequirePackage[capitalise,noabbrev]{cleveref}}	% provide clever references, already included in cvpr, not in acmart, configured at end of preamble as it needs to be loaded after hyperref, override CVPR/ICCV/ECCV options
 	\crefname{section}{Section}{Sections}
 	\Crefname{section}{Section}{Sections}
+	%% Alternative section stylings.
+	% \crefname{section}{\S}{\S\S}
+	% \Crefname{section}{\S}{\S\S}
 	\crefname{table}{Table}{Tables}
 	\Crefname{table}{Table}{Tables}
 	\crefname{algorithm}{Algorithm}{Algorithms}
@@ -50,4 +85,4 @@
 	\newcommand{\crefrangeconjunction}{--}	% change crefrange conjunction style from "to" to en-dash
 }
 
-\RequirePackage{mathdefs}	% igkiou's custom math package
+\RequirePackage{mathdefs}	% CIRL custom math package

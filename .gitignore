@@ -12,15 +12,14 @@
 *.cb2
 .*.lb
 
-## Intermediate documents:
+## Intermediate and built documents:
 *.dvi
 *.xdv
 *-converted-to.*
-# these rules might exclude image files for figures etc.
 *.ps
 *.eps
-probsurf.pdf
-supplementary.pdf
+*.pdf
+!**/figures/**/*.pdf
 
 ## Generated if empty string is given at "Please type another file name for output:"
 .pdf
@@ -136,7 +135,8 @@ acs-*.bib
 
 # knitr
 *-concordance.tex
-# TODO Comment the next line if you want to keep your tikz graphics files
+
+# tikz
 *.tikz
 *-tikzDictionary
 
@@ -240,7 +240,17 @@ pythontex-files-*/
 # Latexian
 TSWLatexianTemp*
 
-## Editors:
+## Editors and LLM:
+# Obsidian
+.obsidian/
+
+# Claude
+CLAUDE.md
+.claude
+
+# emacs and other editor backups, also removed by `make clean'
+*~
+
 # WinEdt
 *.bak
 *.sav

@@ -1,11 +1,10 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{mathdefs}[2025/12/13 igkiou's math definitions]
+\ProvidesPackage{mathdefs}[2026/07/23 v1.0 CIRL math definitions]
 
 % packages
 \RequirePackage{mathtools}
 \mathtoolsset{centercolon}
 \RequirePackage{mathrsfs}
-\RequirePackage{bbm}
 \RequirePackage{amsmath}
 \let\Bbbk\relax
 \allowdisplaybreaks
@@ -119,14 +118,15 @@
 \DeclarePairedDelimiter{\floorstd}{\lfloor}{\rfloor}
 \newcommand{\floor}[1]{\floorstd*{#1}}
 \newcommand{\sfloor}[1]{\floorstd{#1}}
-\DeclarePairedDelimiter{\vbarstd}{\vert}{\vert}
+\DeclarePairedDelimiter{\vbarstd}{\lvert}{\rvert}
 \newcommand{\vbar}[1]{\vbarstd*{#1}}
 \newcommand{\svbar}[1]{\vbarstd{#1}}
-\DeclarePairedDelimiter{\dvbarstd}{\Vert}{\Vert}
+\DeclarePairedDelimiter{\dvbarstd}{\lVert}{\rVert}
 \newcommand{\dvbar}[1]{\dvbarstd*{#1}}
-\newcommand{\sdvbar}[1]{\dvbarstd*{#1}}
-\newcommand{\evalat}[2]{\left. #1 \right|_{#2}}
-\newcommand{\sevalat}[2]{#1|_{#2}}
+\newcommand{\sdvbar}[1]{\dvbarstd{#1}}
+\DeclarePairedDelimiter{\evalatstd}{.}{\rvert}
+\newcommand{\evalat}[2]{\evalatstd*{#1}_{#2}}
+\newcommand{\sevalat}[2]{#1\rvert_{#2}}
 
 % math functions
 \newcommand{\abs}[1]{\vbar{#1}}
