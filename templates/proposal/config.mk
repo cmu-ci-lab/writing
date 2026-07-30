@@ -1,0 +1,10 @@
+# Project-specific Makefile settings. This file is the template's own: the
+# Makefile beside it is a verbatim copy from the writing repository and should
+# be left alone.
+#
+# Set to the basename of the root .tex file (proposal.tex -> proposal). Several
+# may be listed, separated by spaces, to build a proposal and its supplementary
+# documents together.
+# Keep this comment on its own line: make would otherwise fold the whitespace
+# before a trailing comment into the value.
+TARGET = proposal

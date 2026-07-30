@@ -1,0 +1,111 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{cirl}[2026/07/23 v1.0 CIRL standard preamble]
+
+% Usage and load order:
+%   \usepackage{cirl}
+% or:
+%   \usepackage[cvpr]{cirl}   % or [iccv], or [eccv], or [acmart]
+% or, to give the venue package options of its own:
+%   \usepackage[cvpr,review]{cirl}   % same as \usepackage[review]{cvpr}
+% cvpr, iccv, and eccv are packages, and cirl loads them itself, so do NOT
+% also \usepackage{cvpr} (etc.) separately. Any option cirl does not recognise
+% is forwarded to the venue package, in any order relative to the venue option.
+% acmart is a class, not a package, so [acmart] only records the venue and
+% loads nothing; use \documentclass{acmart}, and put its options there, as
+% cirl has no package to forward them to. eccv is a package but expects
+% \documentclass{llncs}.
+% Load cirl BEFORE any package that would preload one of the guarded packages
+% below with different options, as the guards keep the first load's options.
+
+\PassOptionsToPackage{shortlabels,inline}{enumitem}
+\PassOptionsToPackage{capitalise,noabbrev}{cleveref}
+
+\newif\ifcirl@splncsused	% true if a Springer LNCS bibliography style (splncs04/splncs04nat) is used
+\newcommand{\cirl@venue}{}
+\newcommand{\cirl@venueopts}{}	% options collected below and forwarded to the venue package
+\DeclareOption{acmart}{\renewcommand{\cirl@venue}{acmart}}
+\DeclareOption{cvpr}{\renewcommand{\cirl@venue}{cvpr}}
+\DeclareOption{iccv}{\renewcommand{\cirl@venue}{iccv}}
+% using eccv requires also using splncs04nat.bst for bibliography style
+\DeclareOption{eccv}{\renewcommand{\cirl@venue}{eccv}\cirl@splncsusedtrue}
+
+\newcommand{\cirl@empty}{}
+\DeclareOption*{%
+	\ifx\cirl@venueopts\cirl@empty
+		\edef\cirl@venueopts{\CurrentOption}%
+	\else
+		\edef\cirl@venueopts{\cirl@venueopts,\CurrentOption}%
+	\fi
+}
+\ProcessOptions\relax
+
+\ifx\cirl@venue\cirl@empty	% no venue, so there is nothing to forward to
+	\ifx\cirl@venueopts\cirl@empty\else
+		\PackageWarning{cirl}{Unknown option(s) `\cirl@venueopts'}
+	\fi
+\else
+	\newcommand{\cirl@acmart}{acmart}
+	\ifx\cirl@venue\cirl@acmart	% acmart is a class, not a package: nothing to load, and nothing that can take package options
+		\ifx\cirl@venueopts\cirl@empty\else
+			\PackageWarning{cirl}{Unknown option(s) `\cirl@venueopts'.\MessageBreak
+				acmart is a document class, so its options belong on\MessageBreak
+				\protect\documentclass, not on cirl}
+		\fi
+	\else
+		\ifx\cirl@venueopts\cirl@empty\else	% guarded: an empty list would add a stray comma to the venue's options
+			\PassOptionsToPackage{\cirl@venueopts}{\cirl@venue}%
+		\fi
+		\RequirePackage{\cirl@venue}
+	\fi
+\fi
+
+% packages
+\RequirePackage{etoolbox}	% provide `AtEndPreamble'
+\@ifpackageloaded{graphicx}{}{\RequirePackage{graphicx}}	% control `includegraphics', already included in acmart, not in cvpr
+\@ifpackageloaded{float}{}{\RequirePackage{float}}	% provide float placement modifiers, already included in acmart, not in cvpr
+\RequirePackage[export]{adjustbox}	% control `includegraphics' and other boxes
+\@ifpackageloaded{xcolor}{}{\RequirePackage{xcolor}}	% provide color tools, supersedes `color', already included in acmart, not in cvpr
+\RequirePackage{colortbl}	% color table cells, rows, and columns
+\@ifpackageloaded{microtype}{}{\RequirePackage{microtype}}	% improve kerning and spacing, already included in acmart, not in cvpr
+\@ifpackageloaded{xspace}{}{\RequirePackage{xspace}}	% add eaten spaces when defining macros, already included in cvpr, not in acmart
+\RequirePackage{makecell}	% create multi-line cells in tables
+\RequirePackage{pifont}	% use symbols such as checkmarks and xmarks
+\RequirePackage[normalem]{ulem}	% provide underlinging, the `normalem' option is to disable overriding of `emph'
+\@ifpackageloaded{caption}{\captionsetup[figure]{name={Figure}}}{\RequirePackage[format=plain,labelformat=simple,labelsep=period,font=small]{caption}}	% format captions, already included in both acmart and cvpr, in the former case override abbreviated labels for figures
+\@ifpackageloaded{subcaption}{}{\RequirePackage{subcaption}}	% reference subfigures, supersedes `subfig' or `subfigure', already included in cvpr, not in acmart
+\RequirePackage{ellipsis}	% fix ellipsis spacing
+\RequirePackage[super]{nth}	% provide ordinal suffixes
+\RequirePackage{listings}	% list source code in latex document
+\RequirePackage{wrapfig}	% provide wrapfigs
+\@ifpackageloaded{enumitem}{}{\RequirePackage[shortlabels,inline]{enumitem}}	% control list environments, already included in cvpr with different options, not in acmart
+\@ifpackageloaded{tabularx}{}{\RequirePackage{tabularx}}	% improve tables, already included in acmart, not in cvpr
+\RequirePackage{url}	% typeset hyperlinks
+\RequirePackage{multirow}	% add multi rows and columns to tables
+% \RequirePackage[compact]{titlesec}	% uncomment for shortening, reduce title size and spacing
+\@ifpackageloaded{booktabs}{}{\RequirePackage{booktabs}}	% improve tables, already included in acmart, not in cvpr
+\@ifpackageloaded{natbib}{}{\RequirePackage[numbers,sort,compress]{natbib}}	% provide citet and citep, already included in acmart, not in cvpr
+\ifcirl@splncsused	% restore LNCS bibliography formatting overridden by natbib
+	\AtBeginDocument{%
+		\renewcommand{\bibsection}{\section*{\refname}}%
+		\renewcommand{\@biblabel}[1]{#1.}%
+	}%
+\fi
+
+\AtEndPreamble{
+	\@ifpackageloaded{cleveref}{}{\RequirePackage[capitalise,noabbrev]{cleveref}}	% provide clever references, already included in cvpr, not in acmart, configured at end of preamble as it needs to be loaded after hyperref, override CVPR/ICCV/ECCV options
+	\crefname{section}{Section}{Sections}
+	\Crefname{section}{Section}{Sections}
+	%% Alternative section stylings.
+	% \crefname{section}{\S}{\S\S}
+	% \Crefname{section}{\S}{\S\S}
+	\crefname{table}{Table}{Tables}
+	\Crefname{table}{Table}{Tables}
+	\crefname{algorithm}{Algorithm}{Algorithms}
+	\Crefname{algorithm}{Algorithm}{Algorithms}
+	\newcommand{\crefrangeconjunction}{--}	% change crefrange conjunction style from "to" to en-dash
+}
+
+\RequirePackage{algodefs}	% CIRL custom algorithm package
+\RequirePackage{colordefs}	% CIRL custom color and palette package
+\RequirePackage{boxdefs}	% CIRL custom colored box package, loaded after the `AtEndPreamble' block above so that this package's own `cleveref' guard sees the load done there
+\RequirePackage{mathdefs}	% CIRL custom math package, loaded last as it ends with `bm', which must see every other font-loading package

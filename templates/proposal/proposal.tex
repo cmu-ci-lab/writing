@@ -1,0 +1,90 @@
+\documentclass[10pt]{article}
+
+\usepackage{proposal}
+
+\title{Proposal Title}
+\flushbottom
+
+\begin{document}
+\pagenumbering{gobble}
+
+\thispagestyle{empty}
+\vspace{.5\baselineskip}\noindent\underline{\textbf{Overview}}\vspace{.5\baselineskip}
+
+
+\vspace{.5\baselineskip}\noindent\underline{\textbf{Keywords:}} \emph{keywords}
+
+\vspace{.5\baselineskip}\noindent\underline{\textbf{Intellectual Merit}}\vspace{.5\baselineskip}
+
+\vspace{.5\baselineskip}\noindent\underline{\textbf{Broader Impacts}}\vspace{.5\baselineskip}
+
+\clearpage
+\setcounter{page}{1}
+\maketitle
+
+\section{Introduction}\label{sec:intro}
+
+Use this document as a template for proposals. Representative citation of a cool paper \citep{Miller:VOS:2024}.
+
+\section{Intellectual merit}\label{sec:merit}
+
+Notation macros belong in \texttt{proposal.sty}, so that changing a symbol is one edit. Equations are typeset with the packages and macros \texttt{mathdefs} provides,
+%
+\begin{equation}
+	\label{equ:example}
+	\E{f \paren{\bm{x}}} = \int_{\R^3} f \paren{\bm{x}} \, p \paren{\bm{x}} \ud \bm{x},
+\end{equation}
+%
+and \texttt{boxdefs} provides environments for the statements you want to stand out.
+
+\begin{prp}{An example proposition}{example}
+	State the claim here. The environment numbers propositions, definitions, and lemmas in a single sequence, and labels this one \texttt{pro:example}.
+\end{prp}
+
+\Cref{pro:example} follows from \cref{equ:example}, which is the sort of cross-reference \texttt{cleveref} writes out for you.
+
+\section{Broader impacts}\label{sec:impact}
+
+%
+\clearpage
+\setcounter{page}{1}
+
+\section*{Data management plan}
+
+%
+\clearpage
+\setcounter{page}{1}
+
+\section*{Synergistic activities}
+
+%
+\clearpage
+\setcounter{page}{1}
+
+\section*{Facilities}
+
+%
+\clearpage
+\setcounter{page}{1}
+
+\section*{Mentoring plan}
+
+%
+\clearpage
+\setcounter{page}{1}
+
+\section*{Project personnel and partner organizations}
+
+\begin{enumerate}
+	\item Name; Institution; Role
+\end{enumerate}
+
+
+%
+\clearpage
+\setcounter{page}{1}
+\bibliographystyle{plainnat}
+\setlength{\bibsep}{0pt}
+\bibliography{proposal}
+%
+\end{document}

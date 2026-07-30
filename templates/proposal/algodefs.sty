@@ -1,0 +1,119 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{algodefs}[2026/07/29 v1.0 CIRL algorithm definitions]
+
+% Usage:
+%   \usepackage{algodefs}
+% then write algorithms as:
+%   \begin{algorithm}
+%       \caption{\Proc{ProcedureName}$(x)$}
+%       \label{alg:name}
+%       \begin{algorithmic}[1]
+%           \Require \textit{...}
+%           \Ensure \textit{...}
+%           \State ...
+%       \end{algorithmic}
+%   \end{algorithm}
+% All of the block definitions below are made once, here, so an algorithm body
+% only contains the algorithm itself.
+
+\@ifpackageloaded{algorithm}{}{\RequirePackage[ruled]{algorithm}}	% provide `algorithm' and `algorithm*'
+\@ifpackageloaded{algpseudocode}{}{\RequirePackage{algpseudocode}}	% provide the `algorithmic' environment, the standard blocks, and the `algorithmic...' keywords; loads `algorithmicx'
+\@ifpackageloaded{xcolor}{}{\RequirePackage{xcolor}}	% needed for `providecolor' and `textcolor'
+
+% `providecolor' so a document that defines its own colors before loading algodefs keeps them
+% You can override either color with a `\definecolor` or a `\colorlet` anywhere after you load the package, most naturally in your paper's `.sty` file:
+%   \definecolor{algocommentcolor}{RGB}{70, 70, 70}
+%   \colorlet{algoaltcommentcolor}{blue}
+\providecolor{algocommentcolor}{RGB}{136, 136, 136}	% ordinary comments
+\providecolor{algoaltcommentcolor}{RGB}{255, 153, 51}	% a second comment color
+
+% \floatname{algorithm}{Procedure}	% uncomment to caption algorithms as "Procedure" instead
+
+% keywords
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\renewcommand{\algorithmicforall}{\textbf{for each}}
+\renewcommand{\algorithmicrepeat}{\textbf{do}}
+\renewcommand{\algorithmicuntil}{\textbf{while}}
+\newcommand{\algorithmicbreak}{\textbf{break}}
+
+% statements
+\newcommand{\Break}{\State \algorithmicbreak}
+\let\ForEach\ForAll
+\let\Do\Repeat
+\let\dWhile\Until
+\newcommand{\Proc}[1]{\mbox{\textsc{#1}}}
+\newcommand{\InputConditions}[1]{\Require \parbox[t]{\dimexpr\linewidth-\algorithmicindent}{#1\strut}}
+\newcommand{\OutputConditions}[1]{\Ensure \parbox[t]{\dimexpr\linewidth-\algorithmicindent}{#1\strut}}
+
+% comments
+\renewcommand{\Comment}[1]{\hfill\textcolor{algocommentcolor}{\(\triangleright\) \textit{#1}}}
+\newcommand{\AltComment}[1]{\hfill\textcolor{algoaltcommentcolor}{\(\triangleright\) \textit{#1}}}
+\newcommand{\CommentLine}[1]{\Statex\hspace{-\algorithmicindent}\Comment{#1}}
+\newcommand{\AltCommentLine}[1]{\Statex\hspace{-\algorithmicindent}\AltComment{#1}}
+
+% hide the closing keywords of the standard blocks, whose extent the indentation already shows
+\algtext*{EndProcedure}
+\algtext*{EndFunction}
+\algtext*{EndIf}
+\algtext*{EndFor}
+\algtext*{EndWhile}
+\algtext*{EndLoop}
+
+% Single-line block variants of the standard blocks.
+\algblockdefx[AlgoDefsBlock]{Struct}{EndStruct}
+	[1][Unknown]{\textbf{struct} #1}
+	{}
+\algtext*{EndStruct}
+\algblockdefx[AlgoDefsBlock]{Class}{EndClass}
+	[1][Unknown]{\textbf{class} #1}
+	{}
+\algtext*{EndClass}
+\algblockdefx[AlgoDefsBlock]{FORDO}{ENDFORDO}
+	[1][Unknown]{\textbf{for} #1 \textbf{do}}
+	{}
+\algtext*{ENDFORDO}
+\algblockdefx[AlgoDefsBlock]{PARALLELFORDO}{ENDPARALLELFORDO}
+	[1][Unknown]{\textbf{parallel}\ \textbf{for} #1 \textbf{do}}
+	{}
+\algtext*{ENDPARALLELFORDO}
+\algblockdefx[AlgoDefsBlock]{WHILEDO}{ENDWHILEDO}
+	[1][Unknown]{\textbf{while} #1 \textbf{do}}
+	{}
+\algtext*{ENDWHILEDO}
+\algblockdefx[AlgoDefsBlock]{IF}{ENDIF}
+	[1][Unknown]{\textbf{if} #1 \textbf{then}}
+	{}
+\algtext*{ENDIF}
+\algblockdefx[AlgoDefsBlock]{ELSEIF}{ENDELSEIF}
+	[1][Unknown]{\textbf{else if} #1 \textbf{then}}
+	{}
+\algtext*{ENDELSEIF}
+\algblockdefx[AlgoDefsBlock]{ELSE}{ENDELSE}
+	{\textbf{else}}
+	{}
+\algtext*{ENDELSE}
+\algblockdefx[AlgoDefsBlock]{IFTHEN}{ENDIFTHEN}
+	[2][Unknown]{\textbf{if} #1 \textbf{then} #2}
+	{}
+\algtext*{ENDIFTHEN}
+\algblockdefx[AlgoDefsBlock]{ELSEIFTHEN}{ENDELSEIFTHEN}
+	[2][Unknown]{\textbf{else if} #1 \textbf{then} #2}
+	{}
+\algtext*{ENDELSEIFTHEN}
+\algblockdefx[AlgoDefsBlock]{RETURN}{ENDRETURN}
+	[1][Unknown]{\textbf{return} #1}
+	{}
+\algtext*{ENDRETURN}
+\algblockdefx[AlgoDefsBlock]{COMMENT}{ENDCOMMENT}
+	[1][Unknown]{\textcolor{algocommentcolor}{\(\triangleright\) \textit{#1}}}
+	{}
+\algtext*{ENDCOMMENT}
+\algblockdefx[AlgoDefsBlock]{ALTCOMMENT}{ENDALTCOMMENT}
+	[1][Unknown]{\textcolor{algoaltcommentcolor}{\(\triangleright\) \textit{#1}}}
+	{}
+\algtext*{ENDALTCOMMENT}
+\algblockdefx[AlgoDefsBlock]{SUBCOMMENT}{ENDSUBCOMMENT}
+	[1][Unknown]{\textcolor{algoaltcommentcolor}{\(\triangleright\quad\) \textit{#1}}}
+	{}
+\algtext*{ENDSUBCOMMENT}

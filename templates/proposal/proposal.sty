@@ -1,0 +1,50 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{proposal}[2026/07/30 v1.0 CIRL proposal macros]
+
+\RequirePackage[hidelinks]{hyperref}
+\RequirePackage{fullpage}
+\RequirePackage{libertine}
+\RequirePackage[libertine]{newtxmath}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{cirl}
+\urlstyle{same}
+
+%% minimum linespread passing NSF check for libertine font
+\linespread{1.00625}
+\selectfont
+
+%% titles
+\RequirePackage[compact,small]{titlesec}
+\renewcommand{\paragraph}[1]{\vspace{0.5em}\noindent{\bfseries #1}}
+
+\makeatletter
+\renewcommand\maketitle{
+	{\noindent Pre-title (optional, e.g., NSF program):}\vspace{0.5em}\\
+	{\noindent \Large \bfseries \@title}\vspace{0.5em}\\
+	{\large PI Name(s), PI Institution(s)}
+	}
+\makeatother
+
+%% spacing
+\setlength{\floatsep}{5pt}
+\setlength{\textfloatsep}{5pt}
+\setlength{\abovecaptionskip}{5pt}
+\setlength{\belowcaptionskip}{5pt}
+\setlength{\abovedisplayskip}{1pt}
+\setlength{\belowdisplayskip}{1pt}
+\setlength{\abovedisplayshortskip}{1pt}
+\setlength{\belowdisplayshortskip}{1pt}
+
+%% listings
+\setlist[enumerate]{label=\arabic*.}
+
+%% standard commands
+\graphicspath{{figures/}}
+\newcommand{\todo}[1]{{\bfseries\textcolor{red}{[\emph{TODO}: #1]}}}
+
+% Commenting macros. Add one per author, and delete them all before submitting.
+\newcommand{\igkiou}[1]{{\color{red}{[igkiou: #1]}}}
+
+%%%%%%%%%%%%% Notation %%%%%%%%%%%%%
+% Define the notation of this proposal here, so that changing it later is one
+% edit rather than a search across the whole document.
