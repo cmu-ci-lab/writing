@@ -222,9 +222,11 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 
 4. **captions**: Every figure and table that is not a wrap figure (see below) should have a caption, which you can insert with the command `\caption`. I suggest making each figure together with its caption as self-contained as possible. This practice helps readers that, as they skim through a paper, read only its figures and tables without referencing the main text. The caption for a figure should appear below it; for a table, above it. Just place the `\caption` command above or below the content.
 
-5. **descriptions**: Every figure (including wrap figures) should have a description, which you can insert with the command `\Description` in the `acmart` template. The description is different from the caption, and it is the information screen readers will use to describe the figure to readers that cannot view the image.
+5. **colors**: Your figures, tables, and other elements of the paper (for example, equations) should use a consistent, shared color palette. For example, use the same color in text and equations as you do in figures, to improve the overall appearance of your document. You should select color palettes with sufficient perceptual uniformity, sufficient contrast against the document background (typically white), and sufficient inter-color contrast, including under colorblindness or grayscale viewing and printing conditions. Pre-existing color palettes derived from perceptually uniform color spaces are often a saf
 
-6. **wrap figures**: As the name suggests, these are figures that allow text to wrap around them, instead of being distinct floating elements. You can create them with the environment `wrapfigure`. You should use wrap figures for small and simple visualizations that help explain the text immediately adjacent to them. Captions are optional for wrap figures.
+6. **descriptions**: Every figure (including wrap figures) should have a description, which you can insert with the command `\Description` in the `acmart` template. The description is different from the caption, and it is the information screen readers will use to describe the figure to readers that cannot view the image.
+
+7. **wrap figures**: As the name suggests, these are figures that allow text to wrap around them, instead of being distinct floating elements. You can create them with the environment `wrapfigure`. You should use wrap figures for small and simple visualizations that help explain the text immediately adjacent to them. Captions are optional for wrap figures.
 
 	It can be difficult to predict the exact placement of wrap figures relative to the text that wraps around them. I recommend placing each wrap figure in its own command as in this example:
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ tex linenumbers
@@ -241,7 +243,7 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 
 	As with regular figures, you should load figures that already have a width matching `wrapwidth`, to make sure included fonts and other visuals have the correct size.
 
-7. **table styling**: As a general rule of thumb, if you have vertical lines in your table, you are likely doing something wrong.
+8. **table styling**: As a general rule of thumb, if you have vertical lines in your table, you are likely doing something wrong.
 	1. You should use the [booktabs](https://www.ctan.org/pkg/booktabs) package to create publication-quality tables. You should not use `\hline` to insert horizontal lines, and instead use `\toprule`, `\midrule`, and `\bottomrule` as appropriate. 
 	2. You should also use the [tabularx](https://www.ctan.org/pkg/tabularx) package for additional sizing and wrapping options, which can let you fit a table without having to shrink the font.
 
