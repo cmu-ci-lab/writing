@@ -21,7 +21,7 @@ endif
 
 # Auxiliary files to delete, kept in sync with .gitignore.
 AUX = *.aux *.bbl *.bcf *.blg *.brf *.cut *.dvi *.fdb_latexmk *.fff *.fls \
-	*.lof *.log *.lol *.lot *.nav *.out *.pdfsync *.run.xml *.snm *.spl \
+	*.loa *.lof *.log *.lol *.lot *.nav *.out *.pdfsync *.run.xml *.snm *.spl \
 	*.synctex *.synctex.gz *.thm *.toc *.ttt *.upa *.upb *.vrb *.xdv \
 	*.backup *~
 

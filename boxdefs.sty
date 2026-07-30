@@ -1,0 +1,101 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{boxdefs}[2026/07/30 v1.0 CIRL colored boxes]
+
+% Usage:
+%   \usepackage{boxdefs}
+% Load colordefs alongside it to recolor with a palette:
+%   \begin{titledbox}[colback=boxbg1,colframe=boxtitle1]{Title}
+
+\@ifpackageloaded{xcolor}{}{\RequirePackage{xcolor}}	% provide `definecolor' and `colorbox'
+\@ifpackageloaded{etoolbox}{}{\RequirePackage{etoolbox}}	% provide `AtEndPreamble'
+\@ifpackageloaded{amsmath}{}{\RequirePackage{amsmath}}	% `cleveref' below refuses to load without it
+\PassOptionsToPackage{many}{tcolorbox}\RequirePackage{tcolorbox}	% provide the boxes; `many' is `skins' and `theorems', which this file uses
+\tcbuselibrary{skins,theorems}
+
+%% default box colors
+\definecolor{grayLL}{rgb}{.98, .98, .98}
+\definecolor{grayL}{rgb}{.9, .9, .9}
+% \definecolor{grayL}{RGB}{145,145,145}
+
+%% colored boxes
+% The math boxes below use two styles:
+%   `equationboxstyle'       the geometry, common to all of them
+%   `equationboxtitlestyle'  the boxed title, common to the ones that carry one
+% `equationboxtitlestyle' takes the title colour as its argument
+\tcbset{
+	equationboxstyle/.style={
+		top=0.25mm,bottom=0.25mm,left=0.25mm,right=0.25mm,
+		sharp corners,enhanced,frame hidden,
+	},
+	equationboxtitlestyle/.style={
+		fonttitle=\small\color{#1},colbacktitle=white,
+		attach boxed title to top center={yshift=-1mm},
+		minipage boxed title*=3cm,
+		boxed title style={top=0mm,bottom=0mm,left=0mm,right=0mm,sharp corners,frame hidden,opacityback=0},
+	},
+}
+
+% A plain opaque fill with title and no border
+% The optional #1 argument is the side padding.
+% #2 is the title color.
+% #3 is the background color.
+% #4 is the title text.
+% #5 is the box content.
+\newcommand{\mathbox}[5][0.25mm]{%
+	\tcboxmath[equationboxstyle,equationboxtitlestyle=#2,colback=#3,title={#4},left=#1,right=#1]{#5}
+}
+
+% A plain opaque fill with no title and no border
+% The optional #1 argument is the side padding.
+% #2 is the background color.
+% #3 is the box content.
+\newcommand{\mathboxnt}[3][0.25mm]{%
+	\tcboxmath[equationboxstyle,colback=#2,left=#1,right=#1]{#3}
+}
+
+% Punch an opaque white backdrop behind a bit of text,
+% for a label that has to sit legibly on top of a figure.
+\newcommand{\putbox}[1]{\colorbox{white}{\mbox{#1}}}
+
+%% shared block box style
+% A document that wants roomier boxes says
+%   \tcbset{blockboxstyle/.append style={top=1mm,bottom=1mm}}
+\tcbset{
+	blockboxstyle/.style={
+		colback=grayLL,colframe=grayL,
+		top=0.25mm,bottom=0.25mm,left=0.25mm,right=0.25mm,
+		sharp corners,fonttitle=\bfseries\color{black},
+	},
+}
+
+%% titled boxes
+% The optional argument takes tcolorbox keys to change background and frame:
+%   \begin{titledbox}[colback=boxbg1,colframe=boxtitle1]{Title}
+\newtcolorbox{titledbox}[2][]{blockboxstyle,title={#2},#1}
+
+%% boxes for propositions etc.
+% Each takes a title and a label, and the label is prefixed automatically, so
+% the second argument `recip' is referenced as `pro:recip':
+%   \begin{prp}{Reciprocity}{recip}
+%       The estimator is unbiased.
+%   \end{prp}
+%   ... follows from \Cref{pro:recip}.
+% Leave the label empty for a box you do not reference:
+%   \begin{prp}{Reciprocity}{}...\end{prp}
+% The starred form drops the number and does not advance the counter:
+%   \begin{prp*}{Reciprocity}{}...\end{prp*}
+% The optional argument takes tcolorbox keys, as `titledbox' above does:
+%   \begin{prp}[colback=boxbg1,colframe=boxtitle1]{Reciprocity}{recip}
+% `dfn' and `lmm' work the same way, with prefixes `def:' and `lem:'.
+% All of the environments below share the same counter, so a document numbers
+% them in one sequence: Proposition 1, Definition 2, Lemma 3.
+\newcounter{boxdefstheorem}
+\AtEndPreamble{
+	\@ifpackageloaded{cleveref}{}{\RequirePackage[capitalise,noabbrev]{cleveref}}	% the `crefname'/`Crefname' keys below are cleveref's own
+
+	\newtcbtheorem[use counter=boxdefstheorem, crefname={Proposition}{Propositions}, Crefname={Proposition}{Propositions}]{prp}{Proposition}{blockboxstyle}{pro}
+
+	\newtcbtheorem[use counter=boxdefstheorem, crefname={Definition}{Definitions}, Crefname={Definition}{Definitions}]{dfn}{Definition}{blockboxstyle}{def}
+
+	\newtcbtheorem[use counter=boxdefstheorem, crefname={Lemma}{Lemmas}, Crefname={Lemma}{Lemmas}]{lmm}{Lemma}{blockboxstyle}{lem}
+}

@@ -5,13 +5,15 @@
 %   \usepackage{cirl}
 % or:
 %   \usepackage[cvpr]{cirl}   % or [iccv], or [eccv], or [acmart]
+% or, to give the venue package options of its own:
+%   \usepackage[cvpr,review]{cirl}   % same as \usepackage[review]{cvpr}
 % cvpr, iccv, and eccv are packages, and cirl loads them itself, so do NOT
-% also \usepackage{cvpr} (etc.) separately. acmart is a class, not a package,
-% so [acmart] only records the venue and loads nothing; use
-% \documentclass{acmart}. eccv is a package but expects \documentclass{llncs}.
-% Every venue needs its own \DeclareOption, since \DeclareOption* below only
-% warns, and each option has to know whether its venue is a package to load or
-% a class to record.
+% also \usepackage{cvpr} (etc.) separately. Any option cirl does not recognise
+% is forwarded to the venue package, in any order relative to the venue option.
+% acmart is a class, not a package, so [acmart] only records the venue and
+% loads nothing; use \documentclass{acmart}, and put its options there, as
+% cirl has no package to forward them to. eccv is a package but expects
+% \documentclass{llncs}.
 % Load cirl BEFORE any package that would preload one of the guarded packages
 % below with different options, as the guards keep the first load's options.
 
@@ -20,31 +22,49 @@
 
 \newif\ifcirl@splncsused	% true if a Springer LNCS bibliography style (splncs04/splncs04nat) is used
 \newcommand{\cirl@venue}{}
+\newcommand{\cirl@venueopts}{}	% options collected below and forwarded to the venue package
 \DeclareOption{acmart}{\renewcommand{\cirl@venue}{acmart}}
 \DeclareOption{cvpr}{\renewcommand{\cirl@venue}{cvpr}}
 \DeclareOption{iccv}{\renewcommand{\cirl@venue}{iccv}}
 % using eccv requires also using splncs04nat.bst for bibliography style
 \DeclareOption{eccv}{\renewcommand{\cirl@venue}{eccv}\cirl@splncsusedtrue}
-\DeclareOption*{\PackageWarning{cirl}{Unknown `\CurrentOption'}}
+
+\newcommand{\cirl@empty}{}
+\DeclareOption*{%
+	\ifx\cirl@venueopts\cirl@empty
+		\edef\cirl@venueopts{\CurrentOption}%
+	\else
+		\edef\cirl@venueopts{\cirl@venueopts,\CurrentOption}%
+	\fi
+}
 \ProcessOptions\relax
 
-\ifx\cirl@venue\@empty
+\ifx\cirl@venue\cirl@empty	% no venue, so there is nothing to forward to
+	\ifx\cirl@venueopts\cirl@empty\else
+		\PackageWarning{cirl}{Unknown option(s) `\cirl@venueopts'}
+	\fi
 \else
-	\newcommand{\cirl@acmart}{acmart}%
-	\ifx\cirl@venue\cirl@acmart	% do nothing, acmart does not load a package
+	\newcommand{\cirl@acmart}{acmart}
+	\ifx\cirl@venue\cirl@acmart	% acmart is a class, not a package: nothing to load, and nothing that can take package options
+		\ifx\cirl@venueopts\cirl@empty\else
+			\PackageWarning{cirl}{Unknown option(s) `\cirl@venueopts'.\MessageBreak
+				acmart is a document class, so its options belong on\MessageBreak
+				\protect\documentclass, not on cirl}
+		\fi
 	\else
+		\ifx\cirl@venueopts\cirl@empty\else	% guarded: an empty list would add a stray comma to the venue's options
+			\PassOptionsToPackage{\cirl@venueopts}{\cirl@venue}%
+		\fi
 		\RequirePackage{\cirl@venue}
 	\fi
 \fi
 
 % packages
 \RequirePackage{etoolbox}	% provide `AtEndPreamble'
-% \RequirePackage{fullpage}
 \@ifpackageloaded{graphicx}{}{\RequirePackage{graphicx}}	% control `includegraphics', already included in acmart, not in cvpr
 \@ifpackageloaded{float}{}{\RequirePackage{float}}	% provide float placement modifiers, already included in acmart, not in cvpr
 \RequirePackage[export]{adjustbox}	% control `includegraphics' and other boxes
 \@ifpackageloaded{xcolor}{}{\RequirePackage{xcolor}}	% provide color tools, supersedes `color', already included in acmart, not in cvpr
-\RequirePackage[many]{tcolorbox}	% create colored boxes
 \RequirePackage{colortbl}	% color table cells, rows, and columns
 \@ifpackageloaded{microtype}{}{\RequirePackage{microtype}}	% improve kerning and spacing, already included in acmart, not in cvpr
 \@ifpackageloaded{xspace}{}{\RequirePackage{xspace}}	% add eaten spaces when defining macros, already included in cvpr, not in acmart
@@ -85,4 +105,7 @@
 	\newcommand{\crefrangeconjunction}{--}	% change crefrange conjunction style from "to" to en-dash
 }
 
-\RequirePackage{mathdefs}	% CIRL custom math package
+\RequirePackage{algodefs}	% CIRL custom algorithm package
+\RequirePackage{colordefs}	% CIRL custom color and palette package
+\RequirePackage{boxdefs}	% CIRL custom colored box package, loaded after the `AtEndPreamble' block above so that this package's own `cleveref' guard sees the load done there
+\RequirePackage{mathdefs}	% CIRL custom math package, loaded last as it ends with `bm', which must see every other font-loading package
