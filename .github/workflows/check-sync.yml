@@ -1,0 +1,51 @@
+name: check-sync
+
+# Everything in templates/*/ except each template's own .tex, .sty, .bib,
+# figures/, and config.mk is a generated copy of a shared file. "Never edit a
+# generated copy" is exactly the sort of rule that rots silently, so this
+# workflow checks it rather than documenting it: it re-runs the sync and fails
+# if that changes anything, which means either a copy was hand-edited or a
+# shared file was edited without syncing.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  sync:
+    name: generated copies are up to date
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run the sync
+        run: ./scripts/sync-templates
+      - name: Fail if it changed anything
+        run: |
+          if ! git diff --quiet; then
+            echo "::error::templates/*/ is out of sync with writing-files.txt."
+            echo "Run ./scripts/sync-templates locally and commit the result."
+            git diff --stat
+            git diff
+            exit 1
+          fi
+
+  build:
+    name: build templates/${{ matrix.template }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # Only the templates that build against a stock TeX Live. The cvpr,
+        # iccv, and eccv templates need author kits that are not on CTAN and
+        # cannot be installed here.
+        template: [note]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install TeX Live
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends texlive-full
+      - name: make
+        working-directory: templates/${{ matrix.template }}
+        run: make

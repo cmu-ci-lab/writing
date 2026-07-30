@@ -1,0 +1,65 @@
+#!/bin/sh
+# Publish each templates/<name>/ directory to its own standalone GitHub repo,
+# cmu-ci-lab/<name>-template, using git subtree.
+#
+#   scripts/publish-templates            publish every template
+#   scripts/publish-templates note       publish only the named ones
+#
+# `git subtree split' synthesises a history holding only the commits that
+# touched a prefix, with that prefix's contents at the root, so each published
+# repo is an ordinary standalone repository: real files at the root, no
+# submodule, nothing to initialise.
+#
+# This script refuses rather than repairs. It will not commit anything, and it
+# will not run with stale copies in the tree: a release must not fold generated
+# changes in unreviewed. If it stops, run scripts/sync-templates, review the
+# diff, commit it, and run this again.
+#
+# The published repos are mirrors. Nothing is ever committed to them directly,
+# which is what keeps every publish after the first a plain fast-forward with
+# no --force. They must also be created empty -- a repo initialised with a
+# README does not fast-forward, and the first publish fails.
+
+set -eu
+
+root=$(cd "$(dirname "$0")/.." && pwd)
+org=${TEMPLATE_ORG:-cmu-ci-lab}
+branch=${TEMPLATE_BRANCH:-main}
+
+cd "$root"
+
+# 1. Refuse to publish from a dirty tree: subtree split reads committed
+#    history, so uncommitted work would be silently left out of the release.
+if ! git diff --quiet || ! git diff --cached --quiet; then
+	echo "publish-templates: working tree or index is dirty; commit or stash first" >&2
+	exit 1
+fi
+
+# 2. and 3. Refuse to publish stale copies. Running the sync and testing for a
+#    diff is stronger than trusting that whoever edited cirl.sty remembered to.
+"$root/scripts/sync-templates" >/dev/null
+if ! git diff --quiet; then
+	echo "publish-templates: the generated copies were stale. scripts/sync-templates" >&2
+	echo "just updated them; review and commit that diff, then publish again." >&2
+	git diff --stat >&2
+	exit 1
+fi
+
+if [ $# -gt 0 ]; then
+	names=$*
+else
+	names=""
+	for dir in "$root"/templates/*/; do
+		[ -d "$dir" ] || continue
+		n=${dir%/}
+		names="$names ${n##*/}"
+	done
+fi
+
+# 4. Push each prefix.
+for name in $names; do
+	[ -d "$root/templates/$name" ] || { echo "publish-templates: no templates/$name" >&2; exit 1; }
+	remote="git@github.com:$org/$name-template.git"
+	echo "publishing templates/$name -> $remote ($branch)"
+	git subtree push --prefix="templates/$name" "$remote" "$branch"
+done

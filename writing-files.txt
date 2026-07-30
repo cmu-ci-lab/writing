@@ -1,0 +1,20 @@
+# Files distributed from this repository into every templates/<name>/ directory
+# by scripts/sync-templates. One path per line, relative to the repository root.
+# Blank lines and lines starting with `#' are ignored.
+#
+# Only files named here are ever copied, so nothing else in this repository can
+# reach a published template repo. A template's own files -- its .tex, .sty,
+# .bib, figures/, and config.mk -- are never listed here and never touched.
+#
+# Adding or removing a line here is the whole interface: the next sync copies
+# what was added, and deletes from each template what was removed, because each
+# template records the manifest it was last synced against in .writing-files.
+
+README.md
+cirl.sty
+mathdefs.sty
+algodefs.sty
+boxdefs.sty
+colordefs.sty
+Makefile
+.gitignore

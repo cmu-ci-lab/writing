@@ -1,0 +1,57 @@
+#!/bin/sh
+# Copy the shared files named in writing-files.txt into every templates/*/
+# directory, and remove whatever a template was carrying from a previous sync
+# that the manifest no longer names.
+#
+# Run this by hand after editing any shared file, then review and commit its
+# output alongside the edit that caused it. The copies in templates/*/ are
+# build outputs: never edit one directly, as the next sync overwrites it and CI
+# fails on the difference.
+#
+# The order matters. Deleting first is what makes a rename or a removal
+# propagate: a plain copy loop only ever adds and overwrites, so a file dropped
+# from the manifest would linger in every template and keep being published.
+# Only files the previous sync wrote are deleted, which is why a template's own
+# .tex, .sty, .bib, figures/, and config.mk are never at risk -- they are not
+# in the manifest, so they were never recorded in .writing-files.
+
+set -eu
+
+root=$(cd "$(dirname "$0")/.." && pwd)
+manifest="$root/writing-files.txt"
+
+[ -f "$manifest" ] || { echo "sync-templates: no $manifest" >&2; exit 1; }
+
+# The manifest, minus comments and blank lines.
+files=$(sed -e 's/#.*//' -e 's/[[:space:]]*$//' "$manifest" | grep -v '^$')
+
+for f in $files; do
+	[ -f "$root/$f" ] || { echo "sync-templates: $f is in the manifest but not in the repository" >&2; exit 1; }
+done
+
+[ -d "$root/templates" ] || { echo "sync-templates: no templates directory"; exit 0; }
+
+for dir in "$root"/templates/*/; do
+	[ -d "$dir" ] || continue
+	name=${dir%/}
+	name=${name##*/}
+
+	# 1. Remove what the last sync left behind.
+	if [ -f "$dir.writing-files" ]; then
+		while IFS= read -r old; do
+			[ -n "$old" ] || continue
+			rm -f "$dir$old"
+		done < "$dir.writing-files"
+	fi
+
+	# 2. Copy what the manifest names now.
+	for f in $files; do
+		mkdir -p "$dir$(dirname "$f")"
+		cp -p "$root/$f" "$dir$f"
+	done
+
+	# 3. Record the manifest this template was synced against.
+	printf '%s\n' $files > "$dir.writing-files"
+
+	echo "synced templates/$name"
+done

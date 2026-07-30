@@ -1,0 +1,56 @@
+% Research note template.
+%
+% Rename this file, note.sty, and note.bib to a short identifier for your
+% project, then set TARGET in config.mk to match. Build with `make'.
+%
+% The acmsmall format is a single-column journal layout, and nonacm removes the
+% ACM copyright block: together they give a clean page for a document that is
+% not a submission. Everything else -- the packages, the math macros, the
+% coloured boxes -- comes from note.sty, which loads the CIRL cirl package.
+\documentclass[nonacm, acmsmall]{acmart}
+\usepackage{note}
+
+\title{Research note template}
+% acmart insists on a country in every affiliation, and stops with an error
+% without one. The address block itself is suppressed in note.sty.
+\author{Your Name}
+\affiliation{%
+	\institution{Carnegie Mellon University}
+	\city{Pittsburgh}
+	\state{Pennsylvania}
+	\country{USA}
+}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{Introduction}
+\label{sec:introduction}
+
+Use this document as a template for research notes. Representative citation of a cool paper \citep{Miller:VOS:2024}.
+
+\section{Notation and results}
+\label{sec:results}
+
+Notation macros belong in \texttt{note.sty}, so that changing a symbol is one edit. Equations are typeset with the packages and macros \texttt{mathdefs} provides,
+%
+\begin{equation}
+	\label{equ:example}
+	\E{f \paren{\bm{x}}} = \int_{\R^3} f \paren{\bm{x}} \, p \paren{\bm{x}} \ud \bm{x},
+\end{equation}
+%
+and \texttt{boxdefs} provides environments for the statements you want to stand out.
+
+\begin{prp}{An example proposition}{example}
+	State the claim here. The environment numbers propositions, definitions, and lemmas in a single sequence, and labels this one \texttt{pro:example}.
+\end{prp}
+
+\Cref{pro:example} follows from \cref{equ:example}, which is the sort of cross-reference \texttt{cleveref} writes out for you.
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{note}
+
+\end{document}
