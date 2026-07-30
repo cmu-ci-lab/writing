@@ -1,17 +1,15 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{note}[2026/07/30 v1.0 CIRL research note macros]
 
-% Suppress the author address block acmart prints under the title. A note is
-% not a submission, so there is no correspondence address to give.
 \makeatletter
 \let\@authorsaddresses\@empty
 \makeatother
 
-\RequirePackage{cirl}	% CIRL standard preamble; no venue option, as a note targets no venue
+\RequirePackage{cirl}
 
-\citestyle{acmauthoryear}	% author-year citations read better than numbers in a note; natbib comes from acmart
+\citestyle{acmauthoryear}
 
-\graphicspath{{figures/}}	% keep figures out of the root directory, loaded after cirl provides graphicx
+\graphicspath{{figures/}}
 
 % Commenting macros. Add one per author, and delete them all before circulating.
 \newcommand{\igkiou}[1]{{\color{red}{[igkiou: #1]}}}

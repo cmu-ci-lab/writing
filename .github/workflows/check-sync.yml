@@ -39,7 +39,7 @@ jobs:
         # Only the templates that build against a stock TeX Live. The cvpr,
         # iccv, and eccv templates need author kits that are not on CTAN and
         # cannot be installed here.
-        template: [note]
+        template: [note, proposal]
     steps:
       - uses: actions/checkout@v4
       - name: Install TeX Live
