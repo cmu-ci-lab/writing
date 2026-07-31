@@ -78,6 +78,7 @@
 \RequirePackage{listings}	% list source code in latex document
 \RequirePackage{wrapfig}	% provide wrapfigs
 \@ifpackageloaded{enumitem}{}{\RequirePackage[shortlabels,inline]{enumitem}}	% control list environments, already included in cvpr with different options, not in acmart
+\setlist[enumerate]{label=\arabic*.}	% number every enumerate level `1.', `2.', ...
 \@ifpackageloaded{tabularx}{}{\RequirePackage{tabularx}}	% improve tables, already included in acmart, not in cvpr
 \RequirePackage{url}	% typeset hyperlinks
 \RequirePackage{multirow}	% add multi rows and columns to tables
