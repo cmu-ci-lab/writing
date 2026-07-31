@@ -1,0 +1,70 @@
+\documentclass[acmtog,anonymous,review]{acmart}
+\usepackage{paper-tog}
+
+\acmSubmissionID{XXXX}
+\setcopyright{none}
+
+\begin{document}
+
+\title{Paper Title}
+
+\begin{abstract}
+	Your abstract.
+\end{abstract}
+
+% Replace the concepts below with the ones the tool at
+% https://dl.acm.org/ccs.cfm generates for your paper. Paste its output here
+% rather than editing this block by hand.
+% \begin{CCSXML}
+% <ccs2012>
+% 	<concept>
+% 		<concept_id>10010147.10010371.10010382</concept_id>
+% 		<concept_desc>Computing methodologies~Rendering</concept_desc>
+% 		<concept_significance>500</concept_significance>
+% 	</concept>
+% </ccs2012>
+% \end{CCSXML}
+
+% \ccsdesc[500]{Computing methodologies~Rendering}
+
+\keywords{your keywords}
+
+% Give every figure a \Description. It is what a screen reader reads in place
+% of the image, so describe what the figure shows rather than repeating the
+% caption. ACM requires one, and acmart warns for each figure that lacks it.
+\begin{teaserfigure}
+	\includegraphics[width=\textwidth]{teaser.pdf}
+	\caption{Your teaser. Replace \texttt{figures/teaser.pdf} with a figure that shows the result of the paper, and write a caption that stands on its own.}
+	\Description{A placeholder box standing in for the teaser figure.}
+	\label{fig:teaser}
+\end{teaserfigure}
+
+\maketitle
+
+\section{Introduction}
+\label{sec:introduction}
+
+Use this document as a template for SIGGRAPH, SIGGRAPH Asia, and TOG papers. Representative citation of a cool paper \citep{Miller:VOS:2024}.
+
+\section{Notation and results}
+\label{sec:results}
+
+Notation macros belong in \texttt{paper-tog.sty}, so that changing a symbol is one edit. Equations are typeset with the packages and macros \texttt{mathdefs} provides,
+%
+\begin{equation}
+	\label{equ:example}
+	\E{f \paren{\bm{x}}} = \int_{\R^3} f \paren{\bm{x}} \, p \paren{\bm{x}} \ud \bm{x},
+\end{equation}
+%
+and \texttt{boxdefs} provides environments for the statements you want to stand out.
+
+\begin{prp}{An example proposition}{example}
+	State the claim here. The environment numbers propositions, definitions, and lemmas in a single sequence, and labels this one \texttt{pro:example}.
+\end{prp}
+
+\Cref{pro:example} follows from \cref{equ:example}, which is the sort of cross-reference \texttt{cleveref} writes out for you.
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{paper-tog}
+
+\end{document}
