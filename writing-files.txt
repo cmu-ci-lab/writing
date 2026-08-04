@@ -8,9 +8,13 @@
 #
 # A venue kit file counts as the template's own when the venue does not ship it
 # on CTAN, since a template that did not carry it would not build: templates/
-# paper-cvpr/ owns cvpr.sty and ieeenat_fullname.bst on those grounds. Anything
-# that TeX Live already provides stays out, in either category -- see the note
-# on acmart.cls in CLAUDE.md section Templates.
+# paper-cvpr/ owns cvpr.sty and ieeenat_fullname.bst on those grounds, and
+# templates/paper-eccv/ owns eccv.sty and splncs04nat.bst on the same ones.
+# Anything that TeX Live already provides stays out, in either category -- see
+# the note on acmart.cls in CLAUDE.md section Templates. The one exception is a
+# version the kit pins: templates/paper-eccv/ also owns llncs.cls, because the
+# ECCV kit ships v2.22 while TeX Live carries v2.24, and the two differ in more
+# than a date -- v2.24 adds the credits environment and \discintname.
 #
 # Adding or removing a line here is the whole interface: the next sync copies
 # what was added, and deletes from each template what was removed, because each

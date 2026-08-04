@@ -36,12 +36,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # Only the templates that build here. paper-cvpr qualifies because it
-        # carries cvpr.sty and ieeenat_fullname.bst as its own files -- the
-        # author kit is not on CTAN, so a template that did not ship them would
-        # not build. The iccv and eccv templates still need kits that cannot be
-        # installed here.
-        template: [note, proposal, paper-tog, paper-cvpr]
+        # Only the templates that build here. paper-cvpr and paper-eccv qualify
+        # because they carry their venue kits as their own files -- cvpr.sty
+        # and ieeenat_fullname.bst for the first, eccv.sty, llncs.cls, and
+        # splncs04nat.bst for the second -- since neither kit is on CTAN, so a
+        # template that did not ship them would not build. The iccv template
+        # still needs a kit that cannot be installed here.
+        template: [note, proposal, paper-tog, paper-cvpr, paper-eccv]
     steps:
       - uses: actions/checkout@v4
       - name: Install TeX Live

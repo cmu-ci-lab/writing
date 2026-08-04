@@ -1,0 +1,8 @@
+README.md
+cirl.sty
+mathdefs.sty
+algodefs.sty
+boxdefs.sty
+colordefs.sty
+Makefile
+.gitignore

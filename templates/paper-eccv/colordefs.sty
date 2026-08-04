@@ -1,0 +1,212 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{colordefs}[2026/07/30 v1.0 CIRL colors and palettes]
+
+% Usage:
+%   \usepackage{colordefs}
+%   \colordefspalette{pal3}   % optional, pal7 is the default
+
+\@ifpackageloaded{xcolor}{}{\RequirePackage{xcolor}}	% provide `definecolor' and `colorlet'
+
+%% categorical palettes
+% Eight interchangeable 4-color palettes.
+%   palette CVD dE  min dL*  scheme
+%   pal1    11.4     11.8  Okabe-Ito, print-first
+%   pal2    11.0      3.6  Okabe-Ito, conventional
+%   pal3     8.9      8.1  Tol Bright, print-first
+%   pal4     8.9      1.1  Tol Bright, official first four
+%   pal5    14.8     15.2  Tol Muted, first four
+%   pal6    16.6     11.8  Okabe-Ito subset A
+%   pal7     3.1      9.1  Tol High-Contrast, plus a neutral (default)
+%   pal8     1.2      0.8  the maintainer's own int* colors
+% CVD dE is the smallest pairwise OkLab distance under protanopia and
+% deuteranopia -- the common forms, together about 8% of males; above
+% roughly 10 is usable. min dL* is the smallest adjacent CIELAB
+% lightness gap, which is what survives a grayscale print; above roughly
+% 8 is separable. Only pal1, pal5 and pal6 clear both bars.
+
+% pal1 -- Okabe-Ito, print-first
+% blue, orange, bluish green, yellow
+\definecolor{pal1base1}{HTML}{0072B2}	% blue
+\definecolor{pal1bg1}{HTML}{D9EAF3}
+\definecolor{pal1title1}{HTML}{006BAB}
+\definecolor{pal1base2}{HTML}{E69F00}	% orange
+\definecolor{pal1bg2}{HTML}{FBF1D9}
+\definecolor{pal1title2}{HTML}{9A6000}
+\definecolor{pal1base3}{HTML}{009E73}	% green
+\definecolor{pal1bg3}{HTML}{D9F0EA}
+\definecolor{pal1title3}{HTML}{007850}
+\definecolor{pal1base4}{HTML}{F0E442}	% yellow
+\definecolor{pal1bg4}{HTML}{FDFBE3}
+\definecolor{pal1title4}{HTML}{767500}
+
+% pal2 -- Okabe-Ito, conventional
+% blue, orange, bluish green, vermillion
+\definecolor{pal2base1}{HTML}{0072B2}	% blue
+\definecolor{pal2bg1}{HTML}{D9EAF3}
+\definecolor{pal2title1}{HTML}{006BAB}
+\definecolor{pal2base2}{HTML}{E69F00}	% orange
+\definecolor{pal2bg2}{HTML}{FBF1D9}
+\definecolor{pal2title2}{HTML}{9A6000}
+\definecolor{pal2base3}{HTML}{009E73}	% green
+\definecolor{pal2bg3}{HTML}{D9F0EA}
+\definecolor{pal2title3}{HTML}{007850}
+\definecolor{pal2base4}{HTML}{D55E00}	% vermillion
+\definecolor{pal2bg4}{HTML}{F9E7D9}
+\definecolor{pal2title4}{HTML}{B54400}
+
+% pal3 -- Tol Bright, print-first
+% purple, green, red, yellow
+\definecolor{pal3base1}{HTML}{AA3377}	% purple
+\definecolor{pal3bg1}{HTML}{F2E0EB}
+\definecolor{pal3title1}{HTML}{AA3377}
+\definecolor{pal3base2}{HTML}{228833}	% green
+\definecolor{pal3bg2}{HTML}{DEEDE0}
+\definecolor{pal3title2}{HTML}{037825}
+\definecolor{pal3base3}{HTML}{EE6677}	% red
+\definecolor{pal3bg3}{HTML}{FCE8EB}
+\definecolor{pal3title3}{HTML}{BD3A50}
+\definecolor{pal3base4}{HTML}{CCBB44}	% yellow
+\definecolor{pal3bg4}{HTML}{F7F5E3}
+\definecolor{pal3title4}{HTML}{7A7000}
+
+% pal4 -- Tol Bright, official first four
+% blue, red, green, yellow
+\definecolor{pal4base1}{HTML}{4477AA}	% blue
+\definecolor{pal4bg1}{HTML}{E3EBF2}
+\definecolor{pal4title1}{HTML}{366B9E}
+\definecolor{pal4base2}{HTML}{EE6677}	% red
+\definecolor{pal4bg2}{HTML}{FCE8EB}
+\definecolor{pal4title2}{HTML}{BD3A50}
+\definecolor{pal4base3}{HTML}{228833}	% green
+\definecolor{pal4bg3}{HTML}{DEEDE0}
+\definecolor{pal4title3}{HTML}{037825}
+\definecolor{pal4base4}{HTML}{CCBB44}	% yellow
+\definecolor{pal4bg4}{HTML}{F7F5E3}
+\definecolor{pal4title4}{HTML}{7A7000}
+
+% pal5 -- Tol Muted, first four
+% indigo, cyan, teal, green
+\definecolor{pal5base1}{HTML}{332288}	% indigo
+\definecolor{pal5bg1}{HTML}{E0DEED}
+\definecolor{pal5title1}{HTML}{332288}
+\definecolor{pal5base2}{HTML}{88CCEE}	% cyan
+\definecolor{pal5bg2}{HTML}{EDF7FC}
+\definecolor{pal5title2}{HTML}{107DA5}
+\definecolor{pal5base3}{HTML}{44AA99}	% teal
+\definecolor{pal5bg3}{HTML}{E3F2F0}
+\definecolor{pal5title3}{HTML}{0E8273}
+\definecolor{pal5base4}{HTML}{117733}	% green
+\definecolor{pal5bg4}{HTML}{DBEBE0}
+\definecolor{pal5title4}{HTML}{117733}
+
+% pal6 -- Okabe-Ito best-CVD four-hue subset
+% bluish green, blue, yellow, sky blue
+\definecolor{pal6base1}{HTML}{009E73}	% green
+\definecolor{pal6bg1}{HTML}{D9F0EA}
+\definecolor{pal6title1}{HTML}{0F8460}
+\definecolor{pal6base2}{HTML}{0072B2}	% blue
+\definecolor{pal6bg2}{HTML}{D9EAF3}
+\definecolor{pal6title2}{HTML}{0072B2}
+\definecolor{pal6base3}{HTML}{F0E442}	% yellow
+\definecolor{pal6bg3}{HTML}{FDFBE3}
+\definecolor{pal6title3}{HTML}{7E7600}
+\definecolor{pal6base4}{HTML}{56B4E9}	% sky
+\definecolor{pal6bg4}{HTML}{E6F4FC}
+\definecolor{pal6title4}{HTML}{007BAE}
+
+% pal7 -- Tol High-Contrast
+% yellow, red, blue, neutral
+\definecolor{pal7base1}{HTML}{DDAA33}	% yellow
+\definecolor{pal7bg1}{HTML}{FAF2E0}
+\definecolor{pal7title1}{HTML}{946D00}
+\definecolor{pal7base2}{HTML}{BB5566}	% red
+\definecolor{pal7bg2}{HTML}{F5E6E8}
+\definecolor{pal7title2}{HTML}{BB5566}
+\definecolor{pal7base3}{HTML}{004488}	% blue
+\definecolor{pal7bg3}{HTML}{D9E3ED}
+\definecolor{pal7title3}{HTML}{004488}
+\definecolor{pal7base4}{HTML}{5A5A5A}	% neutral
+\definecolor{pal7bg4}{HTML}{E6E6E6}
+\definecolor{pal7title4}{HTML}{5A5A5A}
+
+% pal8 -- the maintainer's own int* colors
+% blue, gray, crimson, teal
+\definecolor{pal8base1}{RGB}{117,121,182}	% blue
+\definecolor{pal8bg1}{RGB}{223,224,236}
+\definecolor{pal8title1}{HTML}{6868D0}
+\definecolor{pal8base2}{RGB}{135,135,135}	% gray
+\definecolor{pal8bg2}{RGB}{227,227,227}
+\definecolor{pal8title2}{HTML}{747473}
+\definecolor{pal8base3}{RGB}{112, 59, 84}	% crimson
+\definecolor{pal8bg3}{RGB}{222,212,217}
+\definecolor{pal8title3}{HTML}{703B54}
+\definecolor{pal8base4}{RGB}{89,143,131}	% teal
+\definecolor{pal8bg4}{RGB}{218,229,226}
+\definecolor{pal8title4}{HTML}{0A8271}
+
+% A document names `boxbase1' to `boxbase4', `boxbg1' to
+% `boxbg4', and `boxtitle1' to `boxtitle4', and switches 
+% every color in the document by changing one preamble line:
+%   \colordefspalette{pal5}
+% Typical use, with the boxes from boxdefs:
+%   \begin{titledbox}[colback=boxbg1,colframe=boxtitle1]{Title}...\end{titledbox}
+%   \mathbox{boxtitle1}{boxbg1}{label}{x+y}
+%   \mathboxnt{boxbg1}{x+y}
+\@namedef{coldefs@palette@pal1}{%
+	\colorlet{boxbase1}{pal1base1}\colorlet{boxbg1}{pal1bg1}\colorlet{boxtitle1}{pal1title1}%
+	\colorlet{boxbase2}{pal1base2}\colorlet{boxbg2}{pal1bg2}\colorlet{boxtitle2}{pal1title2}%
+	\colorlet{boxbase3}{pal1base3}\colorlet{boxbg3}{pal1bg3}\colorlet{boxtitle3}{pal1title3}%
+	\colorlet{boxbase4}{pal1base4}\colorlet{boxbg4}{pal1bg4}\colorlet{boxtitle4}{pal1title4}%
+}
+\@namedef{coldefs@palette@pal2}{%
+	\colorlet{boxbase1}{pal2base1}\colorlet{boxbg1}{pal2bg1}\colorlet{boxtitle1}{pal2title1}%
+	\colorlet{boxbase2}{pal2base2}\colorlet{boxbg2}{pal2bg2}\colorlet{boxtitle2}{pal2title2}%
+	\colorlet{boxbase3}{pal2base3}\colorlet{boxbg3}{pal2bg3}\colorlet{boxtitle3}{pal2title3}%
+	\colorlet{boxbase4}{pal2base4}\colorlet{boxbg4}{pal2bg4}\colorlet{boxtitle4}{pal2title4}%
+}
+\@namedef{coldefs@palette@pal3}{%
+	\colorlet{boxbase1}{pal3base1}\colorlet{boxbg1}{pal3bg1}\colorlet{boxtitle1}{pal3title1}%
+	\colorlet{boxbase2}{pal3base2}\colorlet{boxbg2}{pal3bg2}\colorlet{boxtitle2}{pal3title2}%
+	\colorlet{boxbase3}{pal3base3}\colorlet{boxbg3}{pal3bg3}\colorlet{boxtitle3}{pal3title3}%
+	\colorlet{boxbase4}{pal3base4}\colorlet{boxbg4}{pal3bg4}\colorlet{boxtitle4}{pal3title4}%
+}
+\@namedef{coldefs@palette@pal4}{%
+	\colorlet{boxbase1}{pal4base1}\colorlet{boxbg1}{pal4bg1}\colorlet{boxtitle1}{pal4title1}%
+	\colorlet{boxbase2}{pal4base2}\colorlet{boxbg2}{pal4bg2}\colorlet{boxtitle2}{pal4title2}%
+	\colorlet{boxbase3}{pal4base3}\colorlet{boxbg3}{pal4bg3}\colorlet{boxtitle3}{pal4title3}%
+	\colorlet{boxbase4}{pal4base4}\colorlet{boxbg4}{pal4bg4}\colorlet{boxtitle4}{pal4title4}%
+}
+\@namedef{coldefs@palette@pal5}{%
+	\colorlet{boxbase1}{pal5base1}\colorlet{boxbg1}{pal5bg1}\colorlet{boxtitle1}{pal5title1}%
+	\colorlet{boxbase2}{pal5base2}\colorlet{boxbg2}{pal5bg2}\colorlet{boxtitle2}{pal5title2}%
+	\colorlet{boxbase3}{pal5base3}\colorlet{boxbg3}{pal5bg3}\colorlet{boxtitle3}{pal5title3}%
+	\colorlet{boxbase4}{pal5base4}\colorlet{boxbg4}{pal5bg4}\colorlet{boxtitle4}{pal5title4}%
+}
+\@namedef{coldefs@palette@pal6}{%
+	\colorlet{boxbase1}{pal6base1}\colorlet{boxbg1}{pal6bg1}\colorlet{boxtitle1}{pal6title1}%
+	\colorlet{boxbase2}{pal6base2}\colorlet{boxbg2}{pal6bg2}\colorlet{boxtitle2}{pal6title2}%
+	\colorlet{boxbase3}{pal6base3}\colorlet{boxbg3}{pal6bg3}\colorlet{boxtitle3}{pal6title3}%
+	\colorlet{boxbase4}{pal6base4}\colorlet{boxbg4}{pal6bg4}\colorlet{boxtitle4}{pal6title4}%
+}
+\@namedef{coldefs@palette@pal7}{%
+	\colorlet{boxbase1}{pal7base1}\colorlet{boxbg1}{pal7bg1}\colorlet{boxtitle1}{pal7title1}%
+	\colorlet{boxbase2}{pal7base2}\colorlet{boxbg2}{pal7bg2}\colorlet{boxtitle2}{pal7title2}%
+	\colorlet{boxbase3}{pal7base3}\colorlet{boxbg3}{pal7bg3}\colorlet{boxtitle3}{pal7title3}%
+	\colorlet{boxbase4}{pal7base4}\colorlet{boxbg4}{pal7bg4}\colorlet{boxtitle4}{pal7title4}%
+}
+\@namedef{coldefs@palette@pal8}{%
+	\colorlet{boxbase1}{pal8base1}\colorlet{boxbg1}{pal8bg1}\colorlet{boxtitle1}{pal8title1}%
+	\colorlet{boxbase2}{pal8base2}\colorlet{boxbg2}{pal8bg2}\colorlet{boxtitle2}{pal8title2}%
+	\colorlet{boxbase3}{pal8base3}\colorlet{boxbg3}{pal8bg3}\colorlet{boxtitle3}{pal8title3}%
+	\colorlet{boxbase4}{pal8base4}\colorlet{boxbg4}{pal8bg4}\colorlet{boxtitle4}{pal8title4}%
+}
+
+% An unknown name is an error.
+\newcommand{\colordefspalette}[1]{%
+	\@ifundefined{coldefs@palette@#1}%
+		{\PackageError{colordefs}{Unknown palette `#1'}%
+			{Valid names are pal1 to pal8.}}%
+		{\csname coldefs@palette@#1\endcsname}%
+}
+
+\colordefspalette{pal7}	% the default; override with \colordefspalette

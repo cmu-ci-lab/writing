@@ -455,7 +455,7 @@ This repository includes a few files that should be useful for all papers you wr
 
 8. **using these files in your own project**: You have three options for making the files above visible to $\LaTeX$.
 	1. **start from a template repository**: Each of the repositories below is a ready-made project with the structure recommended in [Other good practices](#other-good-practices), and with all of the files above already at its root. On GitHub, click "Use this template", choose "Private", clone the result, set `TARGET` in `config.mk`, and run `make`. This is the option I recommend, and the only one where you do not have to remember to copy anything.
-		- <https://github.com/cmu-ci-lab/paper-siggraph-template> (`acmart`, for SIGGRAPH and TOG)
+		- <https://github.com/cmu-ci-lab/paper-tog-template> (`acmart`, for SIGGRAPH, SIGGRAPH Asia, and TOG)
 		- <https://github.com/cmu-ci-lab/paper-cvpr-template>
 		- <https://github.com/cmu-ci-lab/paper-iccv-template>
 		- <https://github.com/cmu-ci-lab/paper-eccv-template>
@@ -466,7 +466,7 @@ This repository includes a few files that should be useful for all papers you wr
 
 	3. **install them once for every project**: Copy the `.sty` files into your home TeX tree, under the directory `kpsewhich -var-value=TEXMFHOME` reports, and run `mktexlsr`. I do not recommend this for papers: a paper repository should be self-contained, and a collaborator who clones it will not have your home TeX tree.
 
-	The `cvpr`, `iccv`, and `eccv` style files are **not** on CTAN, and do not ship with any TeX distribution. Whichever option you choose, you must download the author kit from the venue and put its `.sty` and `.bst` files in your project directory yourself. The template repositories cannot include them, and their `README` files say so.
+	The `cvpr`, `iccv`, and `eccv` style files are **not** on CTAN, and do not ship with any TeX distribution. The `paper-cvpr` and `paper-eccv` template repositories therefore carry their author kits at the root, so if you start from one of those you have nothing to download. For every other option, and for `iccv`, you must download the author kit from the venue yourself and put its `.sty` and `.bst` files in your project directory. Kits do get reissued, so check yours against the venue's current one before you submit.
 
 ## Reading
 
