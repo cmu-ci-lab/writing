@@ -1,9 +1,17 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{paper-cvpr}[2026/08/04 v1.0 CIRL CVPR paper macros]
+\ProvidesPackage{paper-cvpr}[2026/08/04 v1.0 CIRL CVPR and ICCV paper macros]
 
+% This template serves ICCV as well as CVPR: the two author kits
+% are near identical. For an ICCV submission, download the ICCV 
+% kit, put its iccv.sty in this directory, change the option below
+% to [iccv,review], and set \confName to ICCV.
 \RequirePackage[cvpr,review]{cirl}
 \definecolor{cvprblue}{rgb}{0.21,0.49,0.74}
 \RequirePackage[pagebackref,breaklinks,colorlinks,allcolors=cvprblue]{hyperref}
+
+\def\paperID{*****}	% update the paper ID
+\def\confName{CVPR}	% set to ICCV for an ICCV submission
+\def\confYear{2026}
 
 \RequirePackage{cuted}	% for two-column teaser
 

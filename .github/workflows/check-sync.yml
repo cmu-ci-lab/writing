@@ -40,8 +40,8 @@ jobs:
         # because they carry their venue kits as their own files -- cvpr.sty
         # and ieeenat_fullname.bst for the first, eccv.sty, llncs.cls, and
         # splncs04nat.bst for the second -- since neither kit is on CTAN, so a
-        # template that did not ship them would not build. The iccv template
-        # still needs a kit that cannot be installed here.
+        # template that did not ship them would not build. This is every
+        # template: paper-cvpr serves ICCV as well, so there is no sixth one.
         template: [note, proposal, paper-tog, paper-cvpr, paper-eccv]
     steps:
       - uses: actions/checkout@v4
