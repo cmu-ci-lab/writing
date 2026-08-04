@@ -27,7 +27,7 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 	+ [Other good practices](#other-good-practices)
 + [Resources](#resources)
 	+ [Packages and utilities](#packages-and-utilities)
-	+ [Templates](#resources)
+	+ [Templates](#templates)
 + [Reading](#reading)
 
 ## Technical suggestions
@@ -473,7 +473,7 @@ Each of the following template repositories is a ready-made project that conform
 
 1. **use instructions**: On GitHub, click "Use this template," choose "Private," clone the result, set `TARGET` in `config.mk`, and run `make`.
 
-2. **updating files**: Each template repository includes venue-specific files, such as the `acmart` template and the `cvpr`, `iccv`, and `eccv` style files. These files typically change from year to year. We try to keep the venue-specific files of each template up to date. But nevertheless, you should always download the latest author kit from the venue, and put its `.sty` and `.bst` files in your project directory.
+2. **updating files**: Each template repository includes venue-specific files, such as the `acmart` template and the `cvpr`, `iccv`, and `eccv` style files. These files typically change from year to year. We try to keep the venue-specific files of each template up to date. But nevertheless, you should always download the latest author kit from the venue, and put its `.sty`, `.cls`, and `.bst` files in your project directory.
 
 ## Reading
 

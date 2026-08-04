@@ -27,7 +27,7 @@ A lot of these notes are inspired (or directly plagiarized) from Wojciech Jarosz
 	+ [Other good practices](#other-good-practices)
 + [Resources](#resources)
 	+ [Packages and utilities](#packages-and-utilities)
-	+ [Templates](#resources)
+	+ [Templates](#templates)
 + [Reading](#reading)
 
 ## Technical suggestions
