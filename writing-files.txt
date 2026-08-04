@@ -10,11 +10,13 @@
 # on CTAN, since a template that did not carry it would not build: templates/
 # paper-cvpr/ owns cvpr.sty and ieeenat_fullname.bst on those grounds, and
 # templates/paper-eccv/ owns eccv.sty and splncs04nat.bst on the same ones.
-# Anything that TeX Live already provides stays out, in either category -- see
-# the note on acmart.cls in CLAUDE.md section Templates. The one exception is a
-# version the kit pins: templates/paper-eccv/ also owns llncs.cls, because the
-# ECCV kit ships v2.22 while TeX Live carries v2.24, and the two differ in more
-# than a date -- v2.24 adds the credits environment and \discintname.
+# A file TeX Live also provides still counts as the template's own when the two
+# copies are not the same file: templates/paper-eccv/ owns llncs.cls, since the
+# ECCV kit ships v2.22 against TeX Live's v2.24 and v2.24 adds the credits
+# environment and \discintname, and templates/paper-tog/ owns acmart.cls and
+# ACM-Reference-Format.bst, since the current kit is v2.16 against the v2.03
+# this machine's TeX Live carries. Whichever way the pin points, the template
+# carries the version its venue expects and builds against that one.
 #
 # Adding or removing a line here is the whole interface: the next sync copies
 # what was added, and deletes from each template what was removed, because each
