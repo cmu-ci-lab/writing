@@ -457,21 +457,23 @@ This repository includes a few files that should be useful for all papers you wr
 
 7. **`.gitignore`**: You can use this file to have `git` ignore all compilation files $\LaTeX$ produces.
 
+8. **using these files in your own project**: You have two options for making the files above visible to $\LaTeX$.
+	1. **copy them into an existing project**: Copy the `.sty` files, `Makefile`, and `.gitignore` into your project directory. If you copy `cirl.sty`, you should copy `mathdefs.sty`, `algodefs.sty`, `colordefs.sty`, and `boxdefs.sty` alongside it, as `cirl` by default loads all four.
+
+	2. **start from a template repository**: There are a few template repositories available, as in the next section.
+
 ### Templates
 
-8. **using these files in your own project**: You have three options for making the files above visible to $\LaTeX$.
-	1. **start from a template repository**: Each of the repositories below is a ready-made project with the structure recommended in [Other good practices](#other-good-practices), and with all of the files above already at its root. On GitHub, click "Use this template", choose "Private", clone the result, set `TARGET` in `config.mk`, and run `make`. This is the option I recommend, and the only one where you do not have to remember to copy anything.
-		- <https://github.com/cmu-ci-lab/paper-tog-template> (`acmart`, for SIGGRAPH, SIGGRAPH Asia, and TOG)
-		- <https://github.com/cmu-ci-lab/paper-cvpr-template> (`cvpr`, for CVPR and ICCV)
-		- <https://github.com/cmu-ci-lab/paper-eccv-template>
-		- <https://github.com/cmu-ci-lab/proposal-template>
-		- <https://github.com/cmu-ci-lab/note-template>
+Each of the following template repositories is a ready-made project that conforms with the above suggestions, includes the packages and utilities at its root, and is kept in sync with the main writing repository.
+- <https://github.com/cmu-ci-lab/paper-tog-template> (`acmart`, for SIGGRAPH, SIGGRAPH Asia, and TOG)
+- <https://github.com/cmu-ci-lab/paper-cvpr-template> (for CVPR and ICCV)
+- <https://github.com/cmu-ci-lab/paper-eccv-template> (for ECCV)
+- <https://github.com/cmu-ci-lab/proposal-template>
+- <https://github.com/cmu-ci-lab/note-template>
 
-	2. **copy them into an existing project**: Copy the `.sty` files, the `Makefile`, and the `.gitignore` into the directory that holds your root `.tex` file. $\LaTeX$ searches the current directory first, so nothing else is needed. If you copy `cirl.sty`, you should copy `mathdefs.sty`, `algodefs.sty`, `colordefs.sty`, and `boxdefs.sty` alongside it, as `cirl` loads all four.
+1. **use instructions**: On GitHub, click "Use this template," choose "Private," clone the result, set `TARGET` in `config.mk`, and run `make`.
 
-	3. **install them once for every project**: Copy the `.sty` files into your home TeX tree, under the directory `kpsewhich -var-value=TEXMFHOME` reports, and run `mktexlsr`. I do not recommend this for papers: a paper repository should be self-contained, and a collaborator who clones it will not have your home TeX tree.
-
-	The `cvpr`, `iccv`, and `eccv` style files are **not** on CTAN, and do not ship with any TeX distribution. The `paper-cvpr` and `paper-eccv` template repositories therefore carry the CVPR and ECCV author kits at the root, so if you start from one of those you have nothing to download. In every other case you must download the author kit from the venue yourself and put its `.sty` and `.bst` files in your project directory. That includes an ICCV submission: the `paper-cvpr` repository is the ICCV template as well, since the two kits are near identical, but it carries only the CVPR one, and its `paper-cvpr.sty` tells you the three lines to change. Kits do get reissued, so check yours against the venue's current one before you submit.
+2. **updating files**: Each template repository includes venue-specific files, such as the `acmart` template and the `cvpr`, `iccv`, and `eccv` style files. These files typically change from year to year. We try to keep the venue-specific files of each template up to date. But nevertheless, you should always download the latest author kit from the venue, and put its `.sty` and `.bst` files in your project directory.
 
 ## Reading
 
