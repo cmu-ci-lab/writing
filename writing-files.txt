@@ -6,6 +6,12 @@
 # reach a published template repo. A template's own files -- its .tex, .sty,
 # .bib, figures/, and config.mk -- are never listed here and never touched.
 #
+# A venue kit file counts as the template's own when the venue does not ship it
+# on CTAN, since a template that did not carry it would not build: templates/
+# paper-cvpr/ owns cvpr.sty and ieeenat_fullname.bst on those grounds. Anything
+# that TeX Live already provides stays out, in either category -- see the note
+# on acmart.cls in CLAUDE.md section Templates.
+#
 # Adding or removing a line here is the whole interface: the next sync copies
 # what was added, and deletes from each template what was removed, because each
 # template records the manifest it was last synced against in .writing-files.

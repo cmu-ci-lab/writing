@@ -36,10 +36,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # Only the templates that build against a stock TeX Live. The cvpr,
-        # iccv, and eccv templates need author kits that are not on CTAN and
-        # cannot be installed here.
-        template: [note, proposal, paper-tog]
+        # Only the templates that build here. paper-cvpr qualifies because it
+        # carries cvpr.sty and ieeenat_fullname.bst as its own files -- the
+        # author kit is not on CTAN, so a template that did not ship them would
+        # not build. The iccv and eccv templates still need kits that cannot be
+        # installed here.
+        template: [note, proposal, paper-tog, paper-cvpr]
     steps:
       - uses: actions/checkout@v4
       - name: Install TeX Live

@@ -1,0 +1,56 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+\usepackage{paper-cvpr}
+
+\def\paperID{*****}	% update the paper ID
+\def\confName{CVPR}
+\def\confYear{2026}
+
+\begin{document}
+
+\title{Paper Title}
+\maketitle
+
+% A teaser spanning both columns.
+\begin{strip}
+	\centering
+	\includegraphics[width=\textwidth]{teaser.pdf}
+	\captionsetup{hypcap=false}
+	\captionof{figure}{Your teaser. Replace \texttt{figures/teaser.pdf} with a figure that shows the result of the paper, and write a caption that stands on its own.}
+	\captionsetup{hypcap=true}
+	\label{fig:teaser}%
+\end{strip}
+
+\begin{abstract}
+	Your abstract.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:introduction}
+
+Use this document as a template for CVPR papers. Representative citation of a cool paper \citep{Miller:VOS:2024}.
+
+\section{Notation and results}
+\label{sec:results}
+
+Notation macros belong in \texttt{paper-cvpr.sty}, so that changing a symbol is one edit. Equations are typeset with the packages and macros \texttt{mathdefs} provides,
+%
+\begin{equation}
+	\label{equ:example}
+	\E{f \paren{\bm{x}}} = \int_{\R^3} f \paren{\bm{x}} \, p \paren{\bm{x}} \ud \bm{x},
+\end{equation}
+%
+and \texttt{boxdefs} provides environments for the statements you want to stand out.
+
+\begin{prp}{An example proposition}{example}
+	State the claim here. The environment numbers propositions, definitions, and lemmas in a single sequence, and labels this one \texttt{pro:example}.
+\end{prp}
+
+\Cref{pro:example} follows from \cref{equ:example}, which is the sort of cross-reference \texttt{cleveref} writes out for you.
+
+{
+	\small
+	\bibliographystyle{ieeenat_fullname}
+	\bibliography{paper-cvpr}
+}
+
+\end{document}

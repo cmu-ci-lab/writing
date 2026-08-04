@@ -1,0 +1,16 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{paper-cvpr}[2026/08/04 v1.0 CIRL CVPR paper macros]
+
+\RequirePackage[cvpr,review]{cirl}
+\definecolor{cvprblue}{rgb}{0.21,0.49,0.74}
+\RequirePackage[pagebackref,breaklinks,colorlinks,allcolors=cvprblue]{hyperref}
+
+\RequirePackage{cuted}	% for two-column teaser
+
+\graphicspath{{figures/}}
+
+% Commenting macros. Add one per author, and delete them all before submitting.
+\newcommand{\igkiou}[1]{{\color{red}{[igkiou: #1]}}}
+
+% Notation macros. Define the notation of this paper here, so that changing it
+% later is one edit rather than a search across the whole document.
