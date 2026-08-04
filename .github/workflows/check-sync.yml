@@ -1,11 +1,10 @@
 name: check-sync
 
 # Everything in templates/*/ except each template's own .tex, .sty, .bib,
-# figures/, and config.mk is a generated copy of a shared file. "Never edit a
-# generated copy" is exactly the sort of rule that rots silently, so this
-# workflow checks it rather than documenting it: it re-runs the sync and fails
-# if that changes anything, which means either a copy was hand-edited or a
-# shared file was edited without syncing.
+# figures/, and config.mk is a generated copy of a shared file. This
+# workflow re-runs the sync and fails if that changes anything, which 
+# means either a copy was hand-edited or a shared file was edited without 
+# syncing.
 
 on:
   push:
@@ -36,12 +35,6 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # Only the templates that build here. paper-cvpr and paper-eccv qualify
-        # because they carry their venue kits as their own files -- cvpr.sty
-        # and ieeenat_fullname.bst for the first, eccv.sty, llncs.cls, and
-        # splncs04nat.bst for the second -- since neither kit is on CTAN, so a
-        # template that did not ship them would not build. This is every
-        # template: paper-cvpr serves ICCV as well, so there is no sixth one.
         template: [note, proposal, paper-tog, paper-cvpr, paper-eccv]
     steps:
       - uses: actions/checkout@v4
