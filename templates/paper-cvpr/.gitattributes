@@ -2,11 +2,10 @@
 # every template published from it.
 #
 # Without the first group, a file edited on Windows enters the index with CRLF
-# and stays that way in every checkout afterwards -- which is how cirl.sty came
-# to be the one CRLF file here. `text=auto' stores LF in the index and hands
-# each checkout the line endings of its own platform, so a student on Windows
-# can edit a template without every later diff of that file being suspect.
-# After adding a line here, run `git add --renormalize .' once.
+# and stays that way in every checkout afterwards. `text=auto' stores LF in
+# the index and hands each checkout the line endings of its own platform, so
+# a user on Windows can edit a template without every later diff of that file
+# being suspect. After adding a line here, run `git add --renormalize .' once.
 * text=auto
 *.sty text
 *.tex text
