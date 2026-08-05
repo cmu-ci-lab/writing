@@ -495,3 +495,4 @@ For further reading, you should take a look at many other useful resources onlin
 - <https://brians.wsu.edu/common-errors/>
 - <https://english.stackexchange.com/>
 - <https://www.cs.cmu.edu/~jrs/sins.html>
+- <https://www.fitzgibbon.ie/latex>
