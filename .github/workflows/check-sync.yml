@@ -2,8 +2,8 @@ name: check-sync
 
 # Everything in templates/*/ except each template's own .tex, .sty, .bib,
 # figures/, and config.mk is a generated copy of a shared file. This
-# workflow re-runs the sync and fails if that changes anything, which 
-# means either a copy was hand-edited or a shared file was edited without 
+# workflow re-runs the sync and fails if that changes anything, which
+# means either a copy was hand-edited or a shared file was edited without
 # syncing.
 
 on:
