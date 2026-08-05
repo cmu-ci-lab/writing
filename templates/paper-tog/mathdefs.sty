@@ -4,7 +4,10 @@
 % packages
 \RequirePackage{mathtools}
 \mathtoolsset{centercolon}
-\RequirePackage{mathrsfs}
+\RequirePackage{mathrsfs}	% \mathscr; see the font shape fix below
+% fix warning from acmart and newtxmath about missing font size
+\DeclareFontFamily{U}{rsfs}{\skewchar\font127 }
+\DeclareFontShape{U}{rsfs}{m}{n}{<-7>rsfs5<7-8>rsfs7<8->rsfs10}{}
 \RequirePackage{amsmath}
 \let\Bbbk\relax
 \allowdisplaybreaks
