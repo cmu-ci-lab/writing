@@ -1,0 +1,29 @@
+# Line endings, diffs, and language statistics, for this repository and for
+# every template published from it.
+#
+# Without the first group, a file edited on Windows enters the index with CRLF
+# and stays that way in every checkout afterwards -- which is how cirl.sty came
+# to be the one CRLF file here. `text=auto' stores LF in the index and hands
+# each checkout the line endings of its own platform, so a student on Windows
+# can edit a template without every later diff of that file being suspect.
+# After adding a line here, run `git add --renormalize .' once.
+* text=auto
+*.sty text
+*.tex text
+*.bib text
+
+# Bibliography styles and figures are not worth diffing or merging line by
+# line. `binary' is `-text -diff -merge', so it also keeps them out of the
+# normalisation above.
+*.bst binary
+*.pdf binary
+
+# The venue author kits and their document classes are vendored verbatim: none
+# of them is this repository's code, and together they are the bulk of
+# templates/paper-cvpr/ and templates/paper-eccv/ by line count. Marking them
+# vendored keeps them out of GitHub's language statistics.
+acmart.cls linguist-vendored
+llncs.cls linguist-vendored
+cvpr.sty linguist-vendored
+eccv.sty linguist-vendored
+*.bst linguist-vendored

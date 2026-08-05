@@ -6,3 +6,4 @@ boxdefs.sty
 colordefs.sty
 Makefile
 .gitignore
+.gitattributes
