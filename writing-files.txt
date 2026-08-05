@@ -8,6 +8,24 @@
 # Adding or removing a line here is the whole interface: the next sync copies
 # what was added, and deletes from each template what was removed, because each
 # template records the manifest it was last synced against in .writing-files.
+#
+# Vendored author-kit files are deliberately NOT listed here. They come from
+# the venue rather than from this repository, and each is carried by the one
+# template that needs it, so the sync neither copies nor deletes them. Two
+# grounds put them there, and the distinction matters when deciding whether a
+# new one belongs to a template or to this list:
+#
+#   absent from CTAN and TeX Live, so the template does not build without a
+#   copy:  cvpr.sty and ieeenat_fullname.bst (templates/paper-cvpr),
+#          eccv.sty and splncs04nat.bst (templates/paper-eccv)
+#
+#   present in TeX Live, but at a different version than the venue's kit, so
+#   the copy pins the version the venue actually wants:  acmart.cls and
+#          ACM-Reference-Format.bst (templates/paper-tog, kit v2.16 against
+#          TeX Live v2.03), llncs.cls (templates/paper-eccv, kit v2.22
+#          against TeX Live v2.24 -- pointing the other way)
+#
+# Refresh a pinned copy from the venue's kit when that venue reissues.
 
 README.md
 cirl.sty

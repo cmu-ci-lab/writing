@@ -441,7 +441,7 @@ This repository includes a few files that should be useful for all papers you wr
 	1. **packages**: `algodefs` includes the `algorithm` package, which provides the float environment that holds an algorithm, and the `algorithmicx` and `algpseudocode` packages, which provide the environment and blocks you use to write the pseudocode itself.
 	2. **macros**: `algodefs` provides macros for procedure names, comments, multi-line input and output conditions, flow-control blocks, and others.
 
-3. **`colordefs` package**: This package provides categorical color palettes to use throughout your document, including with other `cirl` packages. Each palette provides four colors, each at three levels. The palettes come from published color schemes chosen to stay legible for readers with color vision deficiencies and to survive grayscale printing; the package file records how each one scores on both counts, so you can pick with your eyes and check the numbers afterwards.
+3. **`colordefs` package**: This package provides categorical color palettes to use throughout your document, including with other packages in this repository. Each palette provides four colors, each at three levels. The palettes come from published color schemes chosen to stay legible for readers with color vision deficiencies and to survive grayscale printing; the package file records how each one scores on both counts, so you can pick with your eyes and check the numbers afterwards.
 
 4. **`boxdefs` package**: This package provides colored boxes for annotating math, including individual equations and statements such as propositions. The boxes can directly use the color palettes provided in `colordefs`.
 
