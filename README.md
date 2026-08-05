@@ -441,7 +441,7 @@ This repository includes a few files that should be useful for all papers you wr
 	1. **packages**: `algodefs` includes the `algorithm` package, which provides the float environment that holds an algorithm, and the `algorithmicx` and `algpseudocode` packages, which provide the environment and blocks you use to write the pseudocode itself.
 	2. **macros**: `algodefs` provides macros for procedure names, comments, multi-line input and output conditions, flow-control blocks, and others.
 
-3. **`colordefs` package**: This package provides categorical color palettes to use throughout your document, including with other `cirl` packages. Each palette provides four colors, each at three saturation levels. The palettes come from published color schemes chosen to stay legible for readers with color vision deficiencies and to survive grayscale printing; the package file records how each one scores on both counts, so you can pick with your eyes and check the numbers afterwards.
+3. **`colordefs` package**: This package provides categorical color palettes to use throughout your document, including with other `cirl` packages. Each palette provides four colors, each at three levels. The palettes come from published color schemes chosen to stay legible for readers with color vision deficiencies and to survive grayscale printing; the package file records how each one scores on both counts, so you can pick with your eyes and check the numbers afterwards.
 
 4. **`boxdefs` package**: This package provides colored boxes for annotating math, including individual equations and statements such as propositions. The boxes can directly use the color palettes provided in `colordefs`.
 
@@ -457,8 +457,10 @@ This repository includes a few files that should be useful for all papers you wr
 
 7. **`.gitignore`**: You can use this file to have `git` ignore all compilation files $\LaTeX$ produces.
 
-8. **using these files in your own project**: You have two options for making the files above visible to $\LaTeX$.
-	1. **copy them into an existing project**: Copy the `.sty` files, `Makefile`, and `.gitignore` into your project directory. If you copy `cirl.sty`, you should copy `mathdefs.sty`, `algodefs.sty`, `colordefs.sty`, and `boxdefs.sty` alongside it, as `cirl` by default loads all four.
+8. **`.gitattributes`**: You can use this file to have `git` store consistent line endings, keep binary files out of diffs, and keep venue-specific files out of GitHub's language statistics.
+
+9. **using these files in your own project**: You have two options for making the files above visible to $\LaTeX$.
+	1. **copy them into an existing project**: Copy the `.sty` files, `Makefile`, `.gitignore`, and `.gitattributes` into your project directory. If you copy `cirl.sty`, you should copy `mathdefs.sty`, `algodefs.sty`, `colordefs.sty`, and `boxdefs.sty` alongside it, as `cirl` by default loads all four.
 
 	2. **start from a template repository**: There are a few template repositories available, as in the next section.
 
