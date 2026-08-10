@@ -1,0 +1,18 @@
+# EditorConfig -- https://editorconfig.org
+# Enforces editing conventions. Most editors read this file without a plugin. 
+root = true
+
+[*]
+indent_style = tab
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Trailing spaces carry meaning in Markdown.
+[*.md]
+trim_trailing_whitespace = false
+
+# Vendored author-kit files break some of these conventions.
+[{acmart.cls,llncs.cls,cvpr.sty,eccv.sty,*.bst}]
+trim_trailing_whitespace = false
+insert_final_newline = false
