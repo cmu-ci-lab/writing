@@ -34,5 +34,6 @@ algodefs.sty
 boxdefs.sty
 colordefs.sty
 Makefile
+.editorconfig
 .gitignore
 .gitattributes
