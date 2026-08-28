@@ -490,10 +490,9 @@ For further reading, you should take a look at many other useful resources onlin
 - [How to write a bad paper](https://people.csail.mit.edu/fredo/FredoBadWriting.pdf) by Frédo Durand.
 - [A public service rant: please fix your bibliography](https://freedom-to-tinker.com/blog/dwallach/public-service-rant-please-fix-your-bibliography/) by Dan Wallach.
 - [Effective scientific electronic publishing](https://www.cl.cam.ac.uk/~mgk25/publ-tips/) by Markus Kuhn.
-- <https://www.slideshare.net/jdily/how-to-write-a-siggraph-paper>
 - [LaTeX usage notes](https://www.read.seas.harvard.edu/~kohler/latex.html) by Eddie Kohler
 - [Common errors in English usage](https://brians.wsu.edu/common-errors/) by Paul Brians.
-- <https://english.stackexchange.com/>
+- [English stack exchange](https://english.stackexchange.com/).
 - [Three sins of authors in computer science and math](https://www.cs.cmu.edu/~jrs/sins.html) by Jonathan Shewchuk.
 - [Things I do in LaTeX which may need justifying to co-authors](https://www.fitzgibbon.ie/latex) by Andrew Fitzgibbon.
 - [You and your research](https://www.cs.virginia.edu/~robins/YouAndYourResearch.html) by Richard Hamming.
