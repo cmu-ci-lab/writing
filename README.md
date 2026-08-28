@@ -482,17 +482,23 @@ Each of the following template repositories is a ready-made project that conform
 If you were to read just one book on writing, I would recommend [On Writing Well](https://www.amazon.com/Writing-Well-Classic-Guide-Nonfiction/dp/0060891548), by William Zinsser. If you are in my lab, I would be happy to buy you a copy if you cannot get your hands on one.
 
 For further reading, you should take a look at many other useful resources online discussing similar topics:
-- <https://cs.dartmouth.edu/~wjarosz/writing.md.html>
-- <https://research.siggraph.org/blog/guides/writing-your-first-acm-siggraph-tog-paper/>
-- <https://www.ece.ucdavis.edu/~jowens/commonerrors.html>
-- <https://www.ece.ucdavis.edu/~jowens/biberrors.html>
-- <https://people.csail.mit.edu/fredo/PUBLI/writing.pdf>
-- <https://freedom-to-tinker.com/blog/dwallach/public-service-rant-please-fix-your-bibliography/>
-- <https://www.cl.cam.ac.uk/~mgk25/publ-tips/>
+- [Common mistakes in technical writing](https://cs.dartmouth.edu/~wjarosz/writing.md.html) by Wojciech Jarosz.
+- [Writing your first ACM SIGGRAPH or TOG paper](https://research.siggraph.org/blog/guides/writing-your-first-acm-siggraph-tog-paper/) by the SIGGRAPH RCDC Research Guides Team.
+- [Common errors in technical writing](https://www.ece.ucdavis.edu/~jowens/commonerrors.html) by John Owens.
+- [Common errors in bibliographies](https://www.ece.ucdavis.edu/~jowens/biberrors.html) by John Owens.
+- [Notes on writing](https://people.csail.mit.edu/fredo/PUBLI/writing.pdf) by Frédo Durand.
+- [How to write a bad paper](https://people.csail.mit.edu/fredo/FredoBadWriting.pdf) by Frédo Durand.
+- [A public service rant: please fix your bibliography](https://freedom-to-tinker.com/blog/dwallach/public-service-rant-please-fix-your-bibliography/) by Dan Wallach.
+- [Effective scientific electronic publishing](https://www.cl.cam.ac.uk/~mgk25/publ-tips/) by Markus Kuhn.
 - <https://www.slideshare.net/jdily/how-to-write-a-siggraph-paper>
-- <https://www.lightbluetouchpaper.org/2007/03/14/how-not-to-write-an-abstract/>
-- <https://www.read.seas.harvard.edu/~kohler/latex.html>
-- <https://brians.wsu.edu/common-errors/>
+- [LaTeX usage notes](https://www.read.seas.harvard.edu/~kohler/latex.html) by Eddie Kohler
+- [Common errors in English usage](https://brians.wsu.edu/common-errors/) by Paul Brians.
 - <https://english.stackexchange.com/>
-- <https://www.cs.cmu.edu/~jrs/sins.html>
-- <https://www.fitzgibbon.ie/latex>
+- [Three sins of authors in computer science and math](https://www.cs.cmu.edu/~jrs/sins.html) by Jonathan Shewchuk.
+- [Things I do in LaTeX which may need justifying to co-authors](https://www.fitzgibbon.ie/latex) by Andrew Fitzgibbon.
+- [You and your research](https://www.cs.virginia.edu/~robins/YouAndYourResearch.html) by Richard Hamming.
+- [Writing a good scientific paper](https://medium.com/@black_51980/writing-a-good-scientific-paper-c0f8af480c91) by Michael Black.
+- [How to write a SIGGRAPH paper](https://dl.acm.org/doi/10.1145/2988458.2988471) by David Salesin.
+- [Ten simple rules for mathematical writing](https://www.mit.edu/~dimitrib/Ten_Rules.html) by Dimitri Bertsekas.
+- [How to write a good CVPR submission](https://billf.mit.edu/wp-content/uploads/2014/02/cvprPapers.pdf) and [How to write a good research paper](https://deviparikh.com/citizenofcvpr/static/slides/freeman_how_to_write_papers.pdf) by Bill Freeman.
+- [Best practice guidelines for SIGGRAPH figures](https://docs.google.com/presentation/d/1eRUOqLul90ipgj-Uku-pswtSrwdZHXj9QAin-NNQKMc/) by Alec Jacobson.
