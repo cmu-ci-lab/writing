@@ -20,6 +20,7 @@
 %% original source files, as listed above, are part of the
 %% same distribution. (The sources need not necessarily be
 %% in the same archive or directory.)
+
 %% \CharacterTable
 %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
 %%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
@@ -39,12 +40,15 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{acmart}
-[2025/08/27 v2.16 Typesetting articles for the Association for Computing Machinery]
+[2026/11/01 v2.21 Typesetting articles for the Association for Computing Machinery]
 \def\@classname{acmart}
 \InputIfFileExists{acmart-preload-hook.tex}{%
   \ClassWarning{\@classname}{%
     I am loading acmart-preload-hook.tex. You are fully responsible
     for any problems from now on.}}{}
+\providecommand{\IfDocumentMetadataTF}{\@secondoftwo}
+\providecommand{\IfDocumentMetadataT}{\@gobble}
+\providecommand{\IfDocumentMetadataF}{\@firstofone}
 \RequirePackage{xkeyval}
 \RequirePackage{xstring}
 \RequirePackage{iftex}
@@ -172,7 +176,12 @@
 \DeclareOptionX{language}{%
   \ifx\ACM@languages\@empty
   \gdef\ACM@languages{english}\fi
-  \g@addto@macro\ACM@languages{, #1}}
+  \g@addto@macro\ACM@languages{, #1}%
+  \def\@tempa{#1}%
+  \def\@tempb{spanish}%
+  \ifx\@tempb\@tempa\relax
+    \g@addto@macro\ACM@languages{, es-noquoting}%
+  \fi}
 \DeclareOptionX{draft}{\PassOptionsToClass{\CurrentOption}{amsart}}
 \DeclareOptionX{*}{\PassOptionsToClass{\CurrentOption}{amsart}}
 \ProcessOptionsX
@@ -181,6 +190,7 @@
 \newif\if@ACM@journal
 \newif\if@ACM@journal@bibstrip
 \newif\if@ACM@journal@bibstrip@or@tog
+\newif\if@ACM@addressesinfootnote
 \newif\if@ACM@sigchiamode
 \newif\if@ACM@engage
 \@ACM@engagefalse
@@ -249,9 +259,14 @@
 \if@ACM@journal
   \@ACM@journal@bibstriptrue
   \@ACM@journal@bibstrip@or@togtrue
+  \@ACM@addressesinfootnotetrue
 \else
  \@ACM@journal@bibstripfalse
 \fi
+\let\@startsection@kernel\@startsection
+\let\@xsect@kernel\@xsect
+\let\@sect@kernel\@sect
+\let\@ssect@kernel\@ssect
 \ifx\ACM@fontsize\@empty
   \ifcase\ACM@format@nr
   \relax % manuscript
@@ -467,97 +482,13 @@
     command. Please move it!}\fi
   \ACM@lang@check{translatedabstract}%
   \g@addto@macro\@translatedabstracts{\bgroup#1\egroup}}
-\def\@startsection#1#2#3#4#5#6{%
-  \if@noskipsec \leavevmode \fi
-  \par
-  \@tempskipa #4\relax
-  \@afterindenttrue
-  \ifdim \@tempskipa <\z@
-    \@tempskipa -\@tempskipa \@afterindentfalse
-  \fi
-  \if@nobreak
-    \everypar{}%
-  \else
-    \addpenalty\@secpenalty\addvspace\@tempskipa
-  \fi
-  \@ifstar
-    {\@ssect{#3}{#4}{#5}{#6}}%
-    {\@dblarg{\@sect{#1}{#2}{#3}{#4}{#5}{#6}}}}
+\let\@startsection\@startsection@kernel
 \def\@sect#1#2#3#4#5#6[#7]#8{%
-  \edef\@toclevel{\ifnum#2=\@m 0\else\number#2\fi}%
-  \ifnum #2>\c@secnumdepth
-    \let\@svsec\@empty
-  \else
-    \refstepcounter{#1}%
-    \protected@edef\@svsec{\@seccntformat{#1}\relax}%
-  \fi
-  \@tempskipa #5\relax
-  \ifdim \@tempskipa>\z@
-    \begingroup
-      #6{%
-        \@hangfrom{\hskip #3\relax\@svsec}%
-          \interlinepenalty \@M #8\@@par}%
-    \endgroup
-    \csname #1mark\endcsname{#7}%
-    \ifnum #2>\c@secnumdepth \else
-        \@tochangmeasure{\csname the#1\endcsname}%
-    \fi
-    \addcontentsline{toc}{#1}{%
-      \ifnum #2>\c@secnumdepth \else
-        \protect\numberline{\csname the#1\endcsname}%
-      \fi
-      #7}%
-  \else
-    \def\@svsechd{%
-      #6{\hskip #3\relax
-      \@svsec #8}%
-      \csname #1mark\endcsname{#7}%
-      \ifnum #2>\c@secnumdepth \else
-        \@tochangmeasure{\csname the#1\endcsname\space}%
-      \fi
-      \addcontentsline{toc}{#1}{%
-        \ifnum #2>\c@secnumdepth \else
-          \protect\numberline{\csname the#1\endcsname}%
-        \fi
-        #7}}%
-  \fi
-  \@xsect{#5}}
-\def\@xsect#1{%
-  \@tempskipa #1\relax
-  \ifdim \@tempskipa>\z@
-    \par \nobreak
-    \vskip \@tempskipa
-    \@afterheading
-  \else
-    \@nobreakfalse
-    \global\@noskipsectrue
-    \everypar{%
-      \if@noskipsec
-        \global\@noskipsecfalse
-       {\setbox\z@\lastbox}%
-        \clubpenalty\@M
-        \begingroup \@svsechd \endgroup
-        \unskip
-        \@tempskipa #1\relax
-        \hskip -\@tempskipa
-      \else
-        \clubpenalty \@clubpenalty
-        \everypar{}%
-      \fi}%
-  \fi
-  \ignorespaces}
-\def\@ssect#1#2#3#4#5{%
-  \@tempskipa #3\relax
-  \ifdim \@tempskipa>\z@
-    \begingroup
-      #4{%
-        \@hangfrom{\hskip #1}%
-          \interlinepenalty \@M #5\@@par}%
-    \endgroup
-  \else
-    \def\@svsechd{#4{\hskip #1\relax #5}}%
-  \fi
-  \@xsect{#3}}
+  \ifnum #2>\c@secnumdepth \else
+    \@tochangmeasure{\csname the#1\endcsname}\fi
+  \@sect@kernel{#1}{#2}{#3}{#4}{#5}{#6}[#7]{#8}}
+\let\@ssect\@ssect@kernel
+\let\@xsect\@xsect@kernel
 \def\@seccntformat#1{\csname the#1\endcsname\quad}
 \def\@starttoc#1#2{\begingroup\makeatletter
   \setTrue{#1}%
@@ -893,6 +824,7 @@
 \newif\if@undescribed@images
 \@undescribed@imagesfalse
 \newcommand\Description[2][]{\global\@Description@presenttrue\ignorespaces}
+\IfDocumentMetadataF{%
 \AtEndDocument{\if@undescribed@images
   \ClassWarningNoLine{\@classname}{Some images may lack
     descriptions.\MessageBreak
@@ -911,6 +843,7 @@
   impaired. Taking these important steps when creating your papers
   will ensure that the widest possible audience can ingest your
   work.}\fi}
+}
 \AtBeginEnvironment{figure}{\@Description@presentfalse
   \let\@vspace\@vspace@orig
   \let\@vspacer\@vspacer@orig}
@@ -982,6 +915,33 @@
   \or % acmcp
   \fi
 \fi
+\ExplSyntaxOn
+\IfDocumentMetadataT{%
+  \RemoveFromHook{begindocument}[latex-lab-testphase-float]
+  \socket_new_plug:nnn{tagsupport/parbox/before}{caption}
+  {
+    \tagpdfparaOn %restart para tagging
+    \tl_if_empty:NTF\@current@float@struct
+    {
+      \tag_struct_begin:n{tag=Caption,firstkid}
+    }
+    {
+      \tag_struct_begin:n{tag=Caption,parent=\@current@float@struct,firstkid}
+    }
+  }
+  \socket_new_plug:nnn{tagsupport/parbox/after}{caption}
+  {
+    \tag_struct_end:
+  }
+  \l@addto@macro\caption@beginex@hook{%
+    \tagpdfparaOff %leavevmode in parbox should not start paragraph structure
+    \AssignSocketPlug{tagsupport/parbox/before}{caption}
+    \AssignSocketPlug{tagsupport/parbox/after}{caption}}
+}
+\ExplSyntaxOff
+\IfDocumentMetadataT{%
+  \tagpdfsetup{table/header-rows={1}}
+}
 \newfloat{sidebar}{}{sbar}
 \floatname{sidebar}{Sidebar}
 \renewenvironment{sidebar}{\Collect@Body\@sidebar}{}
@@ -1178,11 +1138,11 @@
   \def\@journalNameShort{ACM J. Comput. Sustain. Soc.}%
   \def\@permissionCodeOne{2834-5533}%
   \def\@permissionCodeTwo{2834-5533}%
-\or % ACMJCDS
+\or % ACMJDS
   \def\@journalName{ACM Journal of Data Science}%
   \def\@journalNameShort{ACM J. Data Sci.}%
-  \def\@permissionCodeOne{0000-0000}%
-  \def\@permissionCodeTwo{0000-0000}%
+  \def\@permissionCodeOne{3069-3497}%
+  \def\@permissionCodeTwo{3069-3497}%
 \or % AILET
   \def\@journalName{ACM AI Letters}%
   \def\@journalNameShort{ACM AI Lett.}%
@@ -1251,8 +1211,8 @@
   \def\@permissionCodeOne{1936-1955}%
   \def\@permissionCodeTwo{1936-1963}%
 \or % JDS
-  \def\@journalName{ACM/IMS Journal of Data Science}%
-  \def\@journalNameShort{ACM/IMS J. Data Sci.}%
+  \def\@journalName{ACM Journal of Data Science}%
+  \def\@journalNameShort{ACM J. Data Sci.}%
   \def\@permissionCodeOne{2831-3194}%
   \def\@permissionCodeTwo{2831-3194}%
 \or % JEA
@@ -1370,8 +1330,8 @@
   \def\@permissionCodeOne{2378-962X}%
   \def\@permissionCodeTwo{2378-9638}%
 \or % TDS
-  \def\@journalName{ACM/IMS Transactions on Data Science}%
-  \def\@journalNameShort{ACM/IMS Trans. Data Sci.}%
+  \def\@journalName{ACM Transactions on Data Science}%
+  \def\@journalNameShort{ACM Trans. Data Sci.}%
   \def\@permissionCodeOne{2577-3224}%
 \or % TEAC
   \def\@journalName{ACM Transactions on Economics and Computation}%
@@ -1573,7 +1533,8 @@
 }%
 \def\acmJournal#1{\setkeys{ACM}{acmJournal=#1}%
   \global\@ACM@journal@bibstriptrue
-  \global\@ACM@journal@bibstrip@or@togtrue}
+  \global\@ACM@journal@bibstrip@or@togtrue
+  \global\@ACM@addressesinfootnotetrue}
 \def\@journalCode@nr{0}
 \def\@journalName{}%
 \def\@journalNameShort{\@journalName}%
@@ -1588,6 +1549,10 @@
     \gdef\acmConference@shortname{#2}%
   \fi
   \global\@ACM@journal@bibstripfalse
+  \ifnum\ACM@format@nr=1\relax % acmsmall
+    \global\@ACM@journal@bibstrip@or@togfalse
+    \settopmatter{printfolios=false}%
+  \fi
   \ifx\@acmBooktitle\@empty\relax
     \acmBooktitle{Proceedings of \acmConference@name
       \ifx\acmConference@name\acmConference@shortname\else
@@ -1678,7 +1643,7 @@
   \def\position##1{\ignorespaces}%
   \def\institution##1{##1\ignorespaces}%
   \def\department{\@ifnextchar[{\@department}{\@department[]}}%
-  \def\@department[##1]##2{##2, \ignorespaces}%
+  \def\@department[##1]##2{, ##2 \ignorespaces}%
   \let\city\position
   \let\state\position
   \let\country\position
@@ -1704,7 +1669,11 @@
   \selectlanguage{#1}%
   {\@specialsection{\keywordsname}%
     \noindent#2\par}\egroup}
-\def\@titlenotes{}
+\def\@titlenotes{%
+  \if@ACM@corresponding@present
+   \footnotetext[1]{Corresponding author}%
+  \fi
+}
 \def\titlenote#1{%
   \g@addto@macro\@title{\footnotemark}%
   \if@ACM@anonymous
@@ -1730,6 +1699,20 @@
     \g@addto@macro\@authornotes{%
       \stepcounter{footnote}\footnotetext{#1}}%
   \fi}
+\newif\if@ACM@corresponding@present
+\@ACM@corresponding@presentfalse
+\newcommand\correspondingauthor{%
+  \if@ACM@anonymous\else
+    \if@ACM@corresponding@present
+        \ClassError{\@classname}{You can have no more than one
+          corresponding author}
+    \fi
+    \@ACM@corresponding@presenttrue
+    \g@addto@macro\addresses{\@correspondingauthormark}%
+
+  \fi}
+\def\@correspondingauthormark{\g@addto@macro\@currentauthors{%
+    \advance\hfuzz by 5pt\relax\textsuperscript{*}\relax}}
 \newcommand\authornotemark[1][\relax]{%
   \if@ACM@anonymous\else
     \ifx#1\relax\relax\relax
@@ -2181,7 +2164,7 @@
    \IfEq{\ACM@cc@type}{zero}{%
      \def\ACM@CC@Url{https://creativecommons.org/publicdomain/zero/1.0}}{%
   \edef\ACM@CC@Url{https://creativecommons.org/licenses/\ACM@cc@type/\ACM@cc@version}}%
-   \href{\ACM@CC@Url}{\includegraphics[height=5ex]{doclicense-CC-\ACM@cc@type-88x31}}\\
+   \href{\ACM@CC@Url}{\includegraphics[height=5ex,artifact]{doclicense-CC-\ACM@cc@type-88x31}}\\
    \href{\ACM@CC@Url}{%
    This work is licensed under a Creative Commons
    \IfEq{\ACM@cc@type}{zero}{CC0 1.0 Universal}{%
@@ -2235,16 +2218,14 @@
   \let\@footnotemark\@footnotemark@nolink
   \let\@footnotetext\@footnotetext@nolink
   \renewcommand\thefootnote{\@fnsymbol\c@footnote}%
-  \renewcommand\@fnsymbol[1]{\ensuremath{\ifcase##1\or
-  \dagger\or \ddagger\or \S\or \P\or \|\or
-  \dagger\dagger\or \ddagger\ddagger\else\@ctrerr\fi}}% to get dagger for authornote
+  \setcounter{footnote}{1}%
   \hsize=\textwidth
   \def\@makefnmark{\hbox{\@textsuperscript{\@thefnmark}}}%
   \@mktitle\if@ACM@sigchiamode\else\@mkauthors\fi\@mkteasers
   \@printtopmatter
   \if@ACM@sigchiamode\@mkauthors\fi
-  \setcounter{footnote}{0}%
   \def\@makefnmark{\hbox{\@textsuperscript{\normalfont\@thefnmark}}}%
+  \setcounter{footnote}{1}%
   \@titlenotes
   \@subtitlenotes
   \@authornotes
@@ -2258,7 +2239,7 @@
   \if@ACM@acmcp\else
     \ifx\@empty\@authorsaddresses\else
        \if@ACM@anonymous\else
-         \if@ACM@journal@bibstrip@or@tog
+         \if@ACM@addressesinfootnote
            \footnotetextauthorsaddresses{%
              \def\par{\let\par\@par}\parindent\z@\@setauthorsaddresses}%
          \fi
@@ -2600,8 +2581,7 @@
 \def\@ACM@addtoaddress#1{%
   \ifvmode\else
     \if@ACM@affiliation@obeypunctuation\else
-    \setbox\@ACM@commabox=\hbox{, }%
-    \unskip\cleaders\copy\@ACM@commabox\hskip\wd\@ACM@commabox
+    \unskip,~%
   \fi\fi
   #1}
 \def\streetaddress#1{\ClassWarning{\@classname}{ACM no longer collects
@@ -2766,7 +2746,7 @@
   \def\and{\par}\normalbaselines
   \global\setbox\author@bx=\vtop{\if@ACM@sigchiamode\else\centering\fi
     \@authorfont\@currentauthors\par\@affiliationfont
-    \@currentaffiliation}\egroup
+    \@currentaffiliation\par}\egroup
   \box\author@bx\hspace{\author@bx@sep}%
   \gdef\@currentauthors{}%
   \gdef\@currentaffiliation{}}
@@ -2800,10 +2780,10 @@
   \gdef\and{}}%
   \def\email##1##2{\ifx\@currentaffiliation\@empty
     \gdef\@currentaffiliation{\bgroup
-      \mathchardef\UrlBreakPenalty=10000\nolinkurl{##2}\egroup}%
+      \mathchardef\UrlBreakPenalty=10000\href{mailto:##2}{##2}\egroup}%
   \else
     \g@addto@macro\@currentaffiliation{\par\bgroup
-      \mathchardef\UrlBreakPenalty=10000\nolinkurl{##2}\egroup}%
+      \mathchardef\UrlBreakPenalty=10000\href{mailto:##2}{##2}\egroup}%
   \fi}%
   \def\affiliation##1##2{\ifx\@currentaffiliation\@empty
     \gdef\@currentaffiliation{%
@@ -2846,9 +2826,9 @@
   \fi
   \gdef\and{}}%
   \def\email##1##2{\ifx\@currentaffiliation\@empty
-    \gdef\@currentaffiliation{\nolinkurl{##2}}%
+    \gdef\@currentaffiliation{\href{mailto:##2}{##2}}%
   \else
-    \g@addto@macro\@currentaffiliation{\par\nolinkurl{##2}}%
+    \g@addto@macro\@currentaffiliation{\par\href{mailto:##2}{##2}}%
   \fi}%
   \def\affiliation##1##2{\ifx\@currentaffiliation\@empty
     \gdef\@currentaffiliation{%
@@ -2886,7 +2866,7 @@
   \def\country##1{\unskip, ##1}%
   \def\and{\unskip; \gdef\@ACM@institution@separator{, }}%
   \def\@author##1{##1}%
-  \def\email##1##2{\unskip, \nolinkurl{##2}}%
+  \def\email##1##2{\unskip, \href{mailto:##2}{##2}}%
   \addresses
   \egroup}
 \AtEndDocument{\if@ACM@nonacm\else\if@ACM@journal
@@ -3609,6 +3589,8 @@
        #1:#2%
     \fi
   \fi}
+\newcommand\showISBNx[1]{ISBN~#1.}
+\newcommand\showISBNxiii[1]{ISBN-13~#1.}
 \def\theindex{\@restonecoltrue\if@twocolumn\@restonecolfalse\fi
   \columnseprule\z@ \columnsep 35\p@
   \@indextitlestyle

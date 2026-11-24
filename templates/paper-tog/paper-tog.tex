@@ -50,16 +50,35 @@ Notation macros belong in \texttt{paper-tog.sty}, so that changing a symbol is o
 %
 \begin{equation}
 	\label{equ:example}
-	\E{f \paren{\bm{x}}} = \int_{\R^3} f \paren{\bm{x}} \, p \paren{\bm{x}} \ud \bm{x},
+	\mathboxnt{boxbg3}{\E{f \paren{\bm{x}}}} = \mathbox{boxtitle1}{boxbg1}{integral}{\int_{\R^3} f \paren{\bm{x}} \, p \paren{\bm{x}} \ud \bm{x}},
 \end{equation}
 %
-and \texttt{boxdefs} provides environments for the statements you want to stand out.
+and \texttt{boxdefs} provides boxes to highlight their terms, in colors from the \texttt{colordefs} palette, as well as environments for the statements you want to stand out.
 
 \begin{prp}{An example proposition}{example}
 	State the claim here. The environment numbers propositions, definitions, and lemmas in a single sequence, and labels this one \texttt{pro:example}.
 \end{prp}
 
 \Cref{pro:example} follows from \cref{equ:example}, which is the sort of cross-reference \texttt{cleveref} writes out for you.
+
+\begin{algorithm}[t]
+	\caption{\Proc{EstimateIntegral}$(f, p, N)$}
+	\label{alg:estimate}
+	\begin{algorithmic}[1]
+		\Require \textit{Integrand $f$, density $p$, sample count $N$.}
+		\Ensure \textit{Estimate $\widehat{F}$ of the integral in \cref{equ:example}.}
+		\State $\widehat{F} \gets 0$
+		\FORDO[$n \gets 1, \dots, N$]
+			\COMMENT[Sample a point from the density.]\ENDCOMMENT
+			\State $\bm{x}_n \gets \Proc{Sample}(p)$ \label{alg:estimate:sample}
+			\COMMENT[Evaluate the integrand at that point.]\ENDCOMMENT
+			\State $\widehat{F} \gets \widehat{F} + f \sparen{\bm{x}_n}$ \label{alg:estimate:evaluate}
+		\ENDFORDO
+		\RETURN[$\widehat{F} / N$]\ENDRETURN
+	\end{algorithmic}
+\end{algorithm}
+
+Algorithms are typeset with the packages and macros \texttt{algodefs} provides. \Cref{alg:estimate} estimates the integral in \cref{equ:example} by sampling the density and evaluating the integrand at each sample (\cref{alg:estimate:sample,alg:estimate:evaluate}).
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{paper-tog}

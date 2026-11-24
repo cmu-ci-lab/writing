@@ -21,9 +21,9 @@
 #
 #   present in TeX Live, but at a different version than the venue's kit, so
 #   the copy pins the version the venue actually wants:  acmart.cls and
-#          ACM-Reference-Format.bst (templates/paper-tog, kit v2.16 against
-#          TeX Live v2.03), llncs.cls (templates/paper-eccv, kit v2.22
-#          against TeX Live v2.24 -- pointing the other way)
+#          ACM-Reference-Format.bst (templates/paper-tog, kit v2.21 against
+#          TeX Live v2.16), llncs.cls (templates/paper-eccv, kit v2.22
+#          against TeX Live v2.26 -- pointing the other way)
 #
 # Refresh a pinned copy from the venue's kit when that venue reissues.
 
