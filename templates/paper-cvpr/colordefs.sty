@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{colordefs}[2026/08/04 v1.0 CIRL colors and palettes]
+\ProvidesPackage{colordefs}[2026/08/31 v1.3 CIRL colors and palettes]
 
 % Usage:
 %   \usepackage{colordefs}
@@ -8,7 +8,7 @@
 \@ifpackageloaded{xcolor}{}{\RequirePackage{xcolor}}	% provide `definecolor' and `colorlet'
 
 %% categorical palettes
-% Eight interchangeable 4-color palettes.
+% Nine interchangeable 4-color palettes.
 %   palette CVD dE  min dL*  scheme
 %   pal1    11.4     11.8  Okabe-Ito, print-first
 %   pal2    11.0      3.6  Okabe-Ito, conventional
@@ -16,13 +16,33 @@
 %   pal4     8.9      1.1  Tol Bright, official first four
 %   pal5    14.8     15.2  Tol Muted, first four
 %   pal6    16.6     11.8  Okabe-Ito subset A
-%   pal7     3.1      9.1  Tol High-Contrast, plus a neutral (default)
+%   pal7     5.4      9.1  Tol High-Contrast, plus a neutral (default)
 %   pal8     1.2      0.8  the maintainer's own int* colors
+%   pal9    10.1      8.9  Oklab-derived, green slot 1
 % CVD dE is the smallest pairwise OkLab distance under protanopia and
 % deuteranopia -- the common forms, together about 8% of males; above
 % roughly 10 is usable. min dL* is the smallest adjacent CIELAB
 % lightness gap, which is what survives a grayscale print; above roughly
-% 8 is separable. Only pal1, pal5 and pal6 clear both bars.
+% 8 is separable. pal1, pal5, pal6 and pal9 clear both bars.
+% A third property is not tabulated but matters when a base is
+% drawn as a thin line: whether every base is legible as
+% ink. Only pal8 and pal9 clear 3:1 on white on all four
+% slots; the weakest base of each other palette runs 1.32 (pal1,
+% pal6, the Okabe-Ito yellow) to 2.25 (pal2). That bar trades off
+% against CVD dE, because a very pale color scores well precisely
+% as lightness dominates the OkLab distance -- which is why pal8
+% clears it at a CVD dE of 1.2. A palette derived to clear this
+% bar therefore cannot also chase the highest CVD dE.
+% pal1-pal8 are published schemes, cited above; pal9 is derived
+% here and carries no citation a reviewer can check, by maximizing
+% CVD dE under a chroma cap, a floor of 8 on min dL*, and a floor
+% of 3:1 for every base on white.
+% Every CVD dE above is measured the same way: Machado 2009
+% dichromat simulation at severity 1.0 applied to linear RGB,
+% then Euclidean OkLab distance times 100. pal7 used to read 3.1
+% here, from a variant that applied the matrix to gamma-encoded
+% sRGB; 5.4 is that row remeasured. No pal7 color changed, and
+% either number puts pal7 last but one.
 
 % pal1 -- Okabe-Ito, print-first
 % blue, orange, bluish green, yellow
@@ -144,6 +164,21 @@
 \definecolor{pal8bg4}{RGB}{218,229,226}
 \definecolor{pal8title4}{HTML}{0A8271}
 
+% pal9 -- Oklab-derived, visible-ink variant
+% green, blue, plum, ochre
+\definecolor{pal9base1}{HTML}{1D5B33}	% green
+\definecolor{pal9bg1}{HTML}{DDE6E0}
+\definecolor{pal9title1}{HTML}{1D5B33}
+\definecolor{pal9base2}{HTML}{1799E4}	% blue
+\definecolor{pal9bg2}{HTML}{DCF0FB}
+\definecolor{pal9title2}{HTML}{017BBB}
+\definecolor{pal9base3}{HTML}{661A62}	% plum
+\definecolor{pal9bg3}{HTML}{E8DDE7}
+\definecolor{pal9title3}{HTML}{661A62}
+\definecolor{pal9base4}{HTML}{B46100}	% ochre
+\definecolor{pal9bg4}{HTML}{F4E7D9}
+\definecolor{pal9title4}{HTML}{B46100}
+
 % A document names `boxbase1' to `boxbase4', `boxbg1' to
 % `boxbg4', and `boxtitle1' to `boxtitle4', and switches
 % every color in the document by changing one preamble line:
@@ -200,12 +235,18 @@
 	\colorlet{boxbase3}{pal8base3}\colorlet{boxbg3}{pal8bg3}\colorlet{boxtitle3}{pal8title3}%
 	\colorlet{boxbase4}{pal8base4}\colorlet{boxbg4}{pal8bg4}\colorlet{boxtitle4}{pal8title4}%
 }
+\@namedef{coldefs@palette@pal9}{%
+	\colorlet{boxbase1}{pal9base1}\colorlet{boxbg1}{pal9bg1}\colorlet{boxtitle1}{pal9title1}%
+	\colorlet{boxbase2}{pal9base2}\colorlet{boxbg2}{pal9bg2}\colorlet{boxtitle2}{pal9title2}%
+	\colorlet{boxbase3}{pal9base3}\colorlet{boxbg3}{pal9bg3}\colorlet{boxtitle3}{pal9title3}%
+	\colorlet{boxbase4}{pal9base4}\colorlet{boxbg4}{pal9bg4}\colorlet{boxtitle4}{pal9title4}%
+}
 
 % An unknown name is an error.
 \newcommand{\colordefspalette}[1]{%
 	\@ifundefined{coldefs@palette@#1}%
 		{\PackageError{colordefs}{Unknown palette `#1'}%
-			{Valid names are pal1 to pal8.}}%
+			{Valid names are pal1 to pal9.}}%
 		{\csname coldefs@palette@#1\endcsname}%
 }
 
