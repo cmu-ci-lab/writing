@@ -100,10 +100,10 @@
 }
 
 %% send footnotes outside boxes
-\AtEndPreamble{%
+\AtEndPreamble{
 	\@ifpackageloaded{footnotehyper}{}{\RequirePackage{footnotehyper}}
-	\makesavenoteenv{titledbox}%
-	\makesavenoteenv{prp}\makesavenoteenv{prp*}%
-	\makesavenoteenv{dfn}\makesavenoteenv{dfn*}%
-	\makesavenoteenv{lmm}\makesavenoteenv{lmm*}%
+	\makesavenoteenv{titledbox}
+	\makesavenoteenv{prp}\makesavenoteenv{prp*}
+	\makesavenoteenv{dfn}\makesavenoteenv{dfn*}
+	\makesavenoteenv{lmm}\makesavenoteenv{lmm*}
 }
