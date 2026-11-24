@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{boxdefs}[2026/08/04 v1.0 CIRL colored boxes]
+\ProvidesPackage{boxdefs}[2026/11/24 v1.0 CIRL colored boxes]
 
 % Usage:
 %   \usepackage{boxdefs}
@@ -29,7 +29,7 @@
 	equationboxtitlestyle/.style={
 		fonttitle=\small\color{#1},colbacktitle=white,
 		attach boxed title to top center={yshift=-1mm},
-		minipage boxed title*=3cm,
+		minipage boxed title*=3cm,center title,
 		boxed title style={top=0mm,bottom=0mm,left=0mm,right=0mm,sharp corners,frame hidden,opacityback=0},
 	},
 }
@@ -97,4 +97,13 @@
 	\newtcbtheorem[use counter=boxdefstheorem, crefname={Definition}{Definitions}, Crefname={Definition}{Definitions}]{dfn}{Definition}{blockboxstyle}{def}
 
 	\newtcbtheorem[use counter=boxdefstheorem, crefname={Lemma}{Lemmas}, Crefname={Lemma}{Lemmas}]{lmm}{Lemma}{blockboxstyle}{lem}
+}
+
+%% send footnotes outside boxes
+\AtEndPreamble{%
+	\@ifpackageloaded{footnotehyper}{}{\RequirePackage{footnotehyper}}
+	\makesavenoteenv{titledbox}%
+	\makesavenoteenv{prp}\makesavenoteenv{prp*}%
+	\makesavenoteenv{dfn}\makesavenoteenv{dfn*}%
+	\makesavenoteenv{lmm}\makesavenoteenv{lmm*}%
 }

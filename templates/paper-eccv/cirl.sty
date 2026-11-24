@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{cirl}[2026/08/04 v1.0 CIRL standard preamble]
+\ProvidesPackage{cirl}[2026/11/24 v1.0 CIRL standard preamble]
 
 % Usage and load order:
 %   \usepackage{cirl}
@@ -85,6 +85,7 @@
 % \RequirePackage[compact]{titlesec}	% uncomment for shortening, reduce title size and spacing
 \@ifpackageloaded{booktabs}{}{\RequirePackage{booktabs}}	% improve tables, already included in acmart, not in cvpr
 \@ifpackageloaded{natbib}{}{\RequirePackage[numbers,sort,compress]{natbib}}	% provide citet and citep, already included in acmart, not in cvpr
+\@ifpackageloaded{footnotehyper}{}{\RequirePackage{footnotehyper}}	% provide hyperref-friendly foonotes
 \ifcirl@splncsused	% restore LNCS bibliography formatting overridden by natbib
 	\AtBeginDocument{%
 		\renewcommand{\bibsection}{\section*{\refname}}%
